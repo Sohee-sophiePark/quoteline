@@ -1,0 +1,31 @@
+# Golden research questions. `expected`: arXiv IDs a good search should surface (verified against arXiv).
+- {qid: g01, question: "How does speculative decoding speed up LLM inference without changing outputs?", expected: ["2211.17192", "2302.01318"]}
+- {qid: g02, question: "How does low-rank adaptation reduce the cost of fine-tuning large language models?", expected: ["2106.09685"]}
+- {qid: g03, question: "How can a quantized large language model be fine-tuned on a single GPU?", expected: ["2305.14314"]}
+- {qid: g04, question: "How does direct preference optimization align language models without a reward model?", expected: ["2305.18290"]}
+- {qid: g05, question: "How does retrieval-augmented generation combine a retriever with a text generator?", expected: ["2005.11401"]}
+- {qid: g06, question: "How does chain-of-thought prompting improve reasoning in large language models?", expected: ["2201.11903"]}
+- {qid: g07, question: "How does sampling several reasoning paths and voting improve chain-of-thought accuracy?", expected: ["2203.11171"]}
+- {qid: g08, question: "How can LLM agents interleave reasoning traces with actions in an environment?", expected: ["2210.03629"]}
+- {qid: g09, question: "How can a language model teach itself to call external tools and APIs?", expected: ["2302.04761"]}
+- {qid: g10, question: "How can exact attention be made faster and more memory-efficient on GPUs?", expected: ["2205.14135"]}
+- {qid: g11, question: "How does paging the KV cache improve throughput when serving LLMs?", expected: ["2309.06180"]}
+- {qid: g12, question: "What are selective state space models and how do they compare to Transformers?", expected: ["2312.00752"]}
+- {qid: g13, question: "How do sparse mixture-of-experts language models route tokens to experts?", expected: ["2401.04088", "2101.03961"]}
+- {qid: g14, question: "How does reinforcement learning from human feedback make language models follow instructions?", expected: ["2203.02155"]}
+- {qid: g15, question: "How can AI feedback and a list of principles train a harmless assistant?", expected: ["2212.08073"]}
+- {qid: g16, question: "How can a language model search over a tree of intermediate reasoning steps?", expected: ["2305.10601"]}
+- {qid: g17, question: "How do language agents improve from verbal self-reflection on failures?", expected: ["2303.11366"]}
+- {qid: g18, question: "What scaling laws describe compute-optimal training of language models?", expected: ["2203.15556", "2001.08361"]}
+- {qid: g19, question: "How does the Transformer use attention alone instead of recurrence for sequence modelling?", expected: ["1706.03762"]}
+- {qid: g20, question: "How do vision-language models connect a frozen image encoder to a language model?", expected: ["2301.12597", "2304.08485"]}
+- {qid: g21, question: "How does contrastive image-text pretraining enable zero-shot image classification?", expected: ["2103.00020"]}
+- {qid: g22, question: "How can the weights of a large language model be quantized after training?", expected: ["2210.17323"]}
+- {qid: g23, question: "How do rotary position embeddings encode token positions in Transformers?", expected: ["2104.09864"]}
+- {qid: g24, question: "How can the context window of a pretrained LLM be extended beyond its training length?", expected: ["2306.15595", "2309.00071"]}
+- {qid: g25, question: "How does knowledge distillation transfer a large model's knowledge into a smaller one?", expected: ["1503.02531"]}
+- {qid: g26, question: "Which benchmarks test language models on resolving real GitHub issues?", expected: ["2310.06770"]}
+- {qid: g27, question: "What approaches reduce hallucination in large language models? A survey or overview.", expected: ["2311.05232"]}
+- {qid: g28, question: "What are the latest methods for compressing the KV cache in long-context LLM inference?", expected: []}
+- {qid: g29, question: "What recent work trains reasoning models with large-scale reinforcement learning?", expected: ["2501.12948"]}
+- {qid: g30, question: "How does group relative policy optimization train reasoning without a value model?", expected: ["2402.03300"]}

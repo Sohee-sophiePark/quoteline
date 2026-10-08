@@ -1,0 +1,56 @@
+{
+ "results": [
+  {
+   "id": "https://openalex.org/W4391556558",
+   "title": "Decoding Speculative Decoding",
+   "publication_date": "2024-02-02",
+   "locations": [
+    {
+     "landing_page_url": "http://arxiv.org/abs/2402.01528"
+    },
+    {
+     "landing_page_url": "https://doi.org/10.48550/arxiv.2402.01528"
+    }
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7133563540",
+   "title": "Speculative Speculative Decoding",
+   "publication_date": "2026-03-03",
+   "locations": [
+    {
+     "landing_page_url": "https://arxiv.org/abs/2603.03251"
+    },
+    {
+     "landing_page_url": "https://doi.org/10.48550/arxiv.2603.03251"
+    }
+   ]
+  },
+  {
+   "id": "https://openalex.org/W7214036691",
+   "title": "Decoding speculative decoding",
+   "publication_date": "2025-04-01",
+   "locations": [
+    {
+     "landing_page_url": "http://hdl.handle.net/20.500.11850/806091"
+    },
+    {
+     "landing_page_url": "https://doi.org/10.3929/ethz-c-000806091"
+    }
+   ]
+  },
+  {
+   "id": "https://openalex.org/W4387596095",
+   "title": "Online Speculative Decoding",
+   "publication_date": "2023-10-11",
+   "locations": [
+    {
+     "landing_page_url": "http://arxiv.org/abs/2310.07177"
+    },
+    {
+     "landing_page_url": "https://doi.org/10.48550/arxiv.2310.07177"
+    }
+   ]
+  }
+ ]
+}

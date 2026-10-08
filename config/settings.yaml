@@ -1,0 +1,27 @@
+run_mode: replay                 # live | record | replay   (env RUN_MODE overrides)
+models:                          # free-tier model IDs; verify in AI Studio before recording
+  planner: gemini-3.1-flash-lite
+  reader: gemini-3.1-flash-lite
+  writer: gemini-3.1-flash-lite
+  evaluator: gemini-3.1-flash-lite
+  dataset: gemini-3.1-flash-lite
+fallback_models: [gemini-3.5-flash-lite, gemini-3.5-flash]   # live only
+temperature: {planner: 0.0, reader: 0.0, writer: 0.3, evaluator: 0.0, dataset: 0.7}
+max_output_tokens: {planner: 1024, reader: 4096, writer: 4096, evaluator: 1024, dataset: 4096}
+rate_limits:
+  gemini-3.1-flash-lite: {rpm: 10}
+  gemini-3.5-flash-lite: {rpm: 10}
+  gemini-3.5-flash: {rpm: 5}
+  max_concurrency: 2
+retry: {max_attempts: 6, base_seconds: 2.0, cap_seconds: 30.0, max_wait_seconds: 120}
+per_call_timeout_seconds: 90
+loop: {max_revisions: 2, pass_min_score: 4}
+research: {max_subquestions: 3, arms_per_subquestion: 2, top_k: 5}
+sources:                         # seconds between requests per host (arXiv >= 3; HF search 50 per 5 min)
+  min_interval: {export.arxiv.org: 3.1, rss.arxiv.org: 3.1, huggingface.co: 6.1, api.openalex.org: 0.5}
+  timeout_seconds: 30
+  max_attempts: 4
+  user_agent: "quoteline-demo/0.1 (portfolio demo; read-only)"
+bandit: {alpha: 0.5, seeds: 20, test_fraction: 0.2, bootstrap: 2000}
+feed: {categories: [cs.AI, cs.CL, cs.LG], window_days: 7, half_life_days: 3.0, trending_size: 15, new_size: 30}
+paths: {prompts: prompts, runs: runs, cassettes: cassettes, replays: replays, data: data, feed: web/public/feed.json}

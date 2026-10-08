@@ -1,0 +1,67 @@
+# ── Secrets & credentials — HIGHEST PRIORITY, never commit ──────────────────
+# Any .env with any prefix/suffix/extension (incl. backups), keys, certs, tokens.
+.env
+.env*
+*.env
+*.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.cer
+id_rsa*
+id_ed25519*
+*.kdbx
+.netrc
+.npmrc
+.pypirc
+secrets/
+.aws/
+.ssh/
+**/credentials/**
+*credentials*.json
+*service-account*.json
+*secret*.json
+*.secret
+*.secrets
+
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.ruff_cache/
+.DS_Store
+*.egg-info/
+dist/
+build/
+data/raw/
+data/processed/
+.env
+
+# Internal docs and runtime output — never commit
+INTERNAL.md
+CLAUDE.md
+runs/
+logs/
+*.log
+
+# Frontend
+web/node_modules/
+web/dist/
+web/public/static-data.json
+web/public/feed.json
+
+# Eval reports — only latest.md is committed
+evals/reports/*
+!evals/reports/latest.md
+
+# Machine-specific
+.claude/
+
+# Internal docs — the public repo carries README.md (architecture, how to run, capabilities) and data/README.md
+docs/*

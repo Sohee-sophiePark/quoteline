@@ -1,0 +1,327 @@
+[
+ {
+  "paper": {
+   "id": "2610.05608",
+   "title": "Kandinsky 6.0 Video: Foundation Models for Synchronized Video and Audio Generation",
+   "summary": "We present Kandinsky 6.0 Video, a family of foundation diffusion models for synchronized text-to-audio-video generation, comprising Kandinsky 6.0 Video Lite (3B parameters) and Kandinsky 6.0 Video Pro (29B parameters). Both models generate 5-second video clips with synchronized 44 kHz audio, including lip-sync, in text-to-audio-video (T2AV) and image-to-audio-video (I2AV) modes; a built-in super-resolution model raises the output resolution to Full-HD (1920times1080). Building on the video generation capabilities of Kandinsky 5.0, Kandinsky 6.0 Video employs a dual-stream CrossDiT architecture that connects a pretrained video stream and a newly trained audio stream through bidirectional cross-attention for temporal and semantic alignment. Our continuous pretraining strategy first trains the audio stream from scratch on large-scale audio corpora and then trains both streams jointly on paired audio-video data while preserving unimodal fidelity; pretraining is followed by supervised fine-tuning, reinforcement-learning-based post-training, and distillation. In side-by-side human evaluation, Kandinsky 6.0 Video Pro clearly outperforms its predecessor, Kandinsky 5.0 Video Pro, and remains competitive with leading audio-video generation models, particularly in speech quality. To accelerate open research and deployment in multimedia generation, we release the code, model checkpoints, and diffusers integration under the MIT license.",
+   "publishedAt": "2026-10-04T00:00:00.000Z",
+   "upvotes": 133,
+   "authors": [
+    {
+     "name": "Team Kandinsky"
+    },
+    {
+     "name": "Julia Agafonova"
+    },
+    {
+     "name": "Bulat Akhmatov"
+    },
+    {
+     "name": "Mikhail Aksyutin"
+    },
+    {
+     "name": "Grigorii Alekseenko"
+    },
+    {
+     "name": "Anastasia Aliaskina"
+    },
+    {
+     "name": "Olga Androsova"
+    },
+    {
+     "name": "Vladimir Arkhipkin"
+    },
+    {
+     "name": "Anna Averchenkova"
+    },
+    {
+     "name": "Alexander Belykh"
+    },
+    {
+     "name": "Serafima Bocharova"
+    },
+    {
+     "name": "Sofiya Bogakovskaya"
+    },
+    {
+     "name": "Anton Bukashkin"
+    },
+    {
+     "name": "Mark Bulygin"
+    },
+    {
+     "name": "Kirill Buzygin"
+    },
+    {
+     "name": "Irina Cheremnykh"
+    },
+    {
+     "name": "Kirill Chernyshev"
+    },
+    {
+     "name": "Mikhail Chernyshov"
+    },
+    {
+     "name": "Vladimir Chernyy"
+    },
+    {
+     "name": "David Chikovani"
+    },
+    {
+     "name": "Georgy Daniltsev"
+    },
+    {
+     "name": "Denis Dimitrov"
+    },
+    {
+     "name": "Anna Dmitrienko"
+    },
+    {
+     "name": "Vladimir Dokholyan"
+    },
+    {
+     "name": "Sergey Emelyanov"
+    },
+    {
+     "name": "Dmitry Ermilov"
+    },
+    {
+     "name": "Georgii Fedorov"
+    },
+    {
+     "name": "Polina Gavrilova"
+    },
+    {
+     "name": "Nikolai Gerasimenko"
+    },
+    {
+     "name": "Aleksandr Gordeev"
+    },
+    {
+     "name": "Andrey Inozemtsev"
+    },
+    {
+     "name": "Andrei Ivaniuta"
+    },
+    {
+     "name": "Alexander Ivanov"
+    },
+    {
+     "name": "Mikhail Karaev"
+    },
+    {
+     "name": "Anastasiia Kargapoltseva"
+    },
+    {
+     "name": "Ivan Kirillov"
+    },
+    {
+     "name": "Nikita Kiselev"
+    },
+    {
+     "name": "Valeria Kobenko"
+    },
+    {
+     "name": "Yury Kolabushin"
+    },
+    {
+     "name": "Denis Koposov"
+    },
+    {
+     "name": "Anatoly Korobov"
+    },
+    {
+     "name": "Vladimir Korviakov"
+    },
+    {
+     "name": "Kirill Kozlov"
+    },
+    {
+     "name": "Denis Krzhivokolskiy"
+    },
+    {
+     "name": "Konstantin Kuklev"
+    },
+    {
+     "name": "Alexander Kunitsyn"
+    },
+    {
+     "name": "Sergey Kuzin"
+    },
+    {
+     "name": "Vladislav Lakhtionov"
+    },
+    {
+     "name": "Alexey Letunovskiy"
+    },
+    {
+     "name": "Maxim Litvinov"
+    },
+    {
+     "name": "Alexander Lyulkov"
+    },
+    {
+     "name": "Georgy Makarov"
+    },
+    {
+     "name": "Kirill Malakhov"
+    },
+    {
+     "name": "Egor Malykh"
+    },
+    {
+     "name": "Mikhail Mamaev"
+    },
+    {
+     "name": "Dmitrii Mikhailov"
+    },
+    {
+     "name": "Polina Mikhailova"
+    },
+    {
+     "name": "Ivan Mikheev"
+    },
+    {
+     "name": "Elizaveta Muromtseva"
+    },
+    {
+     "name": "Nikolai Nazarkin"
+    },
+    {
+     "name": "Tatiana Nikulina"
+    },
+    {
+     "name": "Lev Novitskiy"
+    },
+    {
+     "name": "Stanislav Onuchin"
+    },
+    {
+     "name": "Nikita Osterov"
+    },
+    {
+     "name": "Denis Parkhomenko"
+    },
+    {
+     "name": "Anatoliy Parpara"
+    },
+    {
+     "name": "Vladimir Polovnikov"
+    },
+    {
+     "name": "Konstantin Reznikov"
+    },
+    {
+     "name": "Azat Saginbaev"
+    },
+    {
+     "name": "Nikita Samsonov"
+    },
+    {
+     "name": "Alexander Sentsov"
+    },
+    {
+     "name": "Nikita Shaimov"
+    },
+    {
+     "name": "Artem Sherstyuk"
+    },
+    {
+     "name": "Andrey Shutkin"
+    },
+    {
+     "name": "Egor Silvestrov"
+    },
+    {
+     "name": "Bulat Suleimanov"
+    },
+    {
+     "name": "Matvey Suprunov"
+    },
+    {
+     "name": "Sergey Taranov"
+    },
+    {
+     "name": "Irina Tolstykh"
+    },
+    {
+     "name": "Tatiana Trofimuk"
+    },
+    {
+     "name": "Ilya Trushkin"
+    },
+    {
+     "name": "Aleksandra Tsybina"
+    },
+    {
+     "name": "Olga Varlashina"
+    },
+    {
+     "name": "Viacheslav Vasilev"
+    },
+    {
+     "name": "Ilya Vasiliev"
+    },
+    {
+     "name": "Eugeny Vilisov"
+    },
+    {
+     "name": "Sergey Yakubson"
+    },
+    {
+     "name": "Konstantin Zakharov"
+    }
+   ]
+  }
+ },
+ {
+  "paper": {
+   "id": "2610.04198",
+   "title": "ALoDLM: Adaptively Looped Diffusion Language Models",
+   "summary": "Diffusion language models (DLMs) enable fast generation by predicting multiple tokens in parallel, but their practical adoption remains limited by a persistent quality gap relative to comparably sized autoregressive (AR) models. We attribute this gap to a computation-difficulty mismatch: within a partially observed sequence, some unknown tokens are easy to predict, while others require substantially more computation. Existing DLMs nevertheless apply uniform computational depth to all unknown positions at each denoising step. We introduce ALoDLM, which replaces uniform computation with token-adaptive latent recurrence. At each denoising step, ALoDLM iteratively refines latent representations and allocates computation according to token difficulty. Tokens ready to commit are fed back as discrete context, while unresolved tokens retain and further refine their latent states through additional recurrent passes. To learn token prediction and computation allocation jointly, we formulate token-wise computation schedules as latent variables and derive a conditional negative evidence lower bound (NELBO). We train ALoDLM at 1.7B and 8B parameter scales. Across eleven benchmarks, ALoDLM outperforms all evaluated DLMs and the corresponding AR baselines in average benchmark score at both scales. ALoDLM also retains fast parallel decoding, yielding a strong quality-efficiency trade-off among evaluated autoregressive and diffusion models under optimized inference engines.",
+   "publishedAt": "2026-10-03T00:00:00.000Z",
+   "upvotes": 62,
+   "authors": [
+    {
+     "name": "Liancheng Fang"
+    },
+    {
+     "name": "Zhuowei Li"
+    },
+    {
+     "name": "Youngeun Kim"
+    },
+    {
+     "name": "Tianchen Zhao"
+    },
+    {
+     "name": "Rajat Koner"
+    },
+    {
+     "name": "Jiaye Wu"
+    },
+    {
+     "name": "Linghan Xu"
+    },
+    {
+     "name": "Xuanbai Chen"
+    },
+    {
+     "name": "Xiang Xu"
+    },
+    {
+     "name": "Zheng Zhang"
+    },
+    {
+     "name": "Jakub Zablocki"
+    },
+    {
+     "name": "Nishant Sankaran"
+    },
+    {
+     "name": "Yifan Xing"
+    }
+   ]
+  }
+ }
+]
