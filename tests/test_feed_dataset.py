@@ -1,5 +1,7 @@
 import datetime as dt
+from pathlib import Path
 
+import httpx
 import numpy as np
 
 from quoteline.config import settings
@@ -11,10 +13,11 @@ from quoteline.dataset import (
     sample_dates,
     style_for,
 )
-from quoteline.feed import rank_new, rank_trending
+from quoteline.feed import build, rank_new, rank_trending
 from quoteline.harness import Runner, Trace
 from quoteline.llm.scripted import ScriptedClient
 from quoteline.models import ARMS, Paper
+from quoteline.sources.http import PoliteHttp
 
 TODAY = "2026-10-08"
 
@@ -86,3 +89,23 @@ def test_reward_matrices():
     )
     _, G = golden_matrix([row], {"q": {"t": True, "u": False}}, k=5)
     assert G.max() == 0.2
+
+
+async def test_feed_survives_arxiv_api_refusal():
+    fx = Path(__file__).parent / "fixtures"
+
+    def handler(req):
+        if req.url.host == "rss.arxiv.org":
+            return httpx.Response(200, text=(fx / "rss.xml").read_text())
+        if req.url.host == "huggingface.co":
+            return httpx.Response(200, text=(fx / "hf_daily.json").read_text())
+        return httpx.Response(429)
+
+    async def no_sleep(s):
+        pass
+
+    http = PoliteHttp(settings().sources, sleep=no_sleep)
+    http.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    feed = await build(http, settings().feed, "2026-10-08")
+    assert feed["trending"] and all(p["abstract"] for p in feed["trending"])
+    assert "2610.06889" in [p["id"] for p in feed["new"]]
