@@ -13,7 +13,11 @@ RETRYABLE_CODES = {408, 429, 500, 502, 503, 504}
 
 
 def to_config(req: LLMRequest) -> types.GenerateContentConfig:
-    cfg = types.GenerateContentConfig(system_instruction=req.system, temperature=req.temperature)
+    cfg = types.GenerateContentConfig(
+        system_instruction=req.system,
+        temperature=req.temperature,
+        automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True),
+    )
     if req.max_output_tokens:
         cfg.max_output_tokens = req.max_output_tokens
     if req.response_schema:

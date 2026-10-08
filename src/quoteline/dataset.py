@@ -79,10 +79,9 @@ async def generate_questions(
         )
         by_id = {p.id: p for p in chunk}
         for q in out.questions:
-            if q.paper_id in by_id and not leaks_title(q.question, by_id[q.paper_id].title):
-                rows.append(
-                    {"qid": f"k{len(rows):03d}", "question": q.question, "target": q.paper_id}
-                )
+            p = by_id.pop(q.paper_id, None)  # one question per paper
+            if p and not leaks_title(q.question, p.title):
+                rows.append({"question": q.question, "target": q.paper_id})
     return rows
 
 

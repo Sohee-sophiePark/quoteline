@@ -1,6 +1,7 @@
 """arXiv: API search and ID lookup (Atom), category RSS for the daily feed. Metadata is CC0."""
 
 import re
+import unicodedata
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
 
@@ -15,6 +16,31 @@ NS = {
     "arxiv": "http://arxiv.org/schemas/atom",
     "dc": "http://purl.org/dc/elements/1.1/",
 }
+
+
+ACCENTS = {
+    "'": "\u0301",
+    "`": "\u0300",
+    "^": "\u0302",
+    '"': "\u0308",
+    "~": "\u0303",
+    "=": "\u0304",
+    ".": "\u0307",
+    "u": "\u0306",
+    "v": "\u030c",
+    "H": "\u030b",
+    "c": "\u0327",
+    "k": "\u0328",
+    "r": "\u030a",
+}
+TEX_ACCENT = re.compile(r"\{?\\([`'^\"~=.uvHckr])\s*\{?\\?([A-Za-z])\}?\}?")
+
+
+def untex(text: str) -> str:
+    """TeX accent escapes (e.g. Radi\\'c, {\\"o}, \\v{s}) to Unicode letters."""
+    return unicodedata.normalize(
+        "NFC", TEX_ACCENT.sub(lambda m: m.group(2) + ACCENTS[m.group(1)], text)
+    )
 
 
 def _clean(text: str | None) -> str:
@@ -56,7 +82,9 @@ def parse_rss(xml: str, fetched: str) -> list[Paper]:
             Paper(
                 id=pid,
                 title=_clean(item.findtext("title")),
-                authors=[_clean(a) for a in item.findtext("dc:creator", "", NS).split(",") if a],
+                authors=[
+                    untex(_clean(a)) for a in item.findtext("dc:creator", "", NS).split(",") if a
+                ],
                 published=parsedate_to_datetime(pub).date().isoformat() if pub else fetched,
                 abstract=_clean(desc.split("Abstract:", 1)[-1]),
                 categories=[c.text or "" for c in item.findall("category")],

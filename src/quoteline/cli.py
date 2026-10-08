@@ -78,9 +78,19 @@ async def cmd_dataset_targets(a: argparse.Namespace, s: Settings) -> None:
 
 async def cmd_dataset_questions(a: argparse.Namespace, s: Settings) -> None:
     targets = [Paper.model_validate(r) for r in ds.read_jsonl(BANDIT / "targets.jsonl")]
-    r = runner(s, "dataset")
-    rows = await ds.generate_questions(r, targets, today())
     path = BANDIT / "questions.jsonl"
+    rows = ds.read_jsonl(path)
+    r = runner(s, "dataset")
+    for _ in range(a.rounds):  # resumable: only targets without a kept question are retried
+        kept = {row["target"] for row in rows}
+        todo = [t for t in targets if t.id not in kept]
+        if not todo:
+            break
+        rows += await ds.generate_questions(r, todo, today())
+    rows = [
+        {"qid": f"k{i:03d}", "question": x["question"], "target": x["target"]}
+        for i, x in enumerate(rows)
+    ]
     path.unlink(missing_ok=True)
     ds.append_jsonl(path, rows)
     print(f"questions: {len(rows)} kept of {len(targets)} targets, {r.calls} LLM calls → {path}")
@@ -212,7 +222,8 @@ def main() -> None:
     t = sub.add_parser("dataset-targets", help="sample target papers (network)")
     t.add_argument("--dates", type=int, default=46)
     t.add_argument("--per-date", type=int, default=5)
-    sub.add_parser("dataset-questions", help="generate known-item questions (LLM)")
+    q = sub.add_parser("dataset-questions", help="generate known-item questions (LLM, resumable)")
+    q.add_argument("--rounds", type=int, default=3)
     sub.add_parser(
         "dataset-arms", help="record all arms per question (network, resumable)"
     ).add_argument("--golden", action="store_true")

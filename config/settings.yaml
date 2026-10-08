@@ -5,13 +5,19 @@ models:                          # free-tier model IDs; verify in AI Studio befo
   writer: gemini-3.1-flash-lite
   evaluator: gemini-3.1-flash-lite
   dataset: gemini-3.1-flash-lite
-fallback_models: [gemini-3.5-flash-lite, gemini-3.5-flash]   # live only
+fallback_models: [gemini-3.8-flash, gemini-3.7-flash, gemini-3.6-flash, gemini-3.5-flash, gemini-3.5-flash-lite,
+                  gemini-2.5-flash, gemini-2.5-flash-lite]   # live only, newest first; all free tier (pricing page 2026-10-07)
 temperature: {planner: 0.0, reader: 0.0, writer: 0.3, evaluator: 0.0, dataset: 0.7}
 max_output_tokens: {planner: 1024, reader: 4096, writer: 4096, evaluator: 1024, dataset: 4096}
 rate_limits:
   gemini-3.1-flash-lite: {rpm: 10}
   gemini-3.5-flash-lite: {rpm: 10}
   gemini-3.5-flash: {rpm: 5}
+  gemini-3.8-flash: {rpm: 5}
+  gemini-3.7-flash: {rpm: 5}
+  gemini-3.6-flash: {rpm: 5}
+  gemini-2.5-flash: {rpm: 5}
+  gemini-2.5-flash-lite: {rpm: 10}
   max_concurrency: 2
 retry: {max_attempts: 6, base_seconds: 2.0, cap_seconds: 30.0, max_wait_seconds: 120}
 per_call_timeout_seconds: 90

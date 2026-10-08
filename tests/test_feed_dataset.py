@@ -78,7 +78,7 @@ async def test_generate_questions_filters_leaks_and_unknown_ids():
     rows = await generate_questions(
         Runner(settings(), ScriptedClient(respond), Trace()), targets, TODAY
     )
-    assert rows == [{"qid": "k000", "question": "How is the thing done better?", "target": "1"}]
+    assert rows == [{"question": "How is the thing done better?", "target": "1"}]
 
 
 def test_reward_matrices():

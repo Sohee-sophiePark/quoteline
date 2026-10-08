@@ -116,3 +116,18 @@ def test_server_wait_reads_retry_after_and_ratelimit():
     assert server_wait(httpx.Response(429, headers={"retry-after": "12"})) == 12.0
     assert server_wait(httpx.Response(429, headers={"ratelimit": '"search";r=0;t=76'})) == 77.0
     assert server_wait(httpx.Response(429)) is None
+
+
+@pytest.mark.parametrize(
+    "raw,expected",
+    [
+        ("Luka Radi\\'c", "Luka Radić"),
+        ("Ana Rodr\\'iguez", "Ana Rodríguez"),
+        ('J{\\"o}rg', "Jörg"),
+        ("Du\\v{s}an", "Dušan"),
+        ("Mar{\\'\\i}a", "María"),
+        ("Plain Name", "Plain Name"),
+    ],
+)
+def test_untex_author_names(raw, expected):
+    assert arxiv.untex(raw) == expected
