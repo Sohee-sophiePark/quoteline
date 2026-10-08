@@ -50,7 +50,7 @@ async def build(http: PoliteHttp, cfg: FeedCfg, today: str) -> dict:
     trending = rank_trending(merged, today, cfg.half_life_days, cfg.trending_size)
     try:
         canon = {p.id: p for p in await canonical(http, [p for p, _ in trending], today)}
-    except httpx.HTTPStatusError:  # arXiv refused: keep Hugging Face's copy of the arXiv abstract
+    except httpx.HTTPError:  # arXiv refused or timed out: keep Hugging Face's copy of the abstract
         canon = {}
     trending = [(canon.get(p.id, p), s) for p, s in trending]
     new = rank_new(merged, cfg.new_size, {p.id for p, _ in trending})

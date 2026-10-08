@@ -3,6 +3,7 @@ from pathlib import Path
 
 import httpx
 import numpy as np
+import pytest
 
 from quoteline.config import settings
 from quoteline.dataset import (
@@ -91,7 +92,8 @@ def test_reward_matrices():
     assert G.max() == 0.2
 
 
-async def test_feed_survives_arxiv_api_refusal():
+@pytest.mark.parametrize("failure", ["refused", "timeout"])
+async def test_feed_survives_arxiv_api_failure(failure):
     fx = Path(__file__).parent / "fixtures"
 
     def handler(req):
@@ -99,6 +101,8 @@ async def test_feed_survives_arxiv_api_refusal():
             return httpx.Response(200, text=(fx / "rss.xml").read_text())
         if req.url.host == "huggingface.co":
             return httpx.Response(200, text=(fx / "hf_daily.json").read_text())
+        if failure == "timeout":
+            raise httpx.ReadTimeout("slow", request=req)
         return httpx.Response(429)
 
     async def no_sleep(s):
