@@ -12,12 +12,13 @@ from quoteline.bandit import features
 from quoteline.gates import wrap
 from quoteline.harness import Runner, prompt
 from quoteline.models import ARMS, JudgmentBatch, KnownItemBatch, Paper
-from quoteline.sources import hf
+from quoteline.sources import arxiv
 from quoteline.sources.http import PoliteHttp
 from quoteline.sources.query import terms
 from quoteline.sources.retrieve import canonical, merge, run_arm
 
 STYLES = ["fact", "method", "survey"]
+CATEGORIES = ["cs.AI", "cs.CL", "cs.LG"]
 
 
 def read_jsonl(path: Path) -> list[dict]:
@@ -44,10 +45,12 @@ def sample_dates(start: dt.date, end: dt.date, n: int) -> list[str]:
 async def sample_targets(
     http: PoliteHttp, dates: list[str], per_date: int, today: str, seed: int = 0
 ) -> list[Paper]:
+    """Source-neutral targets: arXiv submissions per date, rotating cs.AI, cs.CL, cs.LG."""
     rng = random.Random(seed)
     out: list[Paper] = []
-    for d in dates:
-        papers = [p for p in await hf.daily(http, d, today) if p.abstract]
+    for i, d in enumerate(dates):
+        cat = CATEGORIES[i % len(CATEGORIES)]
+        papers = [p for p in await arxiv.by_date(http, cat, d, 50, today) if p.abstract]
         out += rng.sample(papers, min(per_date, len(papers)))
     return merge(out)
 

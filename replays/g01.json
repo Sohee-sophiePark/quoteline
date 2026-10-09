@@ -1,0 +1,894 @@
+{
+ "run_id": "g01",
+ "question": "How does speculative decoding speed up LLM inference without changing outputs?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What is the mechanism of speculative decoding for accelerating LLM inference?"
+   },
+   {
+    "text": "How does speculative decoding ensure that the generated outputs remain identical to standard autoregressive decoding?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What is the mechanism of speculative decoding for accelerating LLM inference?",
+   "arms": [
+    "openalex:keyword",
+    "hf:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2759,
+    "arxiv:conceptual": 0.3428,
+    "arxiv:recent": 0.2589,
+    "hf:keyword": 0.2937,
+    "hf:conceptual": 0.3766,
+    "hf:recent": 0.186,
+    "openalex:keyword": 0.4225,
+    "openalex:conceptual": 0.3616,
+    "openalex:recent": 0.1597
+   }
+  },
+  {
+   "subquestion": "How does speculative decoding ensure that the generated outputs remain identical to standard autoregressive decoding?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2104,
+    "arxiv:conceptual": 0.199,
+    "arxiv:recent": 0.1955,
+    "hf:keyword": 0.0988,
+    "hf:conceptual": 0.1829,
+    "hf:recent": 0.0747,
+    "openalex:keyword": 0.3228,
+    "openalex:conceptual": 0.3581,
+    "openalex:recent": 0.2021
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:keyword|What is the mechanism of speculative decoding for accelerating LLM inference?": [
+   "2409.16560",
+   "2406.03853",
+   "2403.18647",
+   "2305.09781",
+   "2604.25777"
+  ],
+  "hf:conceptual|What is the mechanism of speculative decoding for accelerating LLM inference?": [
+   "2401.07851",
+   "2310.07177",
+   "2603.11053",
+   "2608.24004",
+   "2411.13157"
+  ],
+  "openalex:conceptual|How does speculative decoding ensure that the generated outputs remain identical to standard autoregressive decoding?": [
+   "2302.07863",
+   "2608.03447",
+   "2505.15380",
+   "2607.05147",
+   "2203.16487"
+  ],
+  "openalex:keyword|How does speculative decoding ensure that the generated outputs remain identical to standard autoregressive decoding?": [
+   "2602.13836",
+   "2603.03251",
+   "2302.07863",
+   "2310.07177",
+   "2608.03447"
+  ]
+ },
+ "papers": {
+  "2409.16560": {
+   "id": "2409.16560",
+   "title": "Dynamic-Width Speculative Beam Decoding for Efficient LLM Inference",
+   "authors": [
+    "Zongyue Qin",
+    "Zifan He",
+    "Neha Prakriya",
+    "Jason Cong",
+    "Yizhou Sun"
+   ],
+   "published": "2024-09-25",
+   "abstract": "Large language models (LLMs) have shown outstanding performance across numerous real-world tasks. However, the autoregressive nature of these models makes the inference process slow and costly. Speculative decoding has emerged as a promising solution, leveraging a smaller auxiliary model to draft future tokens, which are then validated simultaneously by the larger model, achieving a speed-up of 1-2x. Although speculative decoding matches the same distribution as multinomial sampling, multinomial sampling itself is prone to suboptimal outputs, whereas beam sampling is widely recognized for producing higher-quality results by maintaining multiple candidate sequences at each step. This paper explores the novel integration of speculative decoding with beam sampling. However, there are four key challenges: (1) how to generate multiple sequences from the larger model's distribution given drafts sequences from the small model; (2) how to dynamically optimize the number of beams to balance efficiency and accuracy; (3) how to efficiently verify the multiple drafts in parallel; and (4) how to address the extra memory costs inherent in beam sampling. To address these challenges, we propose dynamic-width speculative beam decoding (DSBD). Specifically, we first introduce a novel draft and verification scheme that generates multiple sequences following the large model's distribution based on beam sampling trajectories from the small model. Then, we introduce an adaptive mechanism to dynamically tune the number of beams based on the context, optimizing efficiency and effectiveness. Besides, we extend tree-based parallel verification to handle multiple trees simultaneously, accelerating the verification process. Finally, we illustrate a simple modification to our algorithm to mitigate the memory overhead of beam sampling...",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2406.03853": {
+   "id": "2406.03853",
+   "title": "Speculative Decoding via Early-exiting for Faster LLM Inference with Thompson Sampling Control Mechanism",
+   "authors": [
+    "Jiahao Liu",
+    "Qifan Wang",
+    "Jingang Wang",
+    "Xunliang Cai"
+   ],
+   "published": "2024-06-06",
+   "abstract": "The recent advancements in large language models (LLMs) have been extraordinary, yet the escalating inference costs associated with them present challenges in real-world applications. To address these challenges, we propose a novel approach called Early-exiting Speculative Decoding (EESD) with lossless acceleration. Specifically, EESD utilizes a segment of the LLM to generate draft tokens, incorporating Early-exiting structures after the first N layers. To enhance the quality of draft tokens, a self-distillation method is integrated. This early-exiting design not only reduces deployment and training costs but also significantly accelerates the token generation speed. Moreover, we introduce a novel sampling mechanism that leverages Thompson Sampling to regulate the generation processes, automatically determining the quantity of draft tokens in each round. The original LLM is then employed to validate these draft tokens through a single forward pass, and thus guarantees that the final output text maintains a distribution consistent with vanilla auto-regressive decoding. The experimental results on both 13B and 70B models demonstrate that our approach decodes tokens at a markedly accelerated rate compared to prior methods, showing the effectiveness of our approach.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2403.18647": {
+   "id": "2403.18647",
+   "title": "SDSAT: Accelerating LLM Inference through Speculative Decoding with Semantic Adaptive Tokens",
+   "authors": [
+    "Chengbo Liu",
+    "Yong Zhu"
+   ],
+   "published": "2024-03-27",
+   "abstract": "We propose an acceleration scheme for large language models (LLMs) through Speculative Decoding with Semantic Adaptive Tokens (SDSAT). The primary objective of this design is to enhance the LLM model's ability to generate draft tokens more accurately without compromising the model's accuracy. The core strategies involve: 1) Fine-tune the model by incorporating semantic adaptive tokens that possess flexible decoding capabilities without changing its structure, allowing them to generate high-quality draft tokens. 2) By employing a training method that does not affect the standard tokens, the model can acquire parallel decoding abilities atop its original framework with minimal training overhead. 3) We have designed the \"two-step-draft-then-verify\" generation strategies using both greedy search and nucleus sampling. Experiments conducted on the CodeLlama-13B and 7B models have yielded speed increases of over 3.5X and 3.0X, respectively. Please refer to https://github.com/hasuoshenyun/SDSAT.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2305.09781": {
+   "id": "2305.09781",
+   "title": "SpecInfer: Accelerating Generative Large Language Model Serving with Tree-based Speculative Inference and Verification",
+   "authors": [
+    "Xupeng Miao",
+    "Gabriele Oliaro",
+    "Zhihao Zhang",
+    "Xinhao Cheng",
+    "Zeyu Wang",
+    "Zhengxin Zhang",
+    "Rae Ying Yee Wong",
+    "Alan Zhu",
+    "Lijie Yang",
+    "Xiaoxiang Shi",
+    "Chunan Shi",
+    "Zhuoming Chen",
+    "Daiyaan Arfeen",
+    "Reyna Abhyankar",
+    "Zhihao Jia"
+   ],
+   "published": "2023-05-16",
+   "abstract": "This paper introduces SpecInfer, a system that accelerates generative large language model (LLM) serving with tree-based speculative inference and verification. The key idea behind SpecInfer is leveraging small speculative models to predict the LLM's outputs; the predictions are organized as a token tree, whose nodes each represent a candidate token sequence. The correctness of all candidate token sequences represented by a token tree is verified against the LLM in parallel using a novel tree-based parallel decoding mechanism. SpecInfer uses an LLM as a token tree verifier instead of an incremental decoder, which significantly reduces the end-to-end latency and computational requirement for serving generative LLMs while provably preserving model quality. Our evaluation shows that SpecInfer outperforms existing LLM serving systems by 1.5-2.8x for distributed LLM inference and by 2.6-3.5x for offloading-based LLM inference, while preserving the same generative performance. SpecInfer is publicly available at https://github.com/flexflow/FlexFlow/",
+   "categories": [
+    "cs.CL",
+    "cs.DC",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.25777": {
+   "id": "2604.25777",
+   "title": "SpecFed: Accelerating Federated LLM Inference with Speculative Decoding and Compressed Transmission",
+   "authors": [
+    "Ce Zheng",
+    "Xinghan Wang",
+    "Jiahong Ning",
+    "Yuxuan Shi",
+    "Ning Huang",
+    "Tingting Yang"
+   ],
+   "published": "2026-04-28",
+   "abstract": "Federated inference enhances LLM performance in edge computing through weighted averaging of distributed model predictions. However, autoregressive LLM inference requires frequent full-model forward passes across workers, severely limiting decoding throughput. Distributed deployment further aggravates this due to a communication bottleneck: each worker must transmit full token probability distributions per draft token, dominating end-to-end latency. To address these challenges, we introduce speculative decoding to enable parallel LLM processing and propose a top-K compressed transmission scheme with two server-side reconstruction strategies. We theoretically analyze the robustness of our method in terms of local reconstruction error, aggregation bias, and acceptance-rate bias, and derive corresponding bounds. Experiments demonstrate that our scheme achieves high generation fidelity while significantly reducing communication overhead.",
+   "categories": [
+    "eess.SP",
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2401.07851": {
+   "id": "2401.07851",
+   "title": "Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding",
+   "authors": [
+    "Heming Xia",
+    "Zhe Yang",
+    "Qingxiu Dong",
+    "Peiyi Wang",
+    "Yongqi Li",
+    "Tao Ge",
+    "Tianyu Liu",
+    "Wenjie Li",
+    "Zhifang Sui"
+   ],
+   "published": "2024-01-15",
+   "abstract": "To mitigate the high inference latency stemming from autoregressive decoding in Large Language Models (LLMs), Speculative Decoding has emerged as a novel decoding paradigm for LLM inference. In each decoding step, this method first drafts several future tokens efficiently and then verifies them in parallel. Unlike autoregressive decoding, Speculative Decoding facilitates the simultaneous decoding of multiple tokens per step, thereby accelerating inference. This paper presents a comprehensive overview and analysis of this promising decoding paradigm. We begin by providing a formal definition and formulation of Speculative Decoding. Then, we organize in-depth discussions on its key facets, such as drafter selection and verification strategies. Furthermore, we present a comparative analysis of leading methods under third-party testing environments. We aim for this work to serve as a catalyst for further research on Speculative Decoding, ultimately contributing to more efficient LLM inference.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 4,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2310.07177": {
+   "id": "2310.07177",
+   "title": "Online Speculative Decoding",
+   "authors": [
+    "Xiaoxuan Liu",
+    "Lanxiang Hu",
+    "Peter Bailis",
+    "Alvin Cheung",
+    "Zhijie Deng",
+    "Ion Stoica",
+    "Hao Zhang"
+   ],
+   "published": "2023-10-11",
+   "abstract": "Speculative decoding is a pivotal technique to accelerate the inference of large language models (LLMs) by employing a smaller draft model to predict the target model's outputs. However, its efficacy can be limited due to the low predictive accuracy of the draft model, particularly when faced with diverse text inputs and a significant capability gap between the draft and target models. We introduce online speculative decoding to address this challenge. The main idea is to continuously update the (multiple) draft model(s) on observed user query data. Adapting to query distribution mitigates the shifts between the training distribution of the draft model and the query distribution, enabling the draft model to more accurately predict the target model's outputs. We develop a prototype of online speculative decoding based on knowledge distillation and evaluate it using both synthetic and real query data. The results show a substantial increase in the token acceptance rate by 0.1 to 0.65, bringing 1.42x to 2.17x latency reduction. Our code is available at https://github.com/LiuXiaoxuanPKU/OSD.",
+   "categories": [
+    "cs.AI",
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": 3,
+   "sources": [
+    "arxiv",
+    "hf",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.11053": {
+   "id": "2603.11053",
+   "title": "Speculative Decoding Scaling Laws (SDSL): Throughput Optimization Made Simple",
+   "authors": [
+    "Amirhossein Bozorgkhoo",
+    "Igor Molybog"
+   ],
+   "published": "2026-02-25",
+   "abstract": "Speculative decoding is a technique that uses multiple language models to accelerate infer- ence. Previous works have used an experi- mental approach to optimize the throughput of the inference pipeline, which involves LLM training and can be costly. This study of spec- ulative decoding proposes a theory that ana- lytically connects the key hyperparameters of pre-trained LLMs to the throughput efficiency of a downstream SD-based inference system. The theory allows the prediction of throughput- optimal hyperparameters for the components of an inference system before their pre-training.",
+   "categories": [
+    "cs.CL",
+    "cs.IT",
+    "cs.LG"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2608.24004": {
+   "id": "2608.24004",
+   "title": "AgentSpec: Speculative Decoding for Batch Inference of LLM Agents",
+   "authors": [
+    "Xin Wang",
+    "Ziming Miao",
+    "Yi Zhu",
+    "Hui Shen",
+    "Zhongwei Wan",
+    "Fan Yang",
+    "Mi Zhang"
+   ],
+   "published": "2026-08-25",
+   "abstract": "Large language model (LLM)-based agent applications often incur high response time. Speculative decoding is a promising solution to improve the inference efficiency of LLM agents without impacting generation quality. However, state-of-the-art speculative decoding algorithms exhibit substantial speed degradation under large batch sizes, limiting their effectiveness to deploy in real-world agent applications. In this work, we first present a systematic analysis of speculative decoding for LLM agents and identify two dominant factors of speedup degradation: high rejection rate of speculative tokens, and under-utilization of dynamic token budgets.B ased on these observations, we propose AgentSpec, a speculative decoding algorithm that addresses the limitations of existing methods for LLM agents. AgentSpec incorporates structure-isolated drafting that constrains speculation to semantically coherent segments of the agent workflow, reducing the drafts of irrelevant semantic paths and achieving an extremely low rejection rate. Moreover, AgentSpec adopts redundancy-aware budget allocation that exploits agent-level information to better utilize the dynamically-free token budget during the agent inference. We implement and evaluate AgentSpec on five different workloads and four different models from four different LLM families in vLLM. Our results demonstrate the superiority of AgentSpec over state-of-the-arts.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2411.13157": {
+   "id": "2411.13157",
+   "title": "Closer Look at Efficient Inference Methods: A Survey of Speculative Decoding",
+   "authors": [
+    "Hyun Ryu",
+    "Eric Kim"
+   ],
+   "published": "2024-11-20",
+   "abstract": "Efficient inference in large language models (LLMs) has become a critical focus as their scale and complexity grow. Traditional autoregressive decoding, while effective, suffers from computational inefficiencies due to its sequential token generation process. Speculative decoding addresses this bottleneck by introducing a two-stage framework: drafting and verification. A smaller, efficient model generates a preliminary draft, which is then refined by a larger, more sophisticated model. This paper provides a comprehensive survey of speculative decoding methods, categorizing them into draft-centric and model-centric approaches. We discuss key ideas associated with each method, highlighting their potential for scaling LLM inference. This survey aims to guide future research in optimizing speculative decoding and its integration into real-world LLM applications.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2302.07863": {
+   "id": "2302.07863",
+   "title": "Speculative Decoding with Big Little Decoder",
+   "authors": [
+    "Sehoon Kim",
+    "Karttikeya Mangalam",
+    "Suhong Moon",
+    "Jitendra Malik",
+    "Michael W. Mahoney",
+    "Amir Gholami",
+    "Kurt Keutzer"
+   ],
+   "published": "2023-02-15",
+   "abstract": "The recent emergence of Large Language Models based on the Transformer architecture has enabled dramatic advancements in the field of Natural Language Processing. However, these models have long inference latency, which limits their deployment and makes them prohibitively expensive for various real-time applications. The inference latency is further exacerbated by autoregressive generative tasks, as models need to run iteratively to generate tokens sequentially without leveraging token-level parallelization. To address this, we propose Big Little Decoder (BiLD), a framework that can improve inference efficiency and latency for a wide range of text generation applications. The BiLD framework contains two models with different sizes that collaboratively generate text. The small model runs autoregressively to generate text with a low inference cost, and the large model is only invoked occasionally to refine the small model's inaccurate predictions in a non-autoregressive manner. To coordinate the small and large models, BiLD introduces two simple yet effective policies: (1) the fallback policy that determines when to hand control over to the large model; and (2) the rollback policy that determines when the large model needs to correct the small model's inaccurate predictions. To evaluate our framework across different tasks and models, we apply BiLD to various text generation scenarios encompassing machine translation on IWSLT 2017 De-En and WMT 2014 De-En, and summarization on XSUM and CNN/DailyMail. On an NVIDIA T4 GPU, our framework achieves a speedup of up to 2.12x speedup with minimal generation quality degradation. Furthermore, our framework is fully plug-and-play and can be applied without any modifications in the training process or model architecture. Our code is open-sourced",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2608.03447": {
+   "id": "2608.03447",
+   "title": "Approximate Speculative Decoding",
+   "authors": [
+    "Yuannuo Feng",
+    "Zegang Peng",
+    "Yuxin Xie",
+    "Yubing Ye",
+    "Yizhe Chen",
+    "Wenshuai Yao",
+    "Wenyong Zhou",
+    "Wang Kang"
+   ],
+   "published": "2026-08-04",
+   "abstract": "Speculative decoding accelerates autoregressive generation by verifying a draft block with a target model in parallel. Under standard greedy verification, decoding stops at the first draft token that differs from the target argmax, discarding the remaining target-scored suffix. Although accepting such a mismatch changes the decoding trajectory, it can make a contiguous suffix reusable when its tokens remain target-greedy under the realized prefix. In this paper, we introduce \\textbf{Approximate Speculative Decoding (ASD)}, a training-free verifier that replaces binary first-mismatch truncation with budgeted longest-prefix selection. ASD accepts selected mismatches subject to a local target-logit regret gate, a per-block exception cap, and a persistent request-level regret budget, then reuses the contiguous target-greedy suffix without additional approximate decisions or target-model forward passes. ASD requires neither a new draft model nor fine-tuning, and exactly reduces to standard greedy verification when the budget is zero. Experiments show that ASD improves fixed-workload throughput by $3.05\\%$--$15.26\\%$ over matched strict verification and averages a $7.78\\%$ gain across seven Qwen3-14B + DSpark-14B tasks. On DeepSeek-V4-Flash (284B) with DSpark it also raises verifier-side acceptance by roughly $10\\%$--$16\\%$ on GSM8K and MATH-500 in an FP4-to-FP8 compatibility setting. The source code is publicly available at: https://github.com/Kissmetothemoon/ASD",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2505.15380": {
+   "id": "2505.15380",
+   "title": "Accelerating Autoregressive Speech Synthesis Inference With Speech Speculative Decoding",
+   "authors": [
+    "Zijian Lin",
+    "Yang Zhang",
+    "Yougen Yuan",
+    "Yuming Yan",
+    "Jinjiang Liu",
+    "Zhiyong Wu",
+    "Pengfei Hu",
+    "Qun Yu"
+   ],
+   "published": "2025-05-21",
+   "abstract": "Modern autoregressive speech synthesis models leveraging language models have demonstrated remarkable performance. However, the sequential nature of next token prediction in these models leads to significant latency, hindering their deployment in scenarios where inference speed is critical. In this work, we propose Speech Speculative Decoding (SSD), a novel framework for autoregressive speech synthesis acceleration. Specifically, our method employs a lightweight draft model to generate candidate token sequences, which are subsequently verified in parallel by the target model using the proposed SSD framework. Experimental results demonstrate that SSD achieves a significant speedup of 1.4x compared with conventional autoregressive decoding, while maintaining high fidelity and naturalness. Subjective evaluations further validate the effectiveness of SSD in preserving the perceptual quality of the target model while accelerating inference.",
+   "categories": [
+    "cs.SD",
+    "cs.AI",
+    "eess.AS"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2607.05147": {
+   "id": "2607.05147",
+   "title": "DSpark: Confidence-Scheduled Speculative Decoding with Semi-Autoregressive Generation",
+   "authors": [
+    "Xin Cheng",
+    "Xingkai Yu",
+    "Chenze Shao",
+    "Jiashi Li",
+    "Yunfan Xiong",
+    "Yi Qian",
+    "Jiaqi Zhu",
+    "Shirong Ma",
+    "Xiaokang Zhang",
+    "Jiasheng Ye",
+    "Qinyu Chen",
+    "Chengqi Deng",
+    "Jiping Yu",
+    "Damai Dai",
+    "Zhengyan Zhang",
+    "Yixuan Wei",
+    "Yixuan Tan",
+    "Wenkai Yang",
+    "Runxin Xu",
+    "Yu Wu",
+    "Zhean Xu",
+    "Xuanyu Wang",
+    "Muyang Chen",
+    "Rui Tian",
+    "Xiao Bi",
+    "Zhewen Hao",
+    "Shaoyuan Chen",
+    "Huanqi Cao",
+    "Wentao Zhang",
+    "Anyi Xu",
+    "Huishuai Zhang",
+    "Dongyan Zhao",
+    "Wenfeng Liang"
+   ],
+   "published": "2026-07-06",
+   "abstract": "Speculative decoding accelerates Large Language Model (LLM) inference by decoupling draft generation from target verification. While recent parallel drafters efficiently propose long token sequences in a single forward pass, they suffer from rapid acceptance decay due to a lack of inter-token dependencies. Furthermore, indiscriminately verifying these extended blocks wastes critical batch capacity on tokens with high rejection risks, severely degrading throughput in high-concurrency serving systems. We introduce DSpark, a speculative decoding framework that unifies high-throughput parallel generation with adaptive, load-aware verification. To maintain draft quality, DSpark utilizes a semi-autoregressive architecture, coupling a parallel backbone with a lightweight sequential module, to introduce intra-block dependency modeling and mitigate suffix decay. To optimize system efficiency, DSpark employs confidence-scheduled verification, dynamically tailoring the verification length for each request based on estimated prefix survival probabilities and engine-specific throughput profiles. On offline benchmarks across diverse domains, DSpark substantially improves the accepted length over state-of-the-art autoregressive and parallel drafters. When deployed within the DeepSeek-V4 serving system under live user traffic, DSpark successfully mitigates verification waste. Compared to the established production baseline (MTP-1), DSpark accelerates per-user generation speeds by 60 to 85 percent at matched throughput levels. More importantly, by preventing severe throughput degradation under strict interactivity constraints, it enables performance tiers that were previously unattainable, shifting the Pareto frontier of our serving system.",
+   "categories": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2203.16487": {
+   "id": "2203.16487",
+   "title": "Speculative Decoding: Exploiting Speculative Execution for Accelerating Seq2seq Generation",
+   "authors": [
+    "Heming Xia",
+    "Tao Ge",
+    "Peiyi Wang",
+    "Si-Qing Chen",
+    "Furu Wei",
+    "Zhifang Sui"
+   ],
+   "published": "2022-03-30",
+   "abstract": "We propose Speculative Decoding (SpecDec), for the first time ever, to formally study exploiting the idea of speculative execution to accelerate autoregressive (AR) decoding. Speculative Decoding has two innovations: Spec-Drafter -- an independent model specially optimized for efficient and accurate drafting -- and Spec-Verification -- a reliable method for verifying the drafted tokens efficiently in the decoding paradigm. Experimental results on various seq2seq tasks including machine translation and abstractive summarization show our approach can achieve around $5\\times$ speedup for the popular Transformer architectures with comparable generation quality to beam search decoding, refreshing the impression that the draft-then-verify paradigm introduces only $1.4\\times$$\\sim$$2\\times$ speedup. In addition to the remarkable speedup, we also demonstrate 3 additional advantages of SpecDec, revealing its practical value for accelerating generative models in real-world applications. Our models and codes are available at https://github.com/hemingkx/SpecDec.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2602.13836": {
+   "id": "2602.13836",
+   "title": "Speculative Decoding with a Speculative Vocabulary",
+   "authors": [
+    "Miles Williams",
+    "Young D. Kwon",
+    "Rui Li",
+    "Alexandros Kouris",
+    "Stylianos I. Venieris"
+   ],
+   "published": "2026-02-14",
+   "abstract": "Speculative decoding has rapidly emerged as a leading approach for accelerating language model (LM) inference, as it offers substantial speedups while yielding identical outputs. This relies upon a small draft model, tasked with predicting the outputs of the target model. State-of-the-art speculative decoding methods use a draft model comprising a single decoder layer and output embedding matrix, with the latter dominating drafting time for the latest LMs. Recent work has sought to address this output distribution bottleneck by reducing the vocabulary of the draft model. While this can improve throughput, it compromises speculation effectiveness when the target token is out-of-vocabulary. In this paper, we argue for vocabulary speculation as an alternative to a reduced vocabulary. We propose SpecVocab, an efficient and effective method that selects a vocabulary subset per decoding step. Across a variety of tasks, we show that SpecVocab can achieve a higher acceptance length than state-of-the-art speculative decoding method, EAGLE-3. Notably, this yields up to an 8.1% increase in average throughput over EAGLE-3.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.03251": {
+   "id": "2603.03251",
+   "title": "Speculative Speculative Decoding",
+   "authors": [
+    "Tanishq Kumar",
+    "Tri Dao",
+    "Avner May"
+   ],
+   "published": "2026-03-03",
+   "abstract": "Autoregressive decoding is bottlenecked by its sequential nature. Speculative decoding has become a standard way to accelerate inference by using a fast draft model to predict upcoming tokens from a slower target model, and then verifying them in parallel with a single target model forward pass. However, speculative decoding itself relies on a sequential dependence between speculation and verification. We introduce speculative speculative decoding (SSD) to parallelize these operations. While a verification is ongoing, the draft model predicts likely verification outcomes and prepares speculations pre-emptively for them. If the actual verification outcome is then in the predicted set, a speculation can be returned immediately, eliminating drafting overhead entirely. We identify three key challenges presented by speculative speculative decoding, and suggest principled methods to solve each. The result is Saguaro, an optimized SSD algorithm. Our implementation is on average 30% faster than optimized speculative decoding baselines and up to 5x faster than autoregressive decoding with open source inference engines.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2409.16560",
+    "quote": "Speculative decoding has emerged as a promising solution, leveraging a smaller auxiliary model to draft future tokens, which are then validated simultaneously by the larger model",
+    "claim": "Speculative decoding accelerates inference by using a smaller model to draft tokens that are then verified in parallel by a larger model."
+   },
+   {
+    "paper_id": "2401.07851",
+    "quote": "In each decoding step, this method first drafts several future tokens efficiently and then verifies them in parallel.",
+    "claim": "The mechanism of speculative decoding involves drafting multiple tokens and verifying them in parallel."
+   },
+   {
+    "paper_id": "2406.03853",
+    "quote": "The original LLM is then employed to validate these draft tokens through a single forward pass, and thus guarantees that the final output text maintains a distribution consistent with vanilla auto-regressive decoding.",
+    "claim": "Speculative decoding ensures identical output to standard autoregressive decoding by using the original LLM to validate the draft tokens."
+   },
+   {
+    "paper_id": "2305.09781",
+    "quote": "SpecInfer uses an LLM as a token tree verifier instead of an incremental decoder, which significantly reduces the end-to-end latency and computational requirement for serving generative LLMs while provably preserving model quality.",
+    "claim": "By using the LLM as a verifier for candidate token sequences, speculative decoding preserves the generative quality of the original model."
+   },
+   {
+    "paper_id": "2602.13836",
+    "quote": "Speculative decoding has rapidly emerged as a leading approach for accelerating language model (LM) inference, as it offers substantial speedups while yielding identical outputs.",
+    "claim": "Speculative decoding is designed to provide faster inference while maintaining the same output as standard autoregressive methods."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "Speculative decoding accelerates LLM inference by using a smaller model to draft multiple tokens that are verified in parallel by the larger target model, ensuring identical output to standard autoregressive methods {{p:2409.16560}} {{p:2602.13836}}.",
+   "paragraphs": [
+    "The process works by leveraging a smaller auxiliary model to efficiently predict future tokens, which are then validated simultaneously by the original LLM in a single forward pass {{p:2401.07851}} {{p:2406.03853}}. This parallel verification mechanism allows the system to process multiple candidate tokens at once, significantly reducing end-to-end latency {{p:2305.09781}}.",
+    "Because the original LLM acts as the final verifier for these draft sequences, the method guarantees that the final output maintains a distribution consistent with vanilla autoregressive decoding {{p:2406.03853}} {{p:2305.09781}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2409.16560",
+     "contribution_quote": "Speculative decoding has emerged as a promising solution, leveraging a smaller auxiliary model to draft future tokens, which are then validated simultaneously by the larger model"
+    },
+    {
+     "paper_id": "2401.07851",
+     "contribution_quote": "In each decoding step, this method first drafts several future tokens efficiently and then verifies them in parallel."
+    },
+    {
+     "paper_id": "2406.03853",
+     "contribution_quote": "The original LLM is then employed to validate these draft tokens through a single forward pass, and thus guarantees that the final output text maintains a distribution consistent with vanilla auto-regressive decoding."
+    },
+    {
+     "paper_id": "2305.09781",
+     "contribution_quote": "SpecInfer uses an LLM as a token tree verifier instead of an incremental decoder, which significantly reduces the end-to-end latency and computational requirement for serving generative LLMs while provably preserving model quality."
+    },
+    {
+     "paper_id": "2602.13836",
+     "contribution_quote": "Speculative decoding has rapidly emerged as a leading approach for accelerating language model (LM) inference, as it offers substantial speedups while yielding identical outputs."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": []
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "Speculative decoding accelerates LLM inference by using a smaller model to draft multiple tokens that are verified in parallel by the larger target model, ensuring identical output to standard autoregressive methods [1] [2].",
+  "paragraphs": [
+   "The process works by leveraging a smaller auxiliary model to efficiently predict future tokens, which are then validated simultaneously by the original LLM in a single forward pass [3] [4]. This parallel verification mechanism allows the system to process multiple candidate tokens at once, significantly reducing end-to-end latency [5].",
+   "Because the original LLM acts as the final verifier for these draft sequences, the method guarantees that the final output maintains a distribution consistent with vanilla autoregressive decoding [4] [5]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2409.16560",
+    "title": "Dynamic-Width Speculative Beam Decoding for Efficient LLM Inference",
+    "authors": "Zongyue Qin et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2409.16560",
+    "contribution_quote": "Speculative decoding has emerged as a promising solution, leveraging a smaller auxiliary model to draft future tokens, which are then validated simultaneously by the larger model"
+   },
+   {
+    "n": 2,
+    "id": "2602.13836",
+    "title": "Speculative Decoding with a Speculative Vocabulary",
+    "authors": "Miles Williams et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2602.13836",
+    "contribution_quote": "Speculative decoding has rapidly emerged as a leading approach for accelerating language model (LM) inference, as it offers substantial speedups while yielding identical outputs."
+   },
+   {
+    "n": 3,
+    "id": "2401.07851",
+    "title": "Unlocking Efficiency in Large Language Model Inference: A Comprehensive Survey of Speculative Decoding",
+    "authors": "Heming Xia et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2401.07851",
+    "contribution_quote": "In each decoding step, this method first drafts several future tokens efficiently and then verifies them in parallel."
+   },
+   {
+    "n": 4,
+    "id": "2406.03853",
+    "title": "Speculative Decoding via Early-exiting for Faster LLM Inference with Thompson Sampling Control Mechanism",
+    "authors": "Jiahao Liu et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2406.03853",
+    "contribution_quote": "The original LLM is then employed to validate these draft tokens through a single forward pass, and thus guarantees that the final output text maintains a distribution consistent with vanilla auto-regressive decoding."
+   },
+   {
+    "n": 5,
+    "id": "2305.09781",
+    "title": "SpecInfer: Accelerating Generative Large Language Model Serving with Tree-based Speculative Inference and Verification",
+    "authors": "Xupeng Miao et al.",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2305.09781",
+    "contribution_quote": "SpecInfer uses an LLM as a token tree verifier instead of an incremental decoder, which significantly reduces the end-to-end latency and computational requirement for serving generative LLMs while provably preserving model quality."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 98,
+    "tokens_out": 67,
+    "latency_ms": 1066,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 2,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What is the mechanism of speculative decoding for accelerating LLM inference?",
+      "arms": [
+       "openalex:keyword",
+       "hf:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2759,
+       "arxiv:conceptual": 0.3428,
+       "arxiv:recent": 0.2589,
+       "hf:keyword": 0.2937,
+       "hf:conceptual": 0.3766,
+       "hf:recent": 0.186,
+       "openalex:keyword": 0.4225,
+       "openalex:conceptual": 0.3616,
+       "openalex:recent": 0.1597
+      }
+     },
+     {
+      "subquestion": "How does speculative decoding ensure that the generated outputs remain identical to standard autoregressive decoding?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2104,
+       "arxiv:conceptual": 0.199,
+       "arxiv:recent": 0.1955,
+       "hf:keyword": 0.0988,
+       "hf:conceptual": 0.1829,
+       "hf:recent": 0.0747,
+       "openalex:keyword": 0.3228,
+       "openalex:conceptual": 0.3581,
+       "openalex:recent": 0.2021
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 2,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 17
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 3,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4350,
+    "tokens_out": 465,
+    "latency_ms": 2087,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 3,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 2600,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1946,
+    "tokens_out": 581,
+    "latency_ms": 2595,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 2601,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": []
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 3372,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1922,
+    "tokens_out": 26,
+    "latency_ms": 769,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 3372,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 3372,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:56:00+00:00",
+ "updated_at": "2026-10-08T23:56:04+00:00"
+}

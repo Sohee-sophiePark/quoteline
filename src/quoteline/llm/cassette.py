@@ -21,7 +21,7 @@ def request_key(req: LLMRequest) -> str:
 
 
 class CassetteClient:
-    """`record` appends every response to `path`; `replay` serves identical requests in order."""
+    """Serves stored requests in order; `record` calls `inner` only for new requests."""
 
     def __init__(
         self, path: Path, mode: Literal["record", "replay"], inner: LLMClient | None = None
@@ -36,7 +36,7 @@ class CassetteClient:
 
     async def generate(self, req: LLMRequest) -> LLMResponse:
         key = request_key(req)
-        if self.mode == "replay":
+        if key in self.entries or self.mode == "replay":
             if key not in self.entries:
                 raise CassetteMiss(key, req.purpose)
             n = self.served.get(key, 0)

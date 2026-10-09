@@ -48,13 +48,13 @@ Daily feed: arXiv RSS (cs.AI, cs.CL, cs.LG) + Hugging Face daily papers → merg
 | Module | What it does |
 |---|---|
 | `sources/` | arXiv Atom/RSS, Hugging Face JSON and OpenAlex parsers; one polite HTTP client (per-host spacing, server wait hints, retries); merge by arXiv ID with arXiv text winning |
-| `orchestrator.py` | The research flow above; checkpoints after every step, `resume` after a stop, approval as the only action |
+| `orchestrator.py` | The research flow above — questions across the literature or about one paper (an arXiv ID or link is looked up directly); checkpoints after every step, `resume` after a stop, approval as the only action |
 | `gates.py`, `render.py` | G1 citations resolve · G2 quotes exact · G3 every sentence cited · G4 no model-written metadata · G5 untrusted-content flags; numbered references from metadata |
 | `bandit.py` | Context features, disjoint LinUCB, full-information replay evaluation, bootstrap comparison with baselines |
 | `dataset.py` | Known-item training questions from papers sampled across 2023–2026, all-arm recording, golden relevance judging |
 | `feed.py` | The daily feed ranking |
 | `harness.py`, `llm/` | Hand-built LLM runner: rate limiter, retries, model fallback, record/replay cassettes, trace |
-| `api.py`, `web/` | Local live mode (127.0.0.1) and the static demo: Ask · Daily feed · Policy lab |
+| `api.py`, `web/` | Local live mode (127.0.0.1) and the static demo: Ask with **Read** (highlight sentences, add notes) and **Review evidence** (claim-by-claim citations, verbatim quotes, check summary) · every paper found · trace · **Notebook** (save Q&A pairs, download as Markdown; stored in the browser only) · Daily feed · Policy lab |
 
 ## Run it
 
@@ -82,6 +82,28 @@ make record                        # record demo runs for the public site, then 
 | 1 | Unit tests on real API fixtures: parsers, rate limiting, gates, renderer, bandit math, orchestrator paths, API | No |
 | 2 | Recorded runs re-run from cassettes and must match; citations resolve; quotes exact; expected paper retrieved and cited; policy report | No |
 | 3 | The same metrics on fresh live runs | Yes |
+
+## Results (2026-10-08)
+
+**Recorded demo answers (7 questions, replayed on the public site):** all 7 pass every code gate — every citation
+resolves to a fetched paper and every quoted contribution is verbatim in its abstract — and the evaluator scored 5/5 on
+faithfulness and coverage for each. One answer needed a revision round; 4 LLM calls per answer otherwise. For 2 of the 5
+questions with a known landmark paper, search did not surface that paper and the answer cites other relevant papers.
+
+**Source policy (contextual bandit, 218 known-item questions sampled from arXiv 2023–2026, 20% held out):**
+
+| Policy | Hits per search call (44 held-out questions) |
+|---|---|
+| LinUCB (learned) | 0.159 |
+| Best single arm (`openalex:keyword`) | 0.114 |
+| Random arm | 0.096 |
+| Query all 9 arms | 0.043 (hit rate 0.386, but 9 calls) |
+
+LinUCB minus the best single arm: **+0.045, 95% bootstrap CI 0.000 to +0.114** — the interval touches zero, so this is
+**not** claimed as a win over always using the best single source. It does beat a random source and beats querying every
+source per call. The held-out set is small and the estimate moves with the train/test split; the Policy lab shows the
+curves. On the 30 hand-written golden questions (judged relevance in top 5): LinUCB 0.70, best single arm 0.68, random
+0.63, best arm in hindsight 0.81.
 
 ## Data and licences
 

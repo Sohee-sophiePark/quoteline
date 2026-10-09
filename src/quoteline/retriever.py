@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Literal
 
 from quoteline.models import Arm, Paper
+from quoteline.sources import arxiv
 from quoteline.sources.http import PoliteHttp
 from quoteline.sources.retrieve import canonical, merge, run_arm
 
@@ -17,7 +18,7 @@ def key(arm: Arm, text: str) -> str:
 
 
 class Retriever:
-    """`live` fetches; `record` fetches and appends to `path`; `replay` serves from `path` only."""
+    """`live` fetches; `record` serves stored results and fetches the rest; `replay` serves only."""
 
     def __init__(
         self,
@@ -34,12 +35,27 @@ class Retriever:
                 e = json.loads(line)
                 self.store[e["key"]] = [Paper.model_validate(p) for p in e["papers"]]
 
+    async def lookup(self, ids: list[str]) -> list[Paper]:
+        """Papers by arXiv ID (canonical arXiv metadata), recorded and replayed like searches."""
+        k = "lookup|" + ",".join(ids)
+        if k in self.store or self.mode == "replay":
+            return self.store[k]
+        assert self.http is not None
+        papers = await arxiv.by_ids(self.http, ids, self.today)
+        if self.mode == "record":
+            self.path.parent.mkdir(parents=True, exist_ok=True)
+            with self.path.open("a", encoding="utf-8") as f:
+                f.write(json.dumps({"key": k, "papers": [p.model_dump() for p in papers]}) + "\n")
+            self.store[k] = papers
+        return papers
+
     async def retrieve(self, pairs: list[Pair]) -> dict[str, list[Paper]]:
-        if self.mode == "replay":
-            missing = [key(a, t) for a, t in pairs if key(a, t) not in self.store]
-            if missing:
-                raise KeyError(f"no recorded retrieval for {missing[0]}")
-            return {key(a, t): self.store[key(a, t)] for a, t in pairs}
+        cached = {key(a, t): self.store[key(a, t)] for a, t in pairs if key(a, t) in self.store}
+        pairs = [(a, t) for a, t in pairs if key(a, t) not in cached]
+        if self.mode == "replay" or not pairs:
+            if pairs:
+                raise KeyError(f"no recorded retrieval for {key(*pairs[0])}")
+            return cached
         assert self.http is not None
         raw = await asyncio.gather(
             *(run_arm(self.http, a, t, self.k, self.today) for a, t in pairs)
@@ -60,4 +76,4 @@ class Retriever:
                         json.dumps({"key": k_, "papers": [p.model_dump() for p in papers]}) + "\n"
                     )
             self.store.update(out)
-        return out
+        return {**cached, **out}

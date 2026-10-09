@@ -1,0 +1,843 @@
+{
+ "run_id": "g08",
+ "question": "How can LLM agents interleave reasoning traces with actions in an environment?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What architectures or frameworks allow LLM agents to interleave reasoning traces with environment actions?"
+   },
+   {
+    "text": "How do reasoning-action interleaving strategies impact the performance of LLM agents in interactive environments?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What architectures or frameworks allow LLM agents to interleave reasoning traces with environment actions?",
+   "arms": [
+    "openalex:keyword",
+    "hf:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2569,
+    "arxiv:conceptual": 0.3071,
+    "arxiv:recent": 0.2477,
+    "hf:keyword": 0.2792,
+    "hf:conceptual": 0.3673,
+    "hf:recent": 0.1741,
+    "openalex:keyword": 0.3778,
+    "openalex:conceptual": 0.3457,
+    "openalex:recent": 0.1512
+   }
+  },
+  {
+   "subquestion": "How do reasoning-action interleaving strategies impact the performance of LLM agents in interactive environments?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.315,
+    "arxiv:conceptual": 0.2851,
+    "arxiv:recent": 0.3068,
+    "hf:keyword": 0.2397,
+    "hf:conceptual": 0.3443,
+    "hf:recent": 0.1518,
+    "openalex:keyword": 0.439,
+    "openalex:conceptual": 0.4855,
+    "openalex:recent": 0.1968
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:keyword|What architectures or frameworks allow LLM agents to interleave reasoning traces with environment actions?": [
+   "2210.03629",
+   "2608.23104",
+   "2606.03303",
+   "2604.24808",
+   "2603.12710"
+  ],
+  "hf:conceptual|What architectures or frameworks allow LLM agents to interleave reasoning traces with environment actions?": [
+   "2210.03629",
+   "2511.01824",
+   "2509.13642",
+   "2503.11074",
+   "2606.06090"
+  ],
+  "openalex:conceptual|How do reasoning-action interleaving strategies impact the performance of LLM agents in interactive environments?": [
+   "2505.15117",
+   "2504.19678",
+   "2411.13543",
+   "2603.07915",
+   "2512.10931"
+  ],
+  "openalex:keyword|How do reasoning-action interleaving strategies impact the performance of LLM agents in interactive environments?": [
+   "2505.15117",
+   "2512.08300",
+   "2504.19678",
+   "2511.02234",
+   "2602.01672"
+  ]
+ },
+ "papers": {
+  "2210.03629": {
+   "id": "2210.03629",
+   "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+   "authors": [
+    "Shunyu Yao",
+    "Jeffrey Zhao",
+    "Dian Yu",
+    "Nan Du",
+    "Izhak Shafran",
+    "Karthik Narasimhan",
+    "Yuan Cao"
+   ],
+   "published": "2022-10-06",
+   "abstract": "While large language models (LLMs) have demonstrated impressive capabilities across tasks in language understanding and interactive decision making, their abilities for reasoning (e.g. chain-of-thought prompting) and acting (e.g. action plan generation) have primarily been studied as separate topics. In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information. We apply our approach, named ReAct, to a diverse set of language and decision making tasks and demonstrate its effectiveness over state-of-the-art baselines, as well as improved human interpretability and trustworthiness over methods without reasoning or acting components. Concretely, on question answering (HotpotQA) and fact verification (Fever), ReAct overcomes issues of hallucination and error propagation prevalent in chain-of-thought reasoning by interacting with a simple Wikipedia API, and generates human-like task-solving trajectories that are more interpretable than baselines without reasoning traces. On two interactive decision making benchmarks (ALFWorld and WebShop), ReAct outperforms imitation and reinforcement learning methods by an absolute success rate of 34% and 10% respectively, while being prompted with only one or two in-context examples. Project site with code: https://react-lm.github.io",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 38,
+   "sources": [
+    "arxiv",
+    "openalex",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2608.23104": {
+   "id": "2608.23104",
+   "title": "Molecular LLM Agents: From Architectural Design to Scientific Autonomy",
+   "authors": [
+    "Jiatong Li",
+    "Wengyu Zhang",
+    "Weida Wang",
+    "Yuxuan Ren",
+    "Wei Liu",
+    "Chenyang Mao",
+    "Yuqiang Li",
+    "Yatao Bian",
+    "Changmeng Zheng",
+    "Xiaoyong Wei",
+    "Qing Li"
+   ],
+   "published": "2026-08-24",
+   "abstract": "Molecular science represents an important frontier for LLM-based agents. Unlike general agents that mainly operate over natural language, code, or web environments, molecular LLM agents must perceive, reason about, and act upon chemical objects across symbolic strings, molecular graphs, 3D conformations, spectra, simulations, and wet-lab measurements. Their capabilities depend on chemically faithful molecular perception, an LLM-centered agent framework, domain-specific tool grounding, and computational or experimental feedback, in addition to planning and tool use. This work develops a conceptual framework for molecular LLM agents from two complementary perspectives. First, we introduce an architectural view of molecular-agent design, covering molecular representation and perception, the agent framework, domain-specific toolboxes, and learning and optimization. Second, we propose a scientific autonomy ladder inspired by staged autonomy in engineering systems, categorizing agents into four levels: L1 assistive or fixed workflows, L2 adaptive computational agents, L3 feedback-aware physical experiment agents, and L4 scientific-agenda agents. Together, these two perspectives establish a comprehensive framework for comparing existing molecular LLM agents, identifying missing capabilities and deployment risks, and guiding the design, evaluation, and deployment of future agents in molecular discovery workflows.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2606.03303": {
+   "id": "2606.03303",
+   "title": "LEAP: Supercharging LLMs for Formal Mathematics with Agentic Frameworks",
+   "authors": [
+    "Po-Nien Kung",
+    "Linfeng Song",
+    "Dawsen Hwang",
+    "Jinsung Yoon",
+    "Chun-Liang Li",
+    "Simone Severini",
+    "Mirek Olšák",
+    "Edward Lockhart",
+    "Quoc V Le",
+    "Burak Gokturk",
+    "Thang Luong",
+    "Tomas Pfister",
+    "Nanyun Peng"
+   ],
+   "published": "2026-06-02",
+   "abstract": "Large Language Models (LLMs) exhibit strong informal mathematical reasoning but struggle to generate mechanically verifiable proofs in formal languages like Lean. We present LEAP, an agentic framework that enables general-purpose foundation models to achieve state-of-the-art performance on automated formal theorem proving. LEAP leverages foundation model capabilities, such as informal reasoning, instruction following, and iterative self-refinement. By decomposing complex problems into smaller units, the system bridges formal proof construction with informal blueprints through continuous interaction with the Lean compiler. To provide a rigorous evaluation beyond increasingly saturated benchmarks, we introduce Lean-IMO-Bench, a benchmark of IMO-style problems formalized in Lean, with short statements yet highly non-routine and multi-step proofs across a wide range of difficulty levels. Empirically, on the latest 2025 Putnam Competition, an annual mathematics competition for undergraduate students in North America, LEAP solves all 12 problems, matching recent breakthroughs by frontier formal mathematical models. On Lean-IMO-Bench, LEAP boosts the one-shot formal solve rate of general-purpose LLMs from below 10% to 70%, notably surpassing the 48% benchmark set by a specialized, gold-medal-caliber IMO system. Furthermore, we demonstrate LEAP's research-level utility by autonomously formalizing complex proofs for open combinatorial challenges, including a verified proof for a key subproblem in Knuth's Hamiltonian decomposition of even-order Cayley graphs.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.24808": {
+   "id": "2604.24808",
+   "title": "ITAS: A Multi-Agent Architecture for LLM-Based Intelligent Tutoring",
+   "authors": [
+    "Iizalaarab Elhaimeur",
+    "Nikos Chrisochoides"
+   ],
+   "published": "2026-04-27",
+   "abstract": "Large language model tutors are easy to build in a notebook and hard to run in a real course. We describe ITAS (Intelligent Teaching Assistant System), a multi-agent tutoring system that a graduate quantum computing course used for a semester at Old Dominion University. The system has three layers. The teaching layer is a Spoke-and-Wheel of three parallel specialist agents (Video, Code, Guidance) followed by a Synthesizer, plus a separate autograder that evaluates both the correctness and the approach of checkpoint submissions. The operational layer is four Cloud Run microservices with session state in Cloud SQL and interaction events streamed through Pub/Sub to BigQuery. The feedback layer is a narrow-scope conversational agent that answers instructor questions over per-lesson pseudonymized event streams, addressing what we call the Blind Instructor Problem: LLM tutors accumulate more data about students than the instructor can reach through routine channels. The architecture is a direct response to specific failures of an earlier prototype, and we describe which of those fixes carried forward and which were dropped for this iteration. We report on a pilot deployment (five students, one course, one semester) interpreted as system-behavior evidence rather than learning-outcome evidence: the teaching layer handled 334 chat turns without the task-boundary hallucinations that domain consolidation would have risked, the operational layer captured 10,628 events across five modules, and the feedback layer surfaced two findings the instructor acted on mid-semester. We do not claim the pilot generalizes. We do claim that the system as described is one workable answer to the question of what an LLM-based ITS needs to look like end-to-end to run in a real course.",
+   "categories": [
+    "cs.MA",
+    "cs.AI",
+    "cs.CY",
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.12710": {
+   "id": "2603.12710",
+   "title": "AI Planning Framework for LLM-Based Web Agents",
+   "authors": [
+    "Orit Shahnovsky",
+    "Rotem Dror"
+   ],
+   "published": "2026-03-13",
+   "abstract": "Developing autonomous agents for web-based tasks is a core challenge in AI. While Large Language Model (LLM) agents can interpret complex user requests, they often operate as black boxes, making it difficult to diagnose why they fail or how they plan. This paper addresses this gap by formally treating web tasks as sequential decision-making processes. We introduce a taxonomy that maps modern agent architectures to traditional planning paradigms: Step-by-Step agents to Breadth-First Search (BFS), Tree Search agents to Best-First Tree Search, and Full-Plan-in-Advance agents to Depth-First Search (DFS). This framework allows for a principled diagnosis of system failures like context drift and incoherent task decomposition. To evaluate these behaviors, we propose five novel evaluation metrics that assess trajectory quality beyond simple success rates. We support this analysis with a new dataset of 794 human-labeled trajectories from the WebArena benchmark. Finally, we validate our evaluation framework by comparing a baseline Step-by-Step agent against a novel Full-Plan-in-Advance implementation. Our results reveal that while the Step-by-Step agent aligns more closely with human gold trajectories (38% overall success), the Full-Plan-in-Advance agent excels in technical measures such as element accuracy (89%), demonstrating the necessity of our proposed metrics for selecting appropriate agent architectures based on specific application constraints.",
+   "categories": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2511.01824": {
+   "id": "2511.01824",
+   "title": "Simulating Environments with Reasoning Models for Agent Training",
+   "authors": [
+    "Yuetai Li",
+    "Huseyin A Inan",
+    "Xiang Yue",
+    "Wei-Ning Chen",
+    "Lukas Wutschitz",
+    "Janardhan Kulkarni",
+    "Radha Poovendran",
+    "Robert Sim",
+    "Saravan Rajmohan"
+   ],
+   "published": "2025-11-03",
+   "abstract": "LLM agents excel in compact environments requiring deep reasoning but remain brittle when operating in broader, more complex contexts that demand robustness across diverse tools and schemas. Building bespoke environments for training is heavy, brittle, and limits progress. In this paper, we demonstrate that LLMs can simulate realistic environment feedback without access to actual testbed data or APIs. Inspired by this capability, we propose two frameworks: Simia-SFT, a pipeline that synthesizes SFT data by amplifying small seed sets into diverse trajectories in an environment-agnostic manner, and Simia-RL, a framework that enables RL training without real environment implementations through LLM-simulated feedback. Fine-tuning open models yields consistent improvements across multiple benchmarks, surpassing GPT-4o and approaching o4-mini on $τ^2$-Bench. Together, Simia-SFT and Simia-RL enable scalable agent training without environment engineering, replacing heavy and brittle implementations with flexible LLM-based simulation.",
+   "categories": [
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 2,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2509.13642": {
+   "id": "2509.13642",
+   "title": "LLM-I: LLMs are Naturally Interleaved Multimodal Creators",
+   "authors": [
+    "Zirun Guo",
+    "Feng Zhang",
+    "Kai Jia",
+    "Tao Jin"
+   ],
+   "published": "2025-09-17",
+   "abstract": "We propose LLM-Interleaved (LLM-I), a flexible and dynamic framework that reframes interleaved image-text generation as a tool-use problem. LLM-I is designed to overcome the \"one-tool\" bottleneck of current unified models, which are limited to synthetic imagery and struggle with tasks requiring factual grounding or programmatic precision. Our framework empowers a central LLM or MLLM agent to intelligently orchestrate a diverse toolkit of specialized visual tools, including online image search, diffusion-based generation, code execution, and image editing. The agent is trained to select and apply these tools proficiently via a Reinforcement Learning (RL) framework that features a hybrid reward system combining rule-based logic with judgments from LLM and MLLM evaluators. Trained on a diverse new dataset using four different model backbones, LLM-I demonstrates state-of-the-art performance, outperforming existing methods by a large margin across four benchmarks. We also introduce a novel test-time scaling strategy that provides further performance gains. Project Page: https://github.com/ByteDance-BandAI/LLM-I.",
+   "categories": [
+    "cs.LG",
+    "cs.CV"
+   ],
+   "upvotes": 9,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2503.11074": {
+   "id": "2503.11074",
+   "title": "Exploring the Necessity of Reasoning in LLM-based Agent Scenarios",
+   "authors": [
+    "Xueyang Zhou",
+    "Guiyao Tie",
+    "Guowen Zhang",
+    "Weidong Wang",
+    "Zhigang Zuo",
+    "Di Wu",
+    "Duanfeng Chu",
+    "Pan Zhou",
+    "Neil Zhenqiang Gong",
+    "Lichao Sun"
+   ],
+   "published": "2025-03-14",
+   "abstract": "The rise of Large Reasoning Models (LRMs) signifies a paradigm shift toward advanced computational reasoning. Yet, this progress disrupts traditional agent frameworks, traditionally anchored by execution-oriented Large Language Models (LLMs). To explore this transformation, we propose the LaRMA framework, encompassing nine tasks across Tool Usage, Plan Design, and Problem Solving, assessed with three top LLMs (e.g., Claude3.5-sonnet) and five leading LRMs (e.g., DeepSeek-R1). Our findings address four research questions: LRMs surpass LLMs in reasoning-intensive tasks like Plan Design, leveraging iterative reflection for superior outcomes; LLMs excel in execution-driven tasks such as Tool Usage, prioritizing efficiency; hybrid LLM-LRM configurations, pairing LLMs as actors with LRMs as reflectors, optimize agent performance by blending execution speed with reasoning depth; and LRMs' enhanced reasoning incurs higher computational costs, prolonged processing, and behavioral challenges, including overthinking and fact-ignoring tendencies. This study fosters deeper inquiry into LRMs' balance of deep thinking and overthinking, laying a critical foundation for future agent design advancements.",
+   "categories": [
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": 2,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2606.06090": {
+   "id": "2606.06090",
+   "title": "Beyond Semantic Organization: Memory as Execution State Management for Long-Horizon Agents",
+   "authors": [
+    "Yaoqi Chen",
+    "Haibin Lai",
+    "Yuru Feng",
+    "Chuyu Han",
+    "Qianxi Zhang",
+    "Baotong Lu",
+    "Menghao Li",
+    "Xinjiang Wang",
+    "Zhirui Wang",
+    "Shusen Xu",
+    "Zengzhong Li",
+    "Zewen Jin",
+    "Hao Wu",
+    "Cheng Li",
+    "Qi Chen"
+   ],
+   "published": "2026-06-04",
+   "abstract": "LLM-based agents increasingly tackle long-horizon tasks with interdependent decisions, where each action reshapes future constraints and intermediate errors can cascade. Existing RAG and agent memory systems organize histories by semantic similarity, retrieving content-relevant entries at decision time. We argue that this design mismatches execution-state dependencies: it fragments decision trajectories and mixes valid and erroneous traces, hindering coherent state reconstruction and error isolation. We propose MAGE (Memory as Agent-Guided Exploration), an active execution-state manager that stores interactions in a hierarchical state tree. The agent derives its state from the active root-to-current path, combining subgoal summaries, recent traces, and hints from prior branches. Four coupled operations maintain the tree: Grow records new traces, Compress summarizes completed subgoals, Maintain validates summaries, and Revise restores a target boundary and resumes on a new branch. This design bounds context growth while preserving state integrity and isolating flawed segments from the active path. Experiments on MemoryArena show that MAGE improves the average task success rate by 7.8--20.4 pp over baselines, while reducing token consumption by 55.1%.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": 1,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2505.15117": {
+   "id": "2505.15117",
+   "title": "An Empirical Study on Reinforcement Learning for Reasoning-Search Interleaved LLM Agents",
+   "authors": [
+    "Bowen Jin",
+    "Jinsung Yoon",
+    "Priyanka Kargupta",
+    "Sercan O. Arik",
+    "Jiawei Han"
+   ],
+   "published": "2025-05-21",
+   "abstract": "Reinforcement learning (RL) has demonstrated strong potential in training large language models (LLMs) capable of complex reasoning for real-world problem solving. More recently, RL has been leveraged to create sophisticated LLM-based search agents that adeptly combine reasoning with search engine use. While the use of RL for training search agents is promising, the optimal design of such agents remains not fully understood. In particular, key factors -- such as (1) reward formulation, (2) the choice and characteristics of the underlying LLM, and (3) the role of the search engine in the RL process -- require further investigation. In this work, we conduct comprehensive empirical studies to systematically investigate these and offer actionable insights. We highlight several key findings: format rewards are effective in improving final performance, whereas intermediate retrieval rewards have limited impact; the scale and initialization of the LLM (general-purpose vs. reasoning-specialized) significantly influence RL outcomes; and the choice of search engine plays a critical role in shaping RL training dynamics and the robustness of the trained agent during inference. These establish important guidelines for successfully building and deploying LLM-based search agents in real-world applications. Code is available at https://github.com/PeterGriffinJin/Search-R1.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.IR"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2504.19678": {
+   "id": "2504.19678",
+   "title": "From LLM Reasoning to Autonomous AI Agents: A Comprehensive Review",
+   "authors": [
+    "Mohamed Amine Ferrag",
+    "Norbert Tihanyi",
+    "Merouane Debbah"
+   ],
+   "published": "2025-04-28",
+   "abstract": "Large language models and autonomous AI agents have evolved rapidly, resulting in a diverse array of evaluation benchmarks, frameworks, and collaboration protocols. Driven by the growing need for standardized evaluation and integration, we systematically consolidate these fragmented efforts into a unified framework. However, the landscape remains fragmented and lacks a unified taxonomy or comprehensive survey. Therefore, we present a side-by-side comparison of benchmarks developed between 2019 and 2025 that evaluate these models and agents across multiple domains. In addition, we propose a taxonomy of approximately 60 benchmarks that cover general and academic knowledge reasoning, mathematical problem-solving, code generation and software engineering, factual grounding and retrieval, domain-specific evaluations, multimodal and embodied tasks, task orchestration, and interactive assessments. Furthermore, we review AI-agent frameworks introduced between 2023 and 2025 that integrate large language models with modular toolkits to enable autonomous decision-making and multi-step reasoning. Moreover, we present real-world applications of autonomous AI agents in materials science, biomedical research, academic ideation, software engineering, synthetic data generation, chemical reasoning, mathematical problem-solving, geographic information systems, multimedia, healthcare, and finance. We then survey key agent-to-agent collaboration protocols, namely the Agent Communication Protocol (ACP), the Model Context Protocol (MCP), and the Agent-to-Agent Protocol (A2A). Finally, we discuss recommendations for future research, focusing on advanced reasoning strategies, failure modes in multi-agent LLM systems, automated scientific discovery, dynamic tool integration via reinforcement learning, integrated search capabilities, and security vulnerabilities in agent protocols.",
+   "categories": [
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2411.13543": {
+   "id": "2411.13543",
+   "title": "BALROG: Benchmarking Agentic LLM and VLM Reasoning On Games",
+   "authors": [
+    "Davide Paglieri",
+    "Bartłomiej Cupiał",
+    "Samuel Coward",
+    "Ulyana Piterbarg",
+    "Maciej Wolczyk",
+    "Akbir Khan",
+    "Eduardo Pignatelli",
+    "Łukasz Kuciński",
+    "Lerrel Pinto",
+    "Rob Fergus",
+    "Jakob Nicolaus Foerster",
+    "Jack Parker-Holder",
+    "Tim Rocktäschel"
+   ],
+   "published": "2024-11-20",
+   "abstract": "Large Language Models (LLMs) and Vision Language Models (VLMs) possess extensive knowledge and exhibit promising reasoning abilities, however, they still struggle to perform well in complex, dynamic environments. Real-world tasks require handling intricate interactions, advanced spatial reasoning, long-term planning, and continuous exploration of new strategies-areas in which we lack effective methodologies for comprehensively evaluating these capabilities. To address this gap, we introduce BALROG, a novel benchmark designed to assess the agentic capabilities of LLMs and VLMs through a diverse set of challenging games. Our benchmark incorporates a range of existing reinforcement learning environments with varying levels of difficulty, including tasks that are solvable by non-expert humans in seconds to extremely challenging ones that may take years to master (e.g., the NetHack Learning Environment). We devise fine-grained metrics to measure performance and conduct an extensive evaluation of several popular open-source and closed-source LLMs and VLMs. Our findings indicate that while current models achieve partial success in the easier games, they struggle significantly with more challenging tasks. Notably, we observe severe deficiencies in vision-based decision-making, as several models perform worse when visual representations of the environments are provided. We release BALROG as an open and user-friendly benchmark to facilitate future research and development in the agentic community. Code and Leaderboard at balrogai.com.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.07915": {
+   "id": "2603.07915",
+   "title": "Ares: Adaptive Reasoning Effort Selection for Efficient LLM Agents",
+   "authors": [
+    "Jingbo Yang",
+    "Bairu Hou",
+    "Wei Wei",
+    "Yujia Bao",
+    "Shiyu Chang"
+   ],
+   "published": "2026-03-09",
+   "abstract": "Modern agents powered by thinking LLMs achieve high accuracy through long chain-of-thought reasoning but incur substantial inference costs. While many LLMs now support configurable reasoning levels (e.g., high/medium/low), static strategies are often ineffective: using low-effort modes at every step leads to significant performance degradation, while random selection fails to preserve accuracy or provide meaningful cost reduction. However, agents should reserve high reasoning effort for difficult steps like navigating complex website structures, while using lower-effort modes for simpler steps like opening a target URL. In this paper, we propose Ares, a framework for per-step dynamic reasoning effort selection tailored for multi-step agent tasks. Ares employs a lightweight router to predict the lowest appropriate reasoning level for each step based on the interaction history. To train this router, we develop a data generation pipeline that identifies the minimum reasoning effort required for successful step completion. We then fine-tune the router to predict these levels, enabling plug-and-play integration for any LLM agents. We evaluate Ares on a diverse set of agent tasks, including TAU-Bench for tool use agents, BrowseComp-Plus for deep-research agents, and WebArena for web agents. Experimental results show that Ares reduces reasoning token usage by up to 52.7% compared to fixed high-effort reasoning, while introducing minimal degradation in task success rates.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2512.10931": {
+   "id": "2512.10931",
+   "title": "Asynchronous Reasoning: Training-Free Interactive Thinking LLMs",
+   "authors": [
+    "George Yakushev",
+    "Nataliia Babina",
+    "Masoud Vahid Dastgerdi",
+    "Vyacheslav Zhdanovskiy",
+    "Denis Kuznedelev",
+    "Alina Shutova",
+    "Max Ryabinin"
+   ],
+   "published": "2025-12-11",
+   "abstract": "Many state-of-the-art LLMs are trained to think before giving their answer. Reasoning can greatly improve language model capabilities, but it also makes them less interactive: given a new input, a model must stop thinking before it can respond. Real-world use cases such as voice-based or embodied assistants require an LLM agent to respond and adapt to additional information in real time, which is incompatible with sequential interactions. In contrast, humans can listen, think, and act asynchronously: we begin thinking about the problem while reading it and continue thinking while formulating the answer. In this work, we augment LLMs capable of reasoning to operate in a similar way without additional training. Our method uses the properties of positional embeddings to enable LLMs built for sequential generation to simultaneously think, listen, and write outputs. We evaluate our approach on math, commonsense, and safety reasoning: it allows models to generate accurate thinking-augmented answers while reducing time to first non-thinking token from minutes to ${\\le}$ 5s and the overall delays by up to $12{\\times}$.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2512.08300": {
+   "id": "2512.08300",
+   "title": "rSIM: Incentivizing Reasoning Capabilities of LLMs via Reinforced Strategy Injection",
+   "authors": [
+    "Sijia Chen",
+    "Baochun Li",
+    "Di Niu"
+   ],
+   "published": "2025-12-09",
+   "abstract": "Large language models (LLMs) are post-trained through reinforcement learning (RL) to evolve into Reasoning Language Models (RLMs), where the hallmark of this advanced reasoning is ``aha'' moments when they start to perform strategies, such as self-reflection and deep thinking, within chain of thoughts (CoTs). Motivated by this, this paper proposes a novel reinforced strategy injection mechanism (rSIM), that enables any LLM to become an RLM by employing a small planner to guide the LLM's CoT through the adaptive injection of reasoning strategies. To achieve this, the planner (leader agent) is jointly trained with an LLM (follower agent) using multi-agent RL (MARL), based on a leader-follower framework and straightforward rule-based rewards. Experimental results show that rSIM enables Qwen2.5-0.5B to become an RLM and significantly outperform Qwen2.5-14B. Moreover, the planner is generalizable: it only needs to be trained once and can be applied as a plug-in to substantially improve the reasoning capabilities of existing LLMs. In addition, the planner supports continual learning across various tasks, allowing its planning abilities to gradually improve and generalize to a wider range of problems.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2511.02234": {
+   "id": "2511.02234",
+   "title": "An Evaluation of Interleaved Instruction Tuning on Semantic Reasoning Performance in an Audio MLLM",
+   "authors": [
+    "Jiawei Liu",
+    "Enis Berk Çoban",
+    "Zarina Schevchenko",
+    "Hao Tang",
+    "Zhigang Zhu",
+    "Michael I Mandel",
+    "Johanna Devaney"
+   ],
+   "published": "2025-11-04",
+   "abstract": "Standard training for Multi-modal Large Language Models (MLLMs) involves concatenating non-textual information, like vision or audio, with a text prompt. This approach may not encourage deep integration of modalities, limiting the model's ability to leverage the core language model's reasoning capabilities. This work examined the impact of interleaved instruction tuning in an audio MLLM, where audio tokens are interleaved within the prompt. Using the Listen, Think, and Understand (LTU) model as a testbed, we conduct an experiment using the Synonym and Hypernym Audio Reasoning Dataset (SHARD), our newly created reasoning benchmark for audio-based semantic reasoning focusing on synonym and hypernym recognition. Our findings show that while even zero-shot interleaved prompting improves performance on our reasoning tasks, a small amount of fine-tuning using interleaved training prompts improves the results further, however, at the expense of the MLLM's audio labeling ability.",
+   "categories": [
+    "cs.MM",
+    "cs.CL",
+    "cs.SD"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2602.01672": {
+   "id": "2602.01672",
+   "title": "Adaptive Information Control for Search-Augmented LLM Reasoning",
+   "authors": [
+    "Siheng Xiong",
+    "Oguzhan Gungordu",
+    "James C. Kerce",
+    "Faramarz Fekri"
+   ],
+   "published": "2026-02-02",
+   "abstract": "Search-augmented reasoning agents interleave multi-step reasoning with external retrieval, but uncontrolled retrieval can introduce redundant evidence, saturate the context, and destabilize reinforcement learning (RL). Existing outcome-based RL methods provide only sparse terminal rewards, offering limited guidance for intermediate information-acquisition decisions. We propose DeepControl, an adaptive information-control framework based on information utility, a state-dependent estimate of the marginal value of retrieved evidence. The framework regulates information acquisition along two axes: extent, i.e., whether retrieval should continue, and resolution, i.e., how much retrieved detail should be exposed. It implements these controls through retrieval-continuation guidance, hierarchical granularity control, and an annealed control-forcing scheme. This enables the policy to internalize effective acquisition behavior during training and operate without external control at test time. Across seven benchmarks, DeepControl consistently outperforms strong RL and retrieval baselines without explicit information control; compared with Search-R1, it improves average performance by +9.4 and +8.6 points on Qwen2.5-7B and Qwen2.5-3B, respectively. Additional analyses show improved search effectiveness, training stability, and evidence utilization.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2210.03629",
+    "quote": "In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information.",
+    "claim": "The ReAct framework allows LLM agents to interleave reasoning traces with environment actions to improve planning and information gathering."
+   },
+   {
+    "paper_id": "2210.03629",
+    "quote": "On two interactive decision making benchmarks (ALFWorld and WebShop), ReAct outperforms imitation and reinforcement learning methods by an absolute success rate of 34% and 10% respectively, while being prompted with only one or two in-context examples.",
+    "claim": "Interleaving reasoning and acting significantly improves the success rate of LLM agents in interactive decision-making environments compared to standard imitation and reinforcement learning methods."
+   },
+   {
+    "paper_id": "2602.01672",
+    "quote": "Search-augmented reasoning agents interleave multi-step reasoning with external retrieval, but uncontrolled retrieval can introduce redundant evidence, saturate the context, and destabilize reinforcement learning (RL).",
+    "claim": "Uncontrolled interleaving of reasoning and retrieval can negatively impact agent performance by introducing redundant information and destabilizing reinforcement learning."
+   },
+   {
+    "paper_id": "2602.01672",
+    "quote": "We propose DeepControl, an adaptive information-control framework based on information utility, a state-dependent estimate of the marginal value of retrieved evidence. The framework regulates information acquisition along two axes: extent, i.e., whether retrieval should continue, and resolution, i.e., how much retrieved detail should be exposed.",
+    "claim": "The DeepControl framework improves agent performance by adaptively regulating the extent and resolution of information retrieved during interleaved reasoning."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "LLM agents can improve decision-making by interleaving reasoning and action, though adaptive control mechanisms are necessary to prevent performance degradation from redundant information {{p:2210.03629}} {{p:2602.01672}}.",
+   "paragraphs": [
+    "The ReAct framework enables agents to generate reasoning traces alongside task-specific actions, allowing the model to dynamically update plans and handle exceptions while gathering external information {{p:2210.03629}}. This approach has been shown to significantly outperform standard imitation and reinforcement learning methods in interactive environments {{p:2210.03629}}.",
+    "However, uncontrolled interleaving of reasoning and retrieval can introduce redundant data that destabilizes reinforcement learning and saturates the context window {{p:2602.01672}}. To address this, frameworks like DeepControl regulate the extent and resolution of information acquisition based on the marginal utility of retrieved evidence {{p:2602.01672}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2210.03629",
+     "contribution_quote": "In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information."
+    },
+    {
+     "paper_id": "2602.01672",
+     "contribution_quote": "We propose DeepControl, an adaptive information-control framework based on information utility, a state-dependent estimate of the marginal value of retrieved evidence."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": []
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "LLM agents can improve decision-making by interleaving reasoning and action, though adaptive control mechanisms are necessary to prevent performance degradation from redundant information [1] [2].",
+  "paragraphs": [
+   "The ReAct framework enables agents to generate reasoning traces alongside task-specific actions, allowing the model to dynamically update plans and handle exceptions while gathering external information [1]. This approach has been shown to significantly outperform standard imitation and reinforcement learning methods in interactive environments [1].",
+   "However, uncontrolled interleaving of reasoning and retrieval can introduce redundant data that destabilizes reinforcement learning and saturates the context window [2]. To address this, frameworks like DeepControl regulate the extent and resolution of information acquisition based on the marginal utility of retrieved evidence [2]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2210.03629",
+    "title": "ReAct: Synergizing Reasoning and Acting in Language Models",
+    "authors": "Shunyu Yao et al.",
+    "year": "2022",
+    "url": "https://arxiv.org/abs/2210.03629",
+    "contribution_quote": "In this paper, we explore the use of LLMs to generate both reasoning traces and task-specific actions in an interleaved manner, allowing for greater synergy between the two: reasoning traces help the model induce, track, and update action plans as well as handle exceptions, while actions allow it to interface with external sources, such as knowledge bases or environments, to gather additional information."
+   },
+   {
+    "n": 2,
+    "id": "2602.01672",
+    "title": "Adaptive Information Control for Search-Augmented LLM Reasoning",
+    "authors": "Siheng Xiong et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2602.01672",
+    "contribution_quote": "We propose DeepControl, an adaptive information-control framework based on information utility, a state-dependent estimate of the marginal value of retrieved evidence."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 100,
+    "tokens_out": 73,
+    "latency_ms": 1594,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 2,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What architectures or frameworks allow LLM agents to interleave reasoning traces with environment actions?",
+      "arms": [
+       "openalex:keyword",
+       "hf:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2569,
+       "arxiv:conceptual": 0.3071,
+       "arxiv:recent": 0.2477,
+       "hf:keyword": 0.2792,
+       "hf:conceptual": 0.3673,
+       "hf:recent": 0.1741,
+       "openalex:keyword": 0.3778,
+       "openalex:conceptual": 0.3457,
+       "openalex:recent": 0.1512
+      }
+     },
+     {
+      "subquestion": "How do reasoning-action interleaving strategies impact the performance of LLM agents in interactive environments?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.315,
+       "arxiv:conceptual": 0.2851,
+       "arxiv:recent": 0.3068,
+       "hf:keyword": 0.2397,
+       "hf:conceptual": 0.3443,
+       "hf:recent": 0.1518,
+       "openalex:keyword": 0.439,
+       "openalex:conceptual": 0.4855,
+       "openalex:recent": 0.1968
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 2,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 17
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 3,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 5025,
+    "tokens_out": 484,
+    "latency_ms": 2109,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 3,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 1746,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1296,
+    "tokens_out": 414,
+    "latency_ms": 1741,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 1750,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": []
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 2475,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1052,
+    "tokens_out": 26,
+    "latency_ms": 723,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 2475,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 2475,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:56:08+00:00",
+ "updated_at": "2026-10-08T23:56:10+00:00"
+}

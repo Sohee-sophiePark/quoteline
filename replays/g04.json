@@ -1,0 +1,793 @@
+{
+ "run_id": "g04",
+ "question": "How does direct preference optimization align language models without a reward model?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What is the mathematical formulation of direct preference optimization for language model alignment?"
+   },
+   {
+    "text": "How does direct preference optimization eliminate the need for a separate reward model during training?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What is the mathematical formulation of direct preference optimization for language model alignment?",
+   "arms": [
+    "openalex:keyword",
+    "arxiv:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.1688,
+    "arxiv:conceptual": 0.2486,
+    "arxiv:recent": 0.1476,
+    "hf:keyword": 0.1519,
+    "hf:conceptual": 0.2159,
+    "hf:recent": 0.1089,
+    "openalex:keyword": 0.2953,
+    "openalex:conceptual": 0.2328,
+    "openalex:recent": 0.166
+   }
+  },
+  {
+   "subquestion": "How does direct preference optimization eliminate the need for a separate reward model during training?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2104,
+    "arxiv:conceptual": 0.199,
+    "arxiv:recent": 0.1955,
+    "hf:keyword": 0.0988,
+    "hf:conceptual": 0.1829,
+    "hf:recent": 0.0747,
+    "openalex:keyword": 0.3228,
+    "openalex:conceptual": 0.3581,
+    "openalex:recent": 0.2021
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:keyword|What is the mathematical formulation of direct preference optimization for language model alignment?": [
+   "2406.14868",
+   "2601.22170",
+   "2602.09533",
+   "2406.09215",
+   "2605.20696"
+  ],
+  "arxiv:conceptual|What is the mathematical formulation of direct preference optimization for language model alignment?": [
+   "2407.14477",
+   "2310.11523",
+   "2205.15231",
+   "2505.20977",
+   "2111.05906"
+  ],
+  "openalex:conceptual|How does direct preference optimization eliminate the need for a separate reward model during training?": [
+   "2405.19316",
+   "2409.03650",
+   "2404.13846",
+   "2405.14734",
+   "2506.03557"
+  ],
+  "openalex:keyword|How does direct preference optimization eliminate the need for a separate reward model during training?": [
+   "2309.16240",
+   "2404.13846",
+   "2605.20696",
+   "2506.03557",
+   "2602.00931"
+  ]
+ },
+ "papers": {
+  "2406.14868": {
+   "id": "2406.14868",
+   "title": "Direct Multi-Turn Preference Optimization for Language Agents",
+   "authors": [
+    "Wentao Shi",
+    "Mengqi Yuan",
+    "Junkang Wu",
+    "Qifan Wang",
+    "Fuli Feng"
+   ],
+   "published": "2024-06-21",
+   "abstract": "Adapting Large Language Models (LLMs) for agent tasks is critical in developing language agents. Direct Preference Optimization (DPO) is a promising technique for this adaptation with the alleviation of compounding errors, offering a means to directly optimize Reinforcement Learning (RL) objectives. However, applying DPO to multi-turn tasks presents challenges due to the inability to cancel the partition function. Overcoming this obstacle involves making the partition function independent of the current state and addressing length disparities between preferred and dis-preferred trajectories. In this light, we replace the policy constraint with the state-action occupancy measure constraint in the RL objective and add length normalization to the Bradley-Terry model, yielding a novel loss function named DMPO for multi-turn agent tasks with theoretical explanations. Extensive experiments on three multi-turn agent task datasets confirm the effectiveness and superiority of the DMPO loss. The code is available at https://github.com/swt-user/DMPO.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2601.22170": {
+   "id": "2601.22170",
+   "title": "Large Language Models: A Mathematical Formulation",
+   "authors": [
+    "Ricardo Baptista",
+    "Andrew Stuart",
+    "Son Tran"
+   ],
+   "published": "2026-01-21",
+   "abstract": "Large language models (LLMs) process and predict sequences containing text to answer questions, and address tasks including document summarization, providing recommendations, writing software and solving quantitative problems. We provide a mathematical framework for LLMs by describing the encoding of text sequences into sequences of tokens, defining the architecture for next-token prediction models, explaining how these models are learned from data, and demonstrating how they are deployed to address a variety of tasks. The mathematical sophistication required to understand this material is not high, and relies on straightforward ideas from information theory, probability and optimization. Nonetheless, the combination of ideas resting on these different components from the mathematical sciences yields a complex algorithmic structure; and this algorithmic structure has demonstrated remarkable empirical successes. The mathematical framework established here provides a platform from which it is possible to formulate and address questions concerning the accuracy, efficiency and robustness of the algorithms that constitute LLMs. The framework also suggests directions for development of modified and new methodologies.",
+   "categories": [
+    "math.NA",
+    "cs.LG",
+    "stat.ML"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2602.09533": {
+   "id": "2602.09533",
+   "title": "Autoregressive Direct Preference Optimization",
+   "authors": [
+    "Masanari Oi",
+    "Mahiro Ukai",
+    "Masahiro Kaneko",
+    "Naoaki Okazaki",
+    "Nakamasa Inoue"
+   ],
+   "published": "2026-02-10",
+   "abstract": "Direct preference optimization (DPO) has emerged as a promising approach for aligning large language models (LLMs) with human preferences. However, the widespread reliance on the response-level Bradley-Terry (BT) model may limit its full potential, as the reference and learnable models are assumed to be autoregressive only after deriving the objective function. Motivated by this limitation, we revisit the theoretical foundations of DPO and propose a novel formulation that explicitly introduces the autoregressive assumption prior to applying the BT model. By reformulating and extending DPO, we derive a novel variant, termed Autoregressive DPO (ADPO), that explicitly integrates autoregressive modeling into the preference optimization framework. Without violating the theoretical foundations, the derived loss takes an elegant form: it shifts the summation operation in the DPO objective outside the log-sigmoid function. Furthermore, through theoretical analysis of ADPO, we show that there exist two length measures to be considered when designing DPO-based algorithms: the token length $μ$ and the feedback length $μ'$. To the best of our knowledge, we are the first to explicitly distinguish these two measures and analyze their implications for preference optimization in LLMs.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2406.09215": {
+   "id": "2406.09215",
+   "title": "On Softmax Direct Preference Optimization for Recommendation",
+   "authors": [
+    "Yuxin Chen",
+    "Junfei Tan",
+    "An Zhang",
+    "Zhengyi Yang",
+    "Leheng Sheng",
+    "Enzhi Zhang",
+    "Xiang Wang",
+    "Tat-Seng Chua"
+   ],
+   "published": "2024-06-13",
+   "abstract": "Recommender systems aim to predict personalized rankings based on user preference data. With the rise of Language Models (LMs), LM-based recommenders have been widely explored due to their extensive world knowledge and powerful reasoning abilities. Most of the LM-based recommenders convert historical interactions into language prompts, pairing with a positive item as the target response and fine-tuning LM with a language modeling loss. However, the current objective fails to fully leverage preference data and is not optimized for personalized ranking tasks, which hinders the performance of LM-based recommenders. Inspired by the current advancement of Direct Preference Optimization (DPO) in human preference alignment and the success of softmax loss in recommendations, we propose Softmax-DPO (S-DPO) to instill ranking information into the LM to help LM-based recommenders distinguish preferred items from negatives, rather than solely focusing on positives. Specifically, we incorporate multiple negatives in user preference data and devise an alternative version of DPO loss tailored for LM-based recommenders, which is extended from the traditional full-ranking Plackett-Luce (PL) model to partial rankings and connected to softmax sampling strategies. Theoretically, we bridge S-DPO with the softmax loss over negative sampling and find that it has an inherent benefit of mining hard negatives, which assures its exceptional capabilities in recommendation tasks. Empirically, extensive experiments conducted on three real-world datasets demonstrate the superiority of S-DPO to effectively model user preference and further boost recommendation performance while providing better rewards for preferred items. Our codes are available at https://github.com/chenyuxin1999/S-DPO.",
+   "categories": [
+    "cs.IR",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2605.20696": {
+   "id": "2605.20696",
+   "title": "Distributed Direct Preference Optimization",
+   "authors": [
+    "Zhanhong Jiang"
+   ],
+   "published": "2026-05-20",
+   "abstract": "Preference-based reinforcement learning (RL) is a key paradigm for aligning policies with human judgments, yet its theoretical behavior in distributed settings where preference data are fragmented across heterogeneous users remains poorly understood. Direct Preference Optimization (DPO) avoids explicit reward modeling but lacks convergence guarantees under federated and decentralized training, where communication constraints and non-IID preferences fundamentally alter optimization dynamics. We provide the first convergence and time-complexity analysis of DPO in distributed environments. Modeling personalized offline RL with user-specific preference distributions, we characterize the induced global optimization landscape. For federated DPO, we derive convergence rates that quantify the impact of client drift, communication frequency, and preference heterogeneity; for decentralized DPO, we establish convergence over general communication graphs and show how spectral connectivity governs optimization speed and consensus. Empirically, we corroborate our theoretical insights on standard alignment benchmarks, demonstrating that our proposed methods not only enjoy strong theoretical guarantees but also deliver robust and scalable performance in practice. The code base is available here.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2407.14477": {
+   "id": "2407.14477",
+   "title": "Data-Centric Human Preference with Rationales for Direct Preference Alignment",
+   "authors": [
+    "Hoang Anh Just",
+    "Ming Jin",
+    "Anit Sahu",
+    "Huy Phan",
+    "Ruoxi Jia"
+   ],
+   "published": "2024-07-19",
+   "abstract": "Aligning language models with human preferences through reinforcement learning from human feedback is crucial for their safe and effective deployment. The human preference is typically represented through comparison where one response is chosen over another for a given prompt. However, standard preference datasets often lack explicit information on why a particular choice was made, presenting an ambiguity that can hinder efficient learning and robust alignment, especially given the high cost of acquiring extensive human annotations. While many studies focus on algorithmic improvements, this work adopts a data-centric perspective, exploring how to enhance learning from existing preference data. We propose augmenting standard preference pairs with rationales that explain the reasoning behind the human preference. Specifically, we introduce a simple and principled framework that leverages machine-generated rationales to enrich preference data for preference optimization algorithms. Our comprehensive analysis demonstrates that incorporating rationales improves learning efficiency. Extensive experiments reveal some advantages: rationale-augmented learning accelerates convergence and can achieve higher final model performance. Furthermore, this approach is versatile and compatible with various direct preference optimization algorithms. Our findings showcase the potential of thoughtful data design in preference learning, demonstrating that enriching existing datasets with explanatory rationales can help unlock improvements in model alignment and annotation efficiency.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2310.11523": {
+   "id": "2310.11523",
+   "title": "Group Preference Optimization: Few-Shot Alignment of Large Language Models",
+   "authors": [
+    "Siyan Zhao",
+    "John Dang",
+    "Aditya Grover"
+   ],
+   "published": "2023-10-17",
+   "abstract": "Many applications of large language models (LLMs), ranging from chatbots to creative writing, require nuanced subjective judgments that can differ significantly across different groups. Existing alignment algorithms can be expensive to align for each group, requiring prohibitive amounts of group-specific preference data and computation for real-world use cases. We introduce Group Preference Optimization (GPO), an alignment framework that steers language models to preferences of individual groups in a few-shot manner. In GPO, we augment the base LLM with an independent transformer module trained to predict the preferences of a group for the LLM generations. For few-shot learning, we parameterize this module as an in-context autoregressive transformer and train it via meta-learning on several groups. We empirically validate the efficacy of GPO through rigorous evaluations using LLMs with varied sizes on three human opinion adaptation tasks. These tasks involve adapting to the preferences of US demographic groups, global countries, and individual users. Our results demonstrate that GPO not only aligns models more accurately but also requires fewer group-specific preferences, and less training and inference computing resources, outperforming existing strategies such as in-context steering and fine-tuning methods.",
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2205.15231": {
+   "id": "2205.15231",
+   "title": "A Survey in Mathematical Language Processing",
+   "authors": [
+    "Jordan Meadows",
+    "Andre Freitas"
+   ],
+   "published": "2022-05-30",
+   "abstract": "Informal mathematical text underpins real-world quantitative reasoning and communication. Developing sophisticated methods of retrieval and abstraction from this dual modality is crucial in the pursuit of the vision of automating discovery in quantitative science and mathematics. We track the development of informal mathematical language processing approaches across five strategic sub-areas in recent years, highlighting the prevailing successful methodological elements along with existing limitations.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2505.20977": {
+   "id": "2505.20977",
+   "title": "Evaluating and Steering Modality Preferences in Multimodal Large Language Model",
+   "authors": [
+    "Yu Zhang",
+    "Jinlong Ma",
+    "Yongshuai Hou",
+    "Xuefeng Bai",
+    "Kehai Chen",
+    "Yang Xiang",
+    "Jun Yu",
+    "Min Zhang"
+   ],
+   "published": "2025-05-27",
+   "abstract": "Multi-modal large language models (MLLMs) have achieved remarkable success on complex multi-modal tasks. However, it remains insufficiently explored whether they exhibit $\\textbf{modality preference}$, a tendency to favor one modality over another when processing multi-modal contexts. To study this question, we introduce $\\textbf{MC\\textsuperscript{2}}$ benchmark, which constructs controlled evidence-conflict scenarios to systematically evaluate modality preference in decision-making. Extensive experiments reveal that all 20 tested MLLMs generally demonstrate clear modality preferences, and such preferences can serve as a useful indicator of downstream task performance of MLLMs. Further analysis shows that modality preference can be controlled by instruction guidance and captured within the latent representations of MLLMs. Built on these insights, we propose a probing and steering method based on representation engineering to explicitly control modality preference without requiring additional fine-tuning. This method effectively amplifies modality preference toward a desired direction and demonstrates promising improvements across multiple multi-modal understanding and reasoning tasks.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2111.05906": {
+   "id": "2111.05906",
+   "title": "Optimal control of a heroin epidemic mathematical model",
+   "authors": [
+    "Puthur Thangaraj Sowndarrajan",
+    "Lingeshwaran Shangerganesh",
+    "Amar Debbouche",
+    "Delfim F. M. Torres"
+   ],
+   "published": "2021-11-10",
+   "abstract": "A heroin epidemic mathematical model with prevention information and treatment, as control interventions, is analyzed, assuming that an individual's behavioral response depends on the spreading of information about the effects of heroin. Such information creates awareness, which helps individuals to participate in preventive education and self-protective schemes with additional efforts. We prove that the basic reproduction number is the threshold of local stability of a drug-free and endemic equilibrium. Then, we formulate an optimal control problem to minimize the total number of drug users and the cost associated with prevention education measures and treatment. We prove existence of an optimal control and derive its characterization through Pontryagin's maximum principle. The resulting optimality system is solved numerically. We observe that among all possible strategies, the most effective and cost-less is to implement both control policies.",
+   "categories": [
+    "math.OC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2405.19316": {
+   "id": "2405.19316",
+   "title": "Robust Preference Optimization through Reward Model Distillation",
+   "authors": [
+    "Adam Fisch",
+    "Jacob Eisenstein",
+    "Vicky Zayats",
+    "Alekh Agarwal",
+    "Ahmad Beirami",
+    "Chirag Nagpal",
+    "Pete Shaw",
+    "Jonathan Berant"
+   ],
+   "published": "2024-05-29",
+   "abstract": "Language model (LM) post-training (or alignment) involves maximizing a reward function that is derived from preference annotations. Direct Preference Optimization (DPO) is a popular offline alignment method that trains a policy directly on preference data without the need to train a reward model or apply reinforcement learning. However, the empirical evidence suggests that DPO typically assigns implicit rewards that overfit, and trend towards infinite magnitude. This frequently leads to degenerate policies, sometimes causing even the probabilities of the preferred generations to go to zero. In this work, we analyze this phenomenon and use distillation to get a better proxy for the true preference distribution over generation pairs: we train the LM such that its induced implicit reward, i.e., the scaled log-likelihood ratio of the model to the reference model, matches an explicit reward model trained on the preference data. Moreover, to account for uncertainty in the reward model we are distilling from, we optimize against a family of reward models that, as a whole, is likely to include at least one reasonable proxy for the preference distribution. Our results show that distilling from such a family of reward models leads to improved robustness to distribution shift in preference annotations, while preserving the simple supervised nature of DPO.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2409.03650": {
+   "id": "2409.03650",
+   "title": "On the Limited Generalization Capability of the Implicit Reward Model Induced by Direct Preference Optimization",
+   "authors": [
+    "Yong Lin",
+    "Skyler Seto",
+    "Maartje ter Hoeve",
+    "Katherine Metcalf",
+    "Barry-John Theobald",
+    "Xuan Wang",
+    "Yizhe Zhang",
+    "Chen Huang",
+    "Tong Zhang"
+   ],
+   "published": "2024-09-05",
+   "abstract": "Reinforcement Learning from Human Feedback (RLHF) is an effective approach for aligning language models to human preferences. Central to RLHF is learning a reward function for scoring human preferences. Two main approaches for learning a reward model are 1) training an EXplicit Reward Model (EXRM) as in RLHF, and 2) using an implicit reward learned from preference data through methods such as Direct Preference Optimization (DPO). Prior work has shown that the implicit reward model of DPO (denoted as DPORM) can approximate an EXRM in the limit. DPORM's effectiveness directly implies the optimality of the learned policy, and also has practical implication for LLM alignment methods including iterative DPO. However, it is unclear how well DPORM empirically matches the performance of EXRM. This work studies the accuracy at distinguishing preferred and rejected answers for both DPORM and EXRM. Our findings indicate that even though DPORM fits the training dataset comparably, it generalizes less effectively than EXRM, especially when the validation datasets contain distribution shifts. Across five out-of-distribution settings, DPORM has a mean drop in accuracy of 3% and a maximum drop of 7%. These findings highlight that DPORM has limited generalization ability and substantiates the integration of an explicit reward model in iterative DPO approaches.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2404.13846": {
+   "id": "2404.13846",
+   "title": "Filtered Direct Preference Optimization",
+   "authors": [
+    "Tetsuro Morimura",
+    "Mitsuki Sakamoto",
+    "Yuu Jinnai",
+    "Kenshi Abe",
+    "Kaito Ariu"
+   ],
+   "published": "2024-04-22",
+   "abstract": "Reinforcement learning from human feedback (RLHF) plays a crucial role in aligning language models with human preferences. While the significance of dataset quality is generally recognized, explicit investigations into its impact within the RLHF framework, to our knowledge, have been limited. This paper addresses the issue of text quality within the preference dataset by focusing on direct preference optimization (DPO), an increasingly adopted reward-model-free RLHF method. We confirm that text quality significantly influences the performance of models optimized with DPO more than those optimized with reward-model-based RLHF. Building on this new insight, we propose an extension of DPO, termed filtered direct preference optimization (fDPO). fDPO uses a trained reward model to monitor the quality of texts within the preference dataset during DPO training. Samples of lower quality are discarded based on comparisons with texts generated by the model being optimized, resulting in a more accurate dataset. Experimental results demonstrate that fDPO enhances the final model performance. Our code is available at https://github.com/CyberAgentAILab/filtered-dpo.",
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2405.14734": {
+   "id": "2405.14734",
+   "title": "SimPO: Simple Preference Optimization with a Reference-Free Reward",
+   "authors": [
+    "Yu Meng",
+    "Mengzhou Xia",
+    "Danqi Chen"
+   ],
+   "published": "2024-05-23",
+   "abstract": "Direct Preference Optimization (DPO) is a widely used offline preference optimization algorithm that reparameterizes reward functions in reinforcement learning from human feedback (RLHF) to enhance simplicity and training stability. In this work, we propose SimPO, a simpler yet more effective approach. The effectiveness of SimPO is attributed to a key design: using the average log probability of a sequence as the implicit reward. This reward formulation better aligns with model generation and eliminates the need for a reference model, making it more compute and memory efficient. Additionally, we introduce a target reward margin to the Bradley-Terry objective to encourage a larger margin between the winning and losing responses, further improving the algorithm's performance. We compare SimPO to DPO and its latest variants across various state-of-the-art training setups, including both base and instruction-tuned models such as Mistral, Llama 3, and Gemma 2. We evaluate on extensive chat-based evaluation benchmarks, including AlpacaEval 2, MT-Bench, and Arena-Hard. Our results demonstrate that SimPO consistently and significantly outperforms existing approaches without substantially increasing response length. Specifically, SimPO outperforms DPO by up to 6.4 points on AlpacaEval 2 and by up to 7.5 points on Arena-Hard. Our top-performing model, built on Gemma-2-9B-it, achieves a 72.4% length-controlled win rate on AlpacaEval 2, a 59.1% win rate on Arena-Hard, and ranks 1st on Chatbot Arena among <10B models with real user votes.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2506.03557": {
+   "id": "2506.03557",
+   "title": "BPO: Revisiting Preference Modeling in Direct Preference Optimization",
+   "authors": [
+    "Lin Sun",
+    "Chuang Liu",
+    "Peng Liu",
+    "Bingyang Li",
+    "Weijia Lu",
+    "Ning Wu"
+   ],
+   "published": "2025-06-04",
+   "abstract": "Direct Preference Optimization (DPO) have emerged as a popular method for aligning Large Language Models (LLMs) with human preferences. While DPO effectively preserves the relative ordering between chosen and rejected responses through pairwise ranking losses, it often neglects absolute reward magnitudes. This oversight can decrease the likelihood of chosen responses and increase the risk of generating out-of-distribution responses, leading to poor performance. We term this issue Degraded Chosen Responses (DCR).To address this issue, we propose Balanced Preference Optimization (BPO), a novel framework that dynamically balances the optimization of chosen and rejected responses through two key components: balanced reward margin and gap adaptor. Unlike previous methods, BPO can fundamentally resolve DPO's DCR issue, without introducing additional constraints to the loss function. Experimental results on multiple mathematical reasoning tasks show that BPO significantly outperforms DPO, improving accuracy by +10.1% with Llama-3.1-8B-Instruct (18.8% to 28.9%) and +11.7% with Qwen2.5-Math-7B (35.0% to 46.7%). It also surpasses DPO variants by +3.6% over IPO (43.1%), +5.0% over SLiC (41.7%), and +3.1% over Cal-DPO (43.6%) on the same model. Remarkably, our algorithm requires only a single line of code modification, making it simple to implement and fully compatible with existing DPO-based frameworks.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2309.16240": {
+   "id": "2309.16240",
+   "title": "Beyond Reverse KL: Generalizing Direct Preference Optimization with Diverse Divergence Constraints",
+   "authors": [
+    "Chaoqi Wang",
+    "Yibo Jiang",
+    "Chenghao Yang",
+    "Han Liu",
+    "Yuxin Chen"
+   ],
+   "published": "2023-09-28",
+   "abstract": "The increasing capabilities of large language models (LLMs) raise opportunities for artificial general intelligence but concurrently amplify safety concerns, such as potential misuse of AI systems, necessitating effective AI alignment. Reinforcement Learning from Human Feedback (RLHF) has emerged as a promising pathway towards AI alignment but brings forth challenges due to its complexity and dependence on a separate reward model. Direct Preference Optimization (DPO) has been proposed as an alternative, and it remains equivalent to RLHF under the reverse KL regularization constraint. This paper presents $f$-DPO, a generalized approach to DPO by incorporating diverse divergence constraints. We show that under certain $f$-divergences, including Jensen-Shannon divergence, forward KL divergences and $α$-divergences, the complex relationship between the reward and optimal policy can also be simplified by addressing the Karush-Kuhn-Tucker conditions. This eliminates the need for estimating the normalizing constant in the Bradley-Terry model and enables a tractable mapping between the reward function and the optimal policy. Our approach optimizes LLMs to align with human preferences in a more efficient and supervised manner under a broad set of divergence constraints. Empirically, adopting these divergences ensures a balance between alignment performance and generation diversity. Importantly, $f$-DPO outperforms PPO-based methods in divergence efficiency, and divergence constraints directly influence expected calibration error (ECE).",
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "stat.ML"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2602.00931": {
+   "id": "2602.00931",
+   "title": "Continuous-Utility Direct Preference Optimization",
+   "authors": [
+    "Muhammad Ahmed Mohsin",
+    "Muhammad Umer",
+    "Emily Fox"
+   ],
+   "published": "2026-01-31",
+   "abstract": "Large language model reasoning is often treated as a monolithic capability, relying on binary preference supervision that fails to capture partial progress or fine-grained reasoning quality. We introduce continuous utility direct preference optimization (CU-DPO), a framework that aligns models to a portfolio of prompt-based cognitive strategies by replacing binary labels with continuous scores that capture fine-grained reasoning quality. We prove that learning with K strategies yields a Theta(K log K) improvement in sample complexity over binary preferences and that DPO converges to the entropy-regularized utility-maximizing policy. To exploit this signal, we propose a two-stage pipeline: (i) strategy selection, which optimizes the model to choose the best strategy via best-vs-all comparisons, and (ii) execution refinement, which trains correct execution using margin-stratified pairs. The framework is domain-agnostic: any task admitting cognitively distinct solution strategies and a decomposable continuous utility signal can be incorporated into the portfolio. On mathematical reasoning benchmarks, CU-DPO improves strategy selection accuracy from 35-46% to 68-78% across seven base models, yielding downstream reasoning gains of up to +6.6 points on in-distribution datasets with effective out-of-distribution transfer. CU-DPO demonstrates consistent gains on code generation and causal reasoning benchmarks, confirming generalization beyond the mathematical domain.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2309.16240",
+    "quote": "Direct Preference Optimization (DPO) has been proposed as an alternative, and it remains equivalent to RLHF under the reverse KL regularization constraint.",
+    "claim": "Direct preference optimization is mathematically equivalent to reinforcement learning from human feedback when using a reverse KL regularization constraint."
+   },
+   {
+    "paper_id": "2309.16240",
+    "quote": "This eliminates the need for estimating the normalizing constant in the Bradley-Terry model and enables a tractable mapping between the reward function and the optimal policy.",
+    "claim": "Direct preference optimization eliminates the need for a separate reward model by establishing a direct mapping between the reward function and the optimal policy."
+   },
+   {
+    "paper_id": "2405.19316",
+    "quote": "Direct Preference Optimization (DPO) is a popular offline alignment method that trains a policy directly on preference data without the need to train a reward model or apply reinforcement learning.",
+    "claim": "Direct preference optimization trains a policy directly on preference data, bypassing the requirement for a separate reward model or reinforcement learning."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "Direct preference optimization simplifies language model alignment by replacing complex reinforcement learning and reward modeling with a direct mapping between preference data and the optimal policy {{p:2309.16240}} {{p:2405.19316}}.",
+   "paragraphs": [
+    "Direct preference optimization (DPO) functions by training a policy directly on preference data, which bypasses the requirement for a separate reward model or the application of reinforcement learning {{p:2405.19316}}.",
+    "This method is mathematically equivalent to reinforcement learning from human feedback under a reverse KL regularization constraint {{p:2309.16240}}. By establishing a tractable mapping between the reward function and the optimal policy, DPO eliminates the need to estimate the normalizing constant typically required in the Bradley-Terry model {{p:2309.16240}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2309.16240",
+     "contribution_quote": "This eliminates the need for estimating the normalizing constant in the Bradley-Terry model and enables a tractable mapping between the reward function and the optimal policy."
+    },
+    {
+     "paper_id": "2405.19316",
+     "contribution_quote": "Direct Preference Optimization (DPO) is a popular offline alignment method that trains a policy directly on preference data without the need to train a reward model or apply reinforcement learning."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": []
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "Direct preference optimization simplifies language model alignment by replacing complex reinforcement learning and reward modeling with a direct mapping between preference data and the optimal policy [1] [2].",
+  "paragraphs": [
+   "Direct preference optimization (DPO) functions by training a policy directly on preference data, which bypasses the requirement for a separate reward model or the application of reinforcement learning [2].",
+   "This method is mathematically equivalent to reinforcement learning from human feedback under a reverse KL regularization constraint [1]. By establishing a tractable mapping between the reward function and the optimal policy, DPO eliminates the need to estimate the normalizing constant typically required in the Bradley-Terry model [1]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2309.16240",
+    "title": "Beyond Reverse KL: Generalizing Direct Preference Optimization with Diverse Divergence Constraints",
+    "authors": "Chaoqi Wang et al.",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2309.16240",
+    "contribution_quote": "This eliminates the need for estimating the normalizing constant in the Bradley-Terry model and enables a tractable mapping between the reward function and the optimal policy."
+   },
+   {
+    "n": 2,
+    "id": "2405.19316",
+    "title": "Robust Preference Optimization through Reward Model Distillation",
+    "authors": "Adam Fisch et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2405.19316",
+    "contribution_quote": "Direct Preference Optimization (DPO) is a popular offline alignment method that trains a policy directly on preference data without the need to train a reward model or apply reinforcement learning."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 98,
+    "tokens_out": 67,
+    "latency_ms": 958,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 2,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What is the mathematical formulation of direct preference optimization for language model alignment?",
+      "arms": [
+       "openalex:keyword",
+       "arxiv:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.1688,
+       "arxiv:conceptual": 0.2486,
+       "arxiv:recent": 0.1476,
+       "hf:keyword": 0.1519,
+       "hf:conceptual": 0.2159,
+       "hf:recent": 0.1089,
+       "openalex:keyword": 0.2953,
+       "openalex:conceptual": 0.2328,
+       "openalex:recent": 0.166
+      }
+     },
+     {
+      "subquestion": "How does direct preference optimization eliminate the need for a separate reward model during training?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2104,
+       "arxiv:conceptual": 0.199,
+       "arxiv:recent": 0.1955,
+       "hf:keyword": 0.0988,
+       "hf:conceptual": 0.1829,
+       "hf:recent": 0.0747,
+       "openalex:keyword": 0.3228,
+       "openalex:conceptual": 0.3581,
+       "openalex:recent": 0.2021
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 2,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 17
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 3,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4600,
+    "tokens_out": 282,
+    "latency_ms": 1506,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 3,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 2866,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1058,
+    "tokens_out": 344,
+    "latency_ms": 2861,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 2869,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": []
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 3451,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 988,
+    "tokens_out": 26,
+    "latency_ms": 579,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 3451,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 3451,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:56:04+00:00",
+ "updated_at": "2026-10-08T23:56:08+00:00"
+}

@@ -1,0 +1,1043 @@
+{
+ "run_id": "g28",
+ "question": "What are the latest methods for compressing the KV cache in long-context LLM inference?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What are the latest techniques for KV cache compression in long-context LLM inference?"
+   },
+   {
+    "text": "How do recent methods reduce the memory footprint of the KV cache during long-context LLM generation?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What are the latest techniques for KV cache compression in long-context LLM inference?",
+   "arms": [
+    "openalex:keyword",
+    "hf:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2523,
+    "arxiv:conceptual": 0.2564,
+    "arxiv:recent": 0.2512,
+    "hf:keyword": 0.3017,
+    "hf:conceptual": 0.3784,
+    "hf:recent": 0.2099,
+    "openalex:keyword": 0.4309,
+    "openalex:conceptual": 0.2416,
+    "openalex:recent": 0.262
+   }
+  },
+  {
+   "subquestion": "How do recent methods reduce the memory footprint of the KV cache during long-context LLM generation?",
+   "arms": [
+    "openalex:keyword",
+    "openalex:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.3345,
+    "arxiv:conceptual": 0.2933,
+    "arxiv:recent": 0.3351,
+    "hf:keyword": 0.3222,
+    "hf:conceptual": 0.4049,
+    "hf:recent": 0.2225,
+    "openalex:keyword": 0.5534,
+    "openalex:conceptual": 0.4902,
+    "openalex:recent": 0.3431
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:keyword|What are the latest techniques for KV cache compression in long-context LLM inference?": [
+   "2502.00299",
+   "2607.00760",
+   "2412.02252",
+   "2609.03235",
+   "2603.20397"
+  ],
+  "hf:conceptual|What are the latest techniques for KV cache compression in long-context LLM inference?": [
+   "2412.10319",
+   "2503.17922",
+   "2503.11816",
+   "2502.01941",
+   "2606.09659"
+  ],
+  "openalex:keyword|How do recent methods reduce the memory footprint of the KV cache during long-context LLM generation?": [
+   "2512.06727",
+   "2604.22782",
+   "2601.10729",
+   "2507.11273",
+   "2606.03928"
+  ],
+  "openalex:conceptual|How do recent methods reduce the memory footprint of the KV cache during long-context LLM generation?": [
+   "2604.19769",
+   "2605.25475",
+   "2410.21465",
+   "2604.24647",
+   "2601.10729"
+  ]
+ },
+ "papers": {
+  "2502.00299": {
+   "id": "2502.00299",
+   "title": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+   "authors": [
+    "Xiang Liu",
+    "Zhenheng Tang",
+    "Peijie Dong",
+    "Zeyu Li",
+    "Yue Liu",
+    "Bo Li",
+    "Xuming Hu",
+    "Xiaowen Chu"
+   ],
+   "published": "2025-02-01",
+   "abstract": "Large Language Models (LLMs) require significant GPU memory when processing long texts, with the key value (KV) cache consuming up to 70\\% of total memory during inference. Although existing compression methods reduce memory by evaluating the importance of individual tokens, they overlook critical semantic relationships between tokens, resulting in fragmented context and degraded performance. We introduce ChunkKV, which fundamentally reimagines KV cache compression by treating semantic chunks - rather than isolated tokens - as basic compression units. This approach preserves complete linguistic structures and contextual integrity, ensuring that essential meaning is retained even under aggressive compression. Our innovation includes a novel layer-wise index reuse technique that exploits the higher cross-layer similarity of preserved indices in ChunkKV, reducing computational overhead and improving throughput by 26.5\\%. Comprehensive evaluations on challenging benchmarks: LongBench, Needle-In-A-HayStack, GSM8K, and JailbreakV demonstrate that ChunkKV outperforms state-of-the-art methods by up to 8.7\\% in precision while maintaining the same compression ratio. These results confirm that semantic-aware compression significantly enhances both efficiency and performance for long-context LLM inference, providing a simple yet effective solution to the memory bottleneck problem. The code is available at https://github.com/NVIDIA/kvpresslink.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2607.00760": {
+   "id": "2607.00760",
+   "title": "MosaicKV: Serving Long-Context LLM with Dynamic Two-D KV Cache Compression",
+   "authors": [
+    "Sheng Qiang",
+    "Ruiwei Chen",
+    "Yinpeng Wu",
+    "Jinyu Gu",
+    "Zhichao Hua",
+    "Yubin Xia",
+    "Binyu Zang",
+    "Haibo Chen"
+   ],
+   "published": "2026-07-01",
+   "abstract": "Long-context LLM services now sustain prompts with hundreds of thousands to millions of tokens, making the key-value (KV) cache a first-order serving cost. Because the cache grows linearly with context length, it can exhaust GPU memory, force smaller batches, and reduce serving throughput. Prior KV cache compression techniques typically target only the sequence dimension or only the channel dimension, which leaves limited headroom as context windows scale. Compressing both dimensions promises higher memory reduction, but applying the two forms of compression directly leads to significant accuracy loss. This paper introduces MosaicKV, a dynamic two-D (dimensional) KV cache compression system for extremely long-context serving. MosaicKV uses dynamic two-D compression to address the accuracy challenge, exploiting the non-uniform importance distribution of elements within the KV cache. Instead of applying one compression pattern globally, MosaicKV identifies important elements for each KV vector and selects compression strategies at the granularity of KV cache segments. To address the performance challenge, where fine-grained sparsity and compression management overhead can offset the gains from compression, MosaicKV introduces compressed KV cache management. This mechanism uses underutilized GPU and CPU resources to maintain compressed KV caches and accelerate attention computation. Evaluation on an H800 GPU with multiple LLMs shows that MosaicKV delivers up to 16x attention speedup, 4.8x lower decode latency, and 7.3x higher throughput than the uncompressed baseline. At the same time, it reduces memory usage by 3x and incurs only 1.76% average accuracy loss on LongBench and RULER.",
+   "categories": [
+    "cs.LG",
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2412.02252": {
+   "id": "2412.02252",
+   "title": "Compressing KV Cache for Long-Context LLM Inference with Inter-Layer Attention Similarity",
+   "authors": [
+    "Da Ma",
+    "Lu Chen",
+    "Situo Zhang",
+    "Yuxun Miao",
+    "Su Zhu",
+    "Zhi Chen",
+    "Hongshen Xu",
+    "Hanqi Li",
+    "Shuai Fan",
+    "Lei Pan",
+    "Kai Yu"
+   ],
+   "published": "2024-12-03",
+   "abstract": "The rapid expansion of context window sizes in Large Language Models (LLMs) has enabled them to tackle increasingly complex tasks involving lengthy documents. However, this progress comes at the cost of a substantial increase in memory usage during inference, primarily due to the linear growth of the key-value (KV) cache. Existing KV cache compression methods often discard less relevant tokens, which can lead to significant performance degradation when critical information is lost. In this paper, we propose PoD (Proximal tokens over Distant tokens), a novel KV cache compression framework that allocates memory according to token importance, retaining less important tokens in a more compact, shared form rather than discarding them entirely. Our approach is motivated by two key observations: (1) proximal tokens -- those at the beginning and end of the context -- are significantly more important for next-token prediction, and (2) attention scores for distant tokens are highly redundant across consecutive layers. Leveraging these insights, PoD preserves the full KV cache for proximal tokens, while for distant tokens, it shares key states across layers. Since attention scores are determined by both queries and keys, sharing key states enables multiple layers to reuse a single set of keys for distant tokens, substantially reducing KV cache memory without discarding essential context. We further introduce a lightweight post-training adaptation to enable the model to adjust to this new attention-sharing structure. Extensive experiments on both synthetic (Needle in a Haystack) and real-world long-context benchmarks demonstrate that PoD reduces KV cache memory usage by up to 35\\% without compromising performance. Our method is orthogonal to existing token-selection-based techniques and can be combined with them for further KV cache compression.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2609.03235": {
+   "id": "2609.03235",
+   "title": "SGD-KV: Summarization Guided KV Cache Compression",
+   "authors": [
+    "Zeyu Liu",
+    "Woomin Song",
+    "Xuandi Fu",
+    "Sai Muralidhar Jayanthi",
+    "Vivek Govindan",
+    "Aram Galstyan",
+    "Sravan Babu Bodapati",
+    "Srikanth Ronanki"
+   ],
+   "published": "2026-09-03",
+   "abstract": "Large language models (LLMs) face severe memory bottlenecks in long-context inference due to the linearly growing size of key-value (KV) caches. Existing KV cache compression techniques typically rely on simple heuristics, overlooking the distinct functional roles of different attention heads. We present SGD-KV (Summarization-Guided KV Cache Compression), a head-aware framework that leverages a novel chunk-summarization diagnostic task to systematically identify and prioritize attention heads specialized in hierarchical information aggregation. Experiments on Qwen2.5-7B-1M and Qwen3-32B across diverse long-context benchmarks demonstrate that SGD-KV achieves state-of-the-art performance with contexts up to 1M tokens, while reducing KV cache memory usage by up to 75%. Our findings show that strategically allocating the KV cache budget based on the summarization score distribution of attention heads yields a superior efficiency-accuracy trade-off for long-context inference.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.20397": {
+   "id": "2603.20397",
+   "title": "KV Cache Optimization Strategies for Scalable and Efficient LLM Inference",
+   "authors": [
+    "Yichun Xu",
+    "Navjot K. Khaira",
+    "Tejinder Singh"
+   ],
+   "published": "2026-03-20",
+   "abstract": "The key-value (KV) cache is a foundational optimization in Transformer-based large language models (LLMs), eliminating redundant recomputation of past token representations during autoregressive generation. However, its memory footprint scales linearly with context length, imposing critical bottlenecks on GPU memory capacity, memory bandwidth, and inference throughput as production LLMs push context windows from thousands to millions of tokens. Efficient KV cache management has thus become a first-order challenge for scalable LLM deployment. This paper provides a systematic review of recent KV cache optimization techniques, organizing them into five principal directions: cache eviction, cache compression, hybrid memory solutions, novel attention mechanisms, and combination strategies. For each category we analyze the underlying mechanisms, deployment trade-offs, and empirical performance across memory reduction, throughput, and model accuracy metrics. We further map techniques to seven practical deployment scenarios, including long-context single requests, high-throughput datacenter serving, edge devices, multi-turn conversations, and accuracy-critical reasoning, providing actionable guidance for practitioners selecting among competing approaches. Our analysis reveals that no single technique dominates across all settings; instead, the optimal strategy depends on context length, hardware constraints, and workload characteristics, pointing toward adaptive, multi-stage optimization pipelines as a promising direction for future research.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2412.10319": {
+   "id": "2412.10319",
+   "title": "SCBench: A KV Cache-Centric Analysis of Long-Context Methods",
+   "authors": [
+    "Yucheng Li",
+    "Huiqiang Jiang",
+    "Qianhui Wu",
+    "Xufang Luo",
+    "Surin Ahn",
+    "Chengruidong Zhang",
+    "Amir H. Abdi",
+    "Dongsheng Li",
+    "Jianfeng Gao",
+    "Yuqing Yang",
+    "Lili Qiu"
+   ],
+   "published": "2024-12-13",
+   "abstract": "Long-context LLMs have enabled numerous downstream applications but also introduced significant challenges related to computational and memory efficiency. To address these challenges, optimizations for long-context inference have been developed, centered around the KV cache. However, existing benchmarks often evaluate in single-request, neglecting the full lifecycle of the KV cache in real-world use. This oversight is particularly critical, as KV cache reuse has become widely adopted in LLMs inference frameworks, such as vLLM and SGLang, as well as by LLM providers, including OpenAI, Microsoft, Google, and Anthropic. To address this gap, we introduce SCBench(SharedContextBench), a comprehensive benchmark for evaluating long-context methods from a KV cachecentric perspective: 1) KV cache generation, 2) KV cache compression, 3) KV cache retrieval, 4) KV cache loading. Specifically, SCBench uses test examples with shared context, ranging 12 tasks with two shared context modes, covering four categories of long-context capabilities: string retrieval, semantic retrieval, global information, and multi-task. With it, we provide an extensive KV cache-centric analysis of eight categories long-context solutions, including Gated Linear RNNs, Mamba-Attention hybrids, and efficient methods such as sparse attention, KV cache dropping, quantization, retrieval, loading, and prompt compression. The evaluation is conducted on 8 long-context LLMs. Our findings show that sub-O(n) memory methods suffer in multi-turn scenarios, while sparse encoding with O(n) memory and sub-O(n^2) pre-filling computation perform robustly. Dynamic sparsity yields more expressive KV caches than static patterns, and layer-level sparsity in hybrid architectures reduces memory usage with strong performance. Additionally, we identify attention distribution shift issues in long-generation scenarios. https://aka.ms/SCBench.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": 11,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2503.17922": {
+   "id": "2503.17922",
+   "title": "WindowKV: Task-Adaptive Group-Wise KV Cache Window Selection for Efficient LLM Inference",
+   "authors": [
+    "Youhui Zuo",
+    "Sibo Wei",
+    "Chen Zhang",
+    "Zhuorui Liu",
+    "Wenpeng Lu",
+    "Dawei Song"
+   ],
+   "published": "2025-03-23",
+   "abstract": "With the advancements in long-context inference capabilities of large language models (LLMs), the KV cache has become one of the foundational components. However, its substantial GPU memory consumption makes KV cache compression a key technique for enabling efficient LLM inference in industrial scenarios. While recent studies have focused on optimizing the memory occupied by the KV cache, they overlook two critical factors: preserving semantic coherence and considering task-specific characteristic during compression. To address these limitations, we propose a novel task-adaptive KV cache window selection method, WindowKV. WindowKV dynamically selects local semantic windows consisting of consecutive tokens, according to task-specific characteristics, ensuring the retained KV cache captures continuous, essential context. Additionally, we introduce an intra-group layer KV cache indices sharing strategy to reduce computational overhead, achieving a balance between performance and efficiency. We rigorously evaluate WindowKV on the LongBench benchmark, and the results demonstrate that it maintains a performance comparable to full KV cache retention while using only 12% of the original KV cache, significantly reducing memory requirements. Furthermore, our method also achieves state-of-the-art results in the Needle-in-a-Haystack evaluation, highlighting its effectiveness and robustness.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2503.11816": {
+   "id": "2503.11816",
+   "title": "Key, Value, Compress: A Systematic Exploration of KV Cache Compression Techniques",
+   "authors": [
+    "Neusha Javidnia",
+    "Bita Darvish Rouhani",
+    "Farinaz Koushanfar"
+   ],
+   "published": "2025-03-14",
+   "abstract": "Large language models (LLMs) have demonstrated exceptional capabilities in generating text, images, and video content. However, as context length grows, the computational cost of attention increases quadratically with the number of tokens, presenting significant efficiency challenges. This paper presents an analysis of various Key-Value (KV) cache compression strategies, offering a comprehensive taxonomy that categorizes these methods by their underlying principles and implementation techniques. Furthermore, we evaluate their impact on performance and inference latency, providing critical insights into their effectiveness. Our findings highlight the trade-offs involved in KV cache compression and its influence on handling long-context scenarios, paving the way for more efficient LLM implementations.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2502.01941": {
+   "id": "2502.01941",
+   "title": "Semantic Integrity Matters: Benchmarking and Preserving High-Density Reasoning in KV Cache Compression",
+   "authors": [
+    "Xiang Liu",
+    "Zhenheng Tang",
+    "Hong Chen",
+    "Peijie Dong",
+    "Zeyu Li",
+    "Xiuze Zhou",
+    "Bo Li",
+    "Xuming Hu",
+    "Xiaowen Chu"
+   ],
+   "published": "2025-02-04",
+   "abstract": "While Key-Value (KV) cache compression is essential for efficient LLM inference, current evaluations disproportionately focus on sparse retrieval tasks, potentially masking the degradation of High-Density Reasoning where Chain-of-Thought (CoT) coherence is critical. We introduce KVFundaBench to systematically evaluate this gap, revealing a sharp dichotomy: while retrieval tasks remain robust, reasoning tasks exhibit severe Task-Dependent Degradation under aggressive compression due to disrupted CoT links. Extending our analysis to the DeepSeek-R1 model, we uncover that its specialized attention patterns offer unique insights into the fragility of reasoning chains. Guided by these findings -- specifically the necessity of preserving few-shot examples as indivisible Semantic Units -- we propose ShotKV. This approach explicitly separates prefill and decoding phases to prioritize semantic integrity. Empirical results demonstrate that ShotKV achieves 9%-18% accuracy improvements on long-context generation tasks and effectively generalizes to document QA, all while delivering an 11% latency reduction compared to full cache inference.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": 13,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2606.09659": {
+   "id": "2606.09659",
+   "title": "End-to-End Context Compression at Scale",
+   "authors": [
+    "Ang Li",
+    "Sean McLeish",
+    "Haozhe Chen",
+    "Nimit Kalra",
+    "Zaiqian Chen",
+    "Artem Gazizov",
+    "Venkata Anoop Suhas Kumar Morisetty",
+    "Bhavya Kailkhura",
+    "Harshitha Menon",
+    "Zhuang Liu",
+    "Brian R. Bartoldson",
+    "Tom Goldstein",
+    "Sanae Lotfi",
+    "Micah Goldblum",
+    "Pavel Izmailov"
+   ],
+   "published": "2026-06-08",
+   "abstract": "Long-context language model inference is bottlenecked by memory, as the KV cache grows with context length. Recent techniques to compress the KV cache fall short: they either degrade model quality substantially or require considerable time and compute to compress a single long prompt. Furthermore, many methods require the input to fit within the target model's context window, and are generally incompatible with modern production inference engines. Encoder-decoder compressors, which map a long token sequence to a shorter sequence of latent embeddings consumed by a decoder, are an appealing alternative in principle. However, existing approaches are not competitive with KV cache compression on the accuracy-efficiency frontier. In this work, we revisit encoder-decoder compression and close this gap. We first perform an architecture search, pre-training many variants from scratch to determine how best to design and train encoder-decoder compressors. Guided by our findings, we continually pre-train a family of 0.6B-encoder, 4B-decoder models on over 350B tokens each, at compression ratios of 1:4, 1:8, and 1:16. We introduce Latent Context Language Models (LCLMs), a family of compressors that improve the Pareto frontier across general-task performance, compression speed, and peak memory usage. We demonstrate that LCLMs serve as efficient backbones for long-horizon agents, letting the agent skim through a compressed long context and adaptively expand relevant segments on demand.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 28,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2512.06727": {
+   "id": "2512.06727",
+   "title": "KV-CAR: KV Cache Compression using Autoencoders and KV Reuse in Large Language Models",
+   "authors": [
+    "Sourjya Roy",
+    "Shrihari Sridharan",
+    "Surya Selvam",
+    "Anand Raghunathan"
+   ],
+   "published": "2025-12-07",
+   "abstract": "As Large Language Models (LLMs) scale in size and context length, the memory requirements of the key value (KV) cache have emerged as a major bottleneck during autoregressive decoding. The KV cache grows with sequence length and embedding dimension, often exceeding the memory footprint of the model itself and limiting achievable batch sizes and context windows. To address this challenge, we present KV CAR, a unified and architecture agnostic framework that significantly reduces KV cache storage while maintaining model fidelity. KV CAR combines two complementary techniques. First, a lightweight autoencoder learns compact representations of key and value tensors along the embedding dimension, compressing them before they are stored in the KV cache and restoring them upon retrieval. Second, a similarity driven reuse mechanism identifies opportunities to reuse KV tensors of specific attention heads across adjacent layers. Together, these methods reduce the dimensional and structural redundancy in KV tensors without requiring changes to the transformer architecture. Evaluations on GPT 2 and TinyLLaMA models across Wikitext, C4, PIQA, and Winogrande datasets demonstrate that KV CAR achieves up to 47.85 percent KV cache memory reduction with minimal impact on perplexity and zero shot accuracy. System level measurements on an NVIDIA A40 GPU show that the reduced KV footprint directly translates into longer sequence lengths and larger batch sizes during inference. These results highlight the effectiveness of KV CAR in enabling memory efficient LLM inference.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.22782": {
+   "id": "2604.22782",
+   "title": "Stochastic KV Routing: Enabling Adaptive Depth-Wise Cache Sharing",
+   "authors": [
+    "Anastasiia Filippova",
+    "David Grangier",
+    "Marco Cuturi",
+    "João Monteiro"
+   ],
+   "published": "2026-04-03",
+   "abstract": "Serving transformer language models with high throughput requires caching Key-Values (KVs) to avoid redundant computation during autoregressive generation. The memory footprint of KV caching is significant and heavily impacts serving costs. This work proposes to lessen these memory requirements. While recent work has largely addressed KV cache reduction via compression and eviction along the temporal axis, we argue that the depth dimension offers an orthogonal and robust avenue for optimization. Although prior research suggests that a full cache for every layer is redundant, implementing cross-layer cache sharing remains a practical challenge; existing methods typically suffer from reduced throughput or increased time-to-first-token. In this paper, we demonstrate that dropping a layer's cache offers efficient optimization without information loss. We propose a simple training approach: random cross-layer attention. During training, layers randomly choose to attend either to their own KV states or those of a preceding layer. This stochastic process adapts the model to be robust to various depth-wise cache sharing strategies, ensuring flexibility for unknown hardware constraints at deployment time. Our evaluations show that applying this scheme during pre-training or fine-tuning enables depth-wise cache sharing for various model families. Furthermore, for larger models in data-constrained settings, this approach is suggestive of a regularization-like effect, frequently preserving or improving performance while significantly reducing the cache's memory footprint.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2601.10729": {
+   "id": "2601.10729",
+   "title": "OrbitFlow: SLO-Aware Long-Context LLM Serving with Fine-Grained KV Cache Reconfiguration",
+   "authors": [
+    "Xinyue Ma",
+    "Heelim Hong",
+    "Taegeon Um",
+    "Jongseop Lee",
+    "Seoyeong Choy",
+    "Woo-Yeon Lee",
+    "Myeongjae Jeon"
+   ],
+   "published": "2026-01-05",
+   "abstract": "Serving long-context LLMs is challenging because request lengths and batch composition vary during token generation, causing the memory footprint to fluctuate significantly at runtime. Offloading KV caches to host memory limits effective memory usage, but existing static and predetermined offloading strategies cannot adapt to the rapidly shifting memory demands of long-context serving. This often leads to excessive CPU-to-GPU KV transfers that translate into latency spikes and frequent SLO violations. To address these challenges, we introduce OrbitFlow, a fine-grained and adaptive KV cache management system that meets latency SLOs in long-context LLM serving. OrbitFlow employs a lightweight ILP solver to decide which layers' KV caches to retain on the GPU for each request, within memory capacity constraints. It continuously refines KV placements based on runtime feedback when the active plan becomes suboptimal during token generation. Under heavy load, OrbitFlow invokes a fallback mechanism to temporarily defer in-flight requests with large memory footprints, preserving overall SLO attainment. Our experiments demonstrate that OrbitFlow improves SLO attainment for TPOT and TBT by up to 66% and 48%, respectively, while reducing the 95th percentile latency by 38% and achieving up to 3.3x higher throughput compared to existing offloading methods.",
+   "categories": [
+    "cs.AI",
+    "cs.LG",
+    "cs.PF"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2507.11273": {
+   "id": "2507.11273",
+   "title": "KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding",
+   "authors": [
+    "Luohe Shi",
+    "Zuchao Li",
+    "Lefei Zhang",
+    "Guoming Liu",
+    "Baoyuan Qi",
+    "Hai Zhao"
+   ],
+   "published": "2025-07-15",
+   "abstract": "Large language models (LLMs) based on Transformer Decoders have become the preferred choice for conversational generative AI. Despite the overall superiority of the Decoder architecture, the gradually increasing Key-Value (KV) cache during inference has emerged as a primary efficiency bottleneck, both in aspects of memory consumption and data transfer bandwidth limitations. To address these challenges, we propose a paradigm called KV-Latent. By down-sampling the Key-Value vector dimensions into a latent space, we can significantly reduce the KV Cache footprint and improve inference speed, only with a small amount of extra training, less than 1\\% of pre-training takes. Besides, we enhanced the stability of Rotary Positional Embedding applied on lower-dimensional vectors by modifying its frequency sampling mechanism, avoiding noise introduced by higher frequencies while retaining position attenuation. Our experiments, including both models with Grouped Query Attention and those without, have yielded satisfactory results. Finally, we conducted comparative experiments to study the impact of separately reducing Key and Value components on model's performance. Our approach allows for the construction of more efficient language model systems, and opens the new possibility on KV Cache saving and efficient LLMs. Our code is available at https://github.com/ShiLuohe/KV-Latent.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2606.03928": {
+   "id": "2606.03928",
+   "title": "Value-Aware Stochastic KV Cache Eviction for Reasoning Models",
+   "authors": [
+    "Ting-Yun Chang",
+    "Harvey Yiyun Fu",
+    "Deqing Fu",
+    "Chenghao Yang",
+    "Jesse Thomason",
+    "Robin Jia"
+   ],
+   "published": "2026-06-02",
+   "abstract": "Reasoning models improve accuracy through extended chains of thought, but their long outputs create a memory and compute bottleneck. KV cache eviction methods reduce this cost by evicting unimportant key-value pairs from the cache, yet they often yield worse accuracy than selection-based sparse attention alternatives, which keep the full KV cache. We identify key factors crucial to KV cache eviction accuracy. First, a small fraction of value states have abnormally large magnitudes, and evicting them causes catastrophic failure where models enter repetitive reasoning loops. Second, introducing stochasticity during eviction improves accuracy by increasing cache diversity. Based on these findings, we propose Value-aware Stochastic KV Cache Eviction (VaSE), a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions. Across six reasoning tasks, Qwen3 models using VaSE with 4x KV cache compression yield higher average accuracies than SOTA selection method at the same sparsity, while outperforming the strongest eviction method by more than 4%. Overall, VaSE bridges the gap between efficiency and accuracy, supporting FlashAttention2 and enabling a static memory footprint for reasoning models.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.19769": {
+   "id": "2604.19769",
+   "title": "TTKV: Temporal-Tiered KV Cache for Long-Context LLM Inference",
+   "authors": [
+    "Gradwell Dzikanyanga",
+    "Weihao Yang",
+    "Hao Huang",
+    "Donglei Wu",
+    "Shihao Wang",
+    "Wen Xia",
+    "Sanjeeb K C"
+   ],
+   "published": "2026-03-27",
+   "abstract": "Key-value (KV) caching is critical for efficient inference in large language models (LLMs), yet its memory footprint scales linearly with context length, resulting in a severe scalability bottleneck. Existing approaches largely treat KV states as equally important across time, implicitly assuming uniform precision and accessibility. However, this assumption contrasts with human memory systems, where memories vary in clarity, recall frequency, and relevance with temporal proximity.Motivated by this insight, we propose TTKV, a KV cache management framework that maps the human memory system onto the KV cache. TTKV partitions the KV cache into temporal tiers with heterogeneous capacity and precision. The design addresses three aspects: (1) Tier Layout, decoupling fast and slow memory using HBM and DRAM; (2) Tier Content, assigning more recent KV states to faster, higher-precision tiers based on temporal proximity; and (3) Tier Interaction, employing block-wise streaming attention to overlap communication and computation when accessing slow tiers. Experiments show that TTKV reduces cross-tier traffic by 5.94x on 128K-context tasks, achieving up to 76% latency reduction and 2x throughput improvement over strong baselines.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2605.25475": {
+   "id": "2605.25475",
+   "title": "IndexMem: Learned KV-Cache Eviction with Latent Memory for Long-Context LLM Inference",
+   "authors": [
+    "Xintong Yang",
+    "Hao Gu",
+    "Binxing Xu",
+    "Lujun Li",
+    "Bei Liu",
+    "Jiacheng Liu",
+    "Qiyuan Zhu",
+    "Yike Guo",
+    "Sirui Han"
+   ],
+   "published": "2026-05-25",
+   "abstract": "Large Language Models (LLMs) are increasingly expected to operate over long contexts, yet standard softmax attention incurs a KV cache that grows linearly with sequence length, quickly becoming the bottleneck for long context inference. A practical remedy is to evict less important KV entries; however, existing eviction policies are largely heuristic and struggle to capture the rich, input-dependent distribution of token importance. In this work, we introduce a learnable indexer that predicts KV importance, enabling more accurate retention of critical tokens. Meanwhile, naively evicting tokens permanently discards their information, leading to irreversible forgetting and degraded retrieval over long ranges. To address this, we propose a lightweight latent memory module that compresses evicted tokens into a compact, online-updated state and provides residual readouts to compensate for the attention contributions lost through KV eviction. Collectively, our method enables accurate long-context inference under a bounded KV budget, delivering consistent improvements on RULER (4K/16K) across Qwen, Mistral, and Llama models (up to 25 points under aggressive eviction), markedly more stable Needle-in-a-Haystack retrieval, and superior LongBench scores and compression curves compared to existing eviction policies.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2410.21465": {
+   "id": "2410.21465",
+   "title": "ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference",
+   "authors": [
+    "Hanshi Sun",
+    "Li-Wen Chang",
+    "Wenlei Bao",
+    "Size Zheng",
+    "Ningxin Zheng",
+    "Xin Liu",
+    "Harry Dong",
+    "Yuejie Chi",
+    "Beidi Chen"
+   ],
+   "published": "2024-10-28",
+   "abstract": "With the widespread deployment of long-context large language models (LLMs), there has been a growing demand for efficient support of high-throughput inference. However, as the key-value (KV) cache expands with the sequence length, the increasing memory footprint and the need to access it for each token generation both result in low throughput when serving long-context LLMs. While various dynamic sparse attention methods have been proposed to speed up inference while maintaining generation quality, they either fail to sufficiently reduce GPU memory consumption or introduce significant decoding latency by offloading the KV cache to the CPU. We present ShadowKV, a high-throughput long-context LLM inference system that stores the low-rank key cache and offloads the value cache to reduce the memory footprint for larger batch sizes and longer sequences. To minimize decoding latency, ShadowKV employs an accurate KV selection strategy that reconstructs minimal sparse KV pairs on-the-fly. By evaluating ShadowKV on a broad range of benchmarks, including RULER, LongBench, and Needle In A Haystack, and models like Llama-3.1-8B, Llama-3-8B-1M, GLM-4-9B-1M, Yi-9B-200K, Phi-3-Mini-128K, and Qwen2-7B-128K, we demonstrate that it can support up to 6$$ larger batch sizes and boost throughput by up to 3.04$$ on an A100 GPU without sacrificing accuracy, even surpassing the performance achievable with infinite batch size under the assumption of infinite GPU memory. The code is available at https://github.com/bytedance/ShadowKV.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.24647": {
+   "id": "2604.24647",
+   "title": "DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference",
+   "authors": [
+    "Zahra Dehghanighobadi",
+    "Asja Fischer"
+   ],
+   "published": "2026-04-27",
+   "abstract": "Long-context reasoning is a critical capability of large language models (LLMs), enabling applications such as long-document understanding, summarization, and code generation. However, efficient autoregressive inference relies on the key-value (KV) cache, whose memory footprint grows linearly with sequence length, leading to a major memory bottleneck. To mitigate this overhead, KV cache pruning methods discard cached tokens with low attention scores during inference. Most existing methods apply a uniform pruning ratio across layers, implicitly assuming that all layers contribute equally to overall model performance. We show that this assumption is suboptimal, as layers differ significantly in their sensitivity to pruning. We propose DepthKV, a layer-dependent pruning framework that allocates a fixed global KV budget across layers based on their sensitivity, rather than using a uniform allocation. Across multiple models and tasks, DepthKV consistently outperforms uniform pruning at the same global pruning ratio, demonstrating more effective utilization of the KV cache budget through layer-dependent allocation.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2502.00299",
+    "quote": "We introduce ChunkKV, which fundamentally reimagines KV cache compression by treating semantic chunks - rather than isolated tokens - as basic compression units.",
+    "claim": "ChunkKV compresses the KV cache by using semantic chunks as the basic unit of compression instead of individual tokens."
+   },
+   {
+    "paper_id": "2607.00760",
+    "quote": "MosaicKV uses dynamic two-D compression to address the accuracy challenge, exploiting the non-uniform importance distribution of elements within the KV cache.",
+    "claim": "MosaicKV reduces memory footprint by applying dynamic two-dimensional compression that accounts for the non-uniform importance of elements in the KV cache."
+   },
+   {
+    "paper_id": "2412.02252",
+    "quote": "we propose PoD (Proximal tokens over Distant tokens), a novel KV cache compression framework that allocates memory according to token importance, retaining less important tokens in a more compact, shared form rather than discarding them entirely.",
+    "claim": "PoD reduces memory usage by retaining important proximal tokens in full while sharing key states across layers for less important distant tokens."
+   },
+   {
+    "paper_id": "2609.03235",
+    "quote": "We present SGD-KV (Summarization-Guided KV Cache Compression), a head-aware framework that leverages a novel chunk-summarization diagnostic task to systematically identify and prioritize attention heads specialized in hierarchical information aggregation.",
+    "claim": "SGD-KV reduces memory usage by prioritizing attention heads that are specialized in hierarchical information aggregation based on a summarization-guided diagnostic task."
+   },
+   {
+    "paper_id": "2503.17922",
+    "quote": "WindowKV dynamically selects local semantic windows consisting of consecutive tokens, according to task-specific characteristics, ensuring the retained KV cache captures continuous, essential context.",
+    "claim": "WindowKV reduces memory footprint by dynamically selecting and retaining local semantic windows of consecutive tokens based on task-specific characteristics."
+   },
+   {
+    "paper_id": "2512.06727",
+    "quote": "KV CAR combines two complementary techniques. First, a lightweight autoencoder learns compact representations of key and value tensors along the embedding dimension, compressing them before they are stored in the KV cache and restoring them upon retrieval. Second, a similarity driven reuse mechanism identifies opportunities to reuse KV tensors of specific attention heads across adjacent layers.",
+    "claim": "KV CAR reduces memory footprint by using autoencoders to compress key and value tensors and by reusing KV tensors across adjacent layers."
+   },
+   {
+    "paper_id": "2604.22782",
+    "quote": "We propose a simple training approach: random cross-layer attention. During training, layers randomly choose to attend either to their own KV states or those of a preceding layer.",
+    "claim": "Depth-wise cache sharing is achieved by training models to randomly attend to KV states from preceding layers, allowing for the removal of redundant layer caches."
+   },
+   {
+    "paper_id": "2507.11273",
+    "quote": "By down-sampling the Key-Value vector dimensions into a latent space, we can significantly reduce the KV Cache footprint and improve inference speed",
+    "claim": "KV-Latent reduces the KV cache memory footprint by down-sampling key-value vector dimensions into a latent space."
+   },
+   {
+    "paper_id": "2606.03928",
+    "quote": "we propose Value-aware Stochastic KV Cache Eviction (VaSE), a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions.",
+    "claim": "VaSE reduces memory usage by evicting KV pairs while protecting large-magnitude value states and introducing stochasticity to maintain cache diversity."
+   },
+   {
+    "paper_id": "2410.21465",
+    "quote": "We present ShadowKV, a high-throughput long-context LLM inference system that stores the low-rank key cache and offloads the value cache to reduce the memory footprint for larger batch sizes and longer sequences.",
+    "claim": "ShadowKV reduces the memory footprint by storing low-rank key caches on the GPU and offloading value caches."
+   },
+   {
+    "paper_id": "2604.24647",
+    "quote": "We propose DepthKV, a layer-dependent pruning framework that allocates a fixed global KV budget across layers based on their sensitivity, rather than using a uniform allocation.",
+    "claim": "DepthKV reduces memory usage by pruning the KV cache using a layer-dependent allocation strategy based on layer sensitivity."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "Recent KV cache compression methods optimize memory by targeting semantic chunks, layer-specific sensitivity, or latent space representations to maintain performance during long-context inference {{p:2502.00299}} {{p:2604.24647}} {{p:2507.11273}}.",
+   "paragraphs": [
+    "To address memory bottlenecks, researchers are moving beyond token-level pruning by compressing semantic chunks {{p:2502.00299}} or utilizing task-adaptive windows to preserve essential context {{p:2503.17922}}. Other approaches focus on the structural redundancy of the cache, such as sharing key states across layers {{p:2412.02252}} {{p:2604.22782}} or using autoencoders to compress tensors along the embedding dimension {{p:2512.06727}}.",
+    "Advanced strategies also leverage the non-uniform importance of cache elements through dynamic two-dimensional compression {{p:2607.00760}} or by prioritizing specific attention heads based on diagnostic tasks {{p:2609.03235}}. Additionally, systems can optimize memory by offloading value caches {{p:2410.21465}}, down-sampling vectors into latent spaces {{p:2507.11273}}, or applying layer-dependent pruning based on sensitivity analysis {{p:2604.24647}}. Finally, training-free eviction methods protect high-magnitude value states to prevent performance degradation {{p:2606.03928}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2502.00299",
+     "contribution_quote": "We introduce ChunkKV, which fundamentally reimagines KV cache compression by treating semantic chunks - rather than isolated tokens - as basic compression units."
+    },
+    {
+     "paper_id": "2607.00760",
+     "contribution_quote": "MosaicKV uses dynamic two-D compression to address the accuracy challenge, exploiting the non-uniform importance distribution of elements within the KV cache."
+    },
+    {
+     "paper_id": "2412.02252",
+     "contribution_quote": "we propose PoD (Proximal tokens over Distant tokens), a novel KV cache compression framework that allocates memory according to token importance, retaining less important tokens in a more compact, shared form rather than discarding them entirely."
+    },
+    {
+     "paper_id": "2609.03235",
+     "contribution_quote": "We present SGD-KV (Summarization-Guided KV Cache Compression), a head-aware framework that leverages a novel chunk-summarization diagnostic task to systematically identify and prioritize attention heads specialized in hierarchical information aggregation."
+    },
+    {
+     "paper_id": "2503.17922",
+     "contribution_quote": "WindowKV dynamically selects local semantic windows consisting of consecutive tokens, according to task-specific characteristics, ensuring the retained KV cache captures continuous, essential context."
+    },
+    {
+     "paper_id": "2512.06727",
+     "contribution_quote": "KV CAR combines two complementary techniques. First, a lightweight autoencoder learns compact representations of key and value tensors along the embedding dimension, compressing them before they are stored in the KV cache and restoring them upon retrieval. Second, a similarity driven reuse mechanism identifies opportunities to reuse KV tensors of specific attention heads across adjacent layers."
+    },
+    {
+     "paper_id": "2604.22782",
+     "contribution_quote": "We propose a simple training approach: random cross-layer attention. During training, layers randomly choose to attend either to their own KV states or those of a preceding layer."
+    },
+    {
+     "paper_id": "2507.11273",
+     "contribution_quote": "By down-sampling the Key-Value vector dimensions into a latent space, we can significantly reduce the KV Cache footprint and improve inference speed"
+    },
+    {
+     "paper_id": "2606.03928",
+     "contribution_quote": "we propose Value-aware Stochastic KV Cache Eviction (VaSE), a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions."
+    },
+    {
+     "paper_id": "2410.21465",
+     "contribution_quote": "We present ShadowKV, a high-throughput long-context LLM inference system that stores the low-rank key cache and offloads the value cache to reduce the memory footprint for larger batch sizes and longer sequences."
+    },
+    {
+     "paper_id": "2604.24647",
+     "contribution_quote": "We propose DepthKV, a layer-dependent pruning framework that allocates a fixed global KV budget across layers based on their sensitivity, rather than using a uniform allocation."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": []
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "Recent KV cache compression methods optimize memory by targeting semantic chunks, layer-specific sensitivity, or latent space representations to maintain performance during long-context inference [1] [2] [3].",
+  "paragraphs": [
+   "To address memory bottlenecks, researchers are moving beyond token-level pruning by compressing semantic chunks [1] or utilizing task-adaptive windows to preserve essential context [4]. Other approaches focus on the structural redundancy of the cache, such as sharing key states across layers [5] [6] or using autoencoders to compress tensors along the embedding dimension [7].",
+   "Advanced strategies also leverage the non-uniform importance of cache elements through dynamic two-dimensional compression [8] or by prioritizing specific attention heads based on diagnostic tasks [9]. Additionally, systems can optimize memory by offloading value caches [10], down-sampling vectors into latent spaces [3], or applying layer-dependent pruning based on sensitivity analysis [2]. Finally, training-free eviction methods protect high-magnitude value states to prevent performance degradation [11]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2502.00299",
+    "title": "ChunkKV: Semantic-Preserving KV Cache Compression for Efficient Long-Context LLM Inference",
+    "authors": "Xiang Liu et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2502.00299",
+    "contribution_quote": "We introduce ChunkKV, which fundamentally reimagines KV cache compression by treating semantic chunks - rather than isolated tokens - as basic compression units."
+   },
+   {
+    "n": 2,
+    "id": "2604.24647",
+    "title": "DepthKV: Layer-Dependent KV Cache Pruning for Long-Context LLM Inference",
+    "authors": "Zahra Dehghanighobadi et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2604.24647",
+    "contribution_quote": "We propose DepthKV, a layer-dependent pruning framework that allocates a fixed global KV budget across layers based on their sensitivity, rather than using a uniform allocation."
+   },
+   {
+    "n": 3,
+    "id": "2507.11273",
+    "title": "KV-Latent: Dimensional-level KV Cache Reduction with Frequency-aware Rotary Positional Embedding",
+    "authors": "Luohe Shi et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2507.11273",
+    "contribution_quote": "By down-sampling the Key-Value vector dimensions into a latent space, we can significantly reduce the KV Cache footprint and improve inference speed"
+   },
+   {
+    "n": 4,
+    "id": "2503.17922",
+    "title": "WindowKV: Task-Adaptive Group-Wise KV Cache Window Selection for Efficient LLM Inference",
+    "authors": "Youhui Zuo et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2503.17922",
+    "contribution_quote": "WindowKV dynamically selects local semantic windows consisting of consecutive tokens, according to task-specific characteristics, ensuring the retained KV cache captures continuous, essential context."
+   },
+   {
+    "n": 5,
+    "id": "2412.02252",
+    "title": "Compressing KV Cache for Long-Context LLM Inference with Inter-Layer Attention Similarity",
+    "authors": "Da Ma et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2412.02252",
+    "contribution_quote": "we propose PoD (Proximal tokens over Distant tokens), a novel KV cache compression framework that allocates memory according to token importance, retaining less important tokens in a more compact, shared form rather than discarding them entirely."
+   },
+   {
+    "n": 6,
+    "id": "2604.22782",
+    "title": "Stochastic KV Routing: Enabling Adaptive Depth-Wise Cache Sharing",
+    "authors": "Anastasiia Filippova et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2604.22782",
+    "contribution_quote": "We propose a simple training approach: random cross-layer attention. During training, layers randomly choose to attend either to their own KV states or those of a preceding layer."
+   },
+   {
+    "n": 7,
+    "id": "2512.06727",
+    "title": "KV-CAR: KV Cache Compression using Autoencoders and KV Reuse in Large Language Models",
+    "authors": "Sourjya Roy et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2512.06727",
+    "contribution_quote": "KV CAR combines two complementary techniques. First, a lightweight autoencoder learns compact representations of key and value tensors along the embedding dimension, compressing them before they are stored in the KV cache and restoring them upon retrieval. Second, a similarity driven reuse mechanism identifies opportunities to reuse KV tensors of specific attention heads across adjacent layers."
+   },
+   {
+    "n": 8,
+    "id": "2607.00760",
+    "title": "MosaicKV: Serving Long-Context LLM with Dynamic Two-D KV Cache Compression",
+    "authors": "Sheng Qiang et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2607.00760",
+    "contribution_quote": "MosaicKV uses dynamic two-D compression to address the accuracy challenge, exploiting the non-uniform importance distribution of elements within the KV cache."
+   },
+   {
+    "n": 9,
+    "id": "2609.03235",
+    "title": "SGD-KV: Summarization Guided KV Cache Compression",
+    "authors": "Zeyu Liu et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2609.03235",
+    "contribution_quote": "We present SGD-KV (Summarization-Guided KV Cache Compression), a head-aware framework that leverages a novel chunk-summarization diagnostic task to systematically identify and prioritize attention heads specialized in hierarchical information aggregation."
+   },
+   {
+    "n": 10,
+    "id": "2410.21465",
+    "title": "ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference",
+    "authors": "Hanshi Sun et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2410.21465",
+    "contribution_quote": "We present ShadowKV, a high-throughput long-context LLM inference system that stores the low-rank key cache and offloads the value cache to reduce the memory footprint for larger batch sizes and longer sequences."
+   },
+   {
+    "n": 11,
+    "id": "2606.03928",
+    "title": "Value-Aware Stochastic KV Cache Eviction for Reasoning Models",
+    "authors": "Ting-Yun Chang et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2606.03928",
+    "contribution_quote": "we propose Value-aware Stochastic KV Cache Eviction (VaSE), a training-free recipe that protects large-magnitude value states and promotes diverse eviction decisions."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 103,
+    "tokens_out": 74,
+    "latency_ms": 763,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 4,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What are the latest techniques for KV cache compression in long-context LLM inference?",
+      "arms": [
+       "openalex:keyword",
+       "hf:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2523,
+       "arxiv:conceptual": 0.2564,
+       "arxiv:recent": 0.2512,
+       "hf:keyword": 0.3017,
+       "hf:conceptual": 0.3784,
+       "hf:recent": 0.2099,
+       "openalex:keyword": 0.4309,
+       "openalex:conceptual": 0.2416,
+       "openalex:recent": 0.262
+      }
+     },
+     {
+      "subquestion": "How do recent methods reduce the memory footprint of the KV cache during long-context LLM generation?",
+      "arms": [
+       "openalex:keyword",
+       "openalex:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.3345,
+       "arxiv:conceptual": 0.2933,
+       "arxiv:recent": 0.3351,
+       "hf:keyword": 0.3222,
+       "hf:conceptual": 0.4049,
+       "hf:recent": 0.2225,
+       "openalex:keyword": 0.5534,
+       "openalex:conceptual": 0.4902,
+       "openalex:recent": 0.3431
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 1975,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 19
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 1975,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 5956,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 5589,
+    "tokens_out": 1092,
+    "latency_ms": 3977,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 5956,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 9853,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4475,
+    "tokens_out": 1157,
+    "latency_ms": 3894,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 9857,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": []
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 10668,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4323,
+    "tokens_out": 26,
+    "latency_ms": 808,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 10668,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 10668,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:58:16+00:00",
+ "updated_at": "2026-10-08T23:58:27+00:00"
+}

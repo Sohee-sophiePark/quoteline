@@ -1,0 +1,821 @@
+{
+ "run_id": "g31",
+ "question": "What does arXiv 2106.09685 propose, and why does it make fine-tuning cheaper?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What is the core proposal of arXiv 2106.09685?"
+   },
+   {
+    "text": "How does the method proposed in arXiv 2106.09685 reduce the computational cost of fine-tuning?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What is the core proposal of arXiv 2106.09685?",
+   "arms": [
+    "openalex:keyword",
+    "arxiv:conceptual"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2219,
+    "arxiv:conceptual": 0.3297,
+    "arxiv:recent": 0.1878,
+    "hf:keyword": 0.1977,
+    "hf:conceptual": 0.2531,
+    "hf:recent": 0.1504,
+    "openalex:keyword": 0.3915,
+    "openalex:conceptual": 0.2809,
+    "openalex:recent": 0.2019
+   }
+  },
+  {
+   "subquestion": "How does the method proposed in arXiv 2106.09685 reduce the computational cost of fine-tuning?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2153,
+    "arxiv:conceptual": 0.2095,
+    "arxiv:recent": 0.1978,
+    "hf:keyword": 0.1023,
+    "hf:conceptual": 0.1846,
+    "hf:recent": 0.0773,
+    "openalex:keyword": 0.3364,
+    "openalex:conceptual": 0.362,
+    "openalex:recent": 0.2035
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:keyword|What is the core proposal of arXiv 2106.09685?": [
+   "2412.08490",
+   "2409.17486",
+   "2603.15968",
+   "2609.34136",
+   "2604.06748"
+  ],
+  "arxiv:conceptual|What is the core proposal of arXiv 2106.09685?": [
+   "1304.1836",
+   "1005.0280",
+   "1011.5746",
+   "1001.2258"
+  ],
+  "openalex:conceptual|How does the method proposed in arXiv 2106.09685 reduce the computational cost of fine-tuning?": [
+   "2205.05638",
+   "2502.01378",
+   "2408.04693",
+   "2401.02981",
+   "2406.11753"
+  ],
+  "openalex:keyword|How does the method proposed in arXiv 2106.09685 reduce the computational cost of fine-tuning?": [
+   "2405.15152",
+   "2602.01053",
+   "2604.13356",
+   "2412.13998",
+   "2409.17486"
+  ],
+  "lookup|2106.09685": [
+   "2106.09685"
+  ]
+ },
+ "papers": {
+  "2106.09685": {
+   "id": "2106.09685",
+   "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+   "authors": [
+    "Edward J. Hu",
+    "Yelong Shen",
+    "Phillip Wallis",
+    "Zeyuan Allen-Zhu",
+    "Yuanzhi Li",
+    "Shean Wang",
+    "Lu Wang",
+    "Weizhu Chen"
+   ],
+   "published": "2021-06-17",
+   "abstract": "An important paradigm of natural language processing consists of large-scale pre-training on general domain data and adaptation to particular tasks or domains. As we pre-train larger models, full fine-tuning, which retrains all model parameters, becomes less feasible. Using GPT-3 175B as an example -- deploying independent instances of fine-tuned models, each with 175B parameters, is prohibitively expensive. We propose Low-Rank Adaptation, or LoRA, which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks. Compared to GPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times. LoRA performs on-par or better than fine-tuning in model quality on RoBERTa, DeBERTa, GPT-2, and GPT-3, despite having fewer trainable parameters, a higher training throughput, and, unlike adapters, no additional inference latency. We also provide an empirical investigation into rank-deficiency in language model adaptation, which sheds light on the efficacy of LoRA. We release a package that facilitates the integration of LoRA with PyTorch models and provide our implementations and model checkpoints for RoBERTa, DeBERTa, and GPT-2 at https://github.com/microsoft/LoRA.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2412.08490": {
+   "id": "2412.08490",
+   "title": "SuperCode: Sustainability PER AI-driven CO-DEsign",
+   "authors": [
+    "P. Chris Broekema",
+    "Rob V. van Nieuwpoort"
+   ],
+   "published": "2024-12-11",
+   "abstract": "Currently, data-intensive scientific applications require vast amounts of compute resources to deliver world-leading science. The climate emergency has made it clear that unlimited use of resources (e.g., energy) for scientific discovery is no longer acceptable. Future computing hardware promises to be much more energy efficient, but without better optimized software this cannot reach its full potential. In this vision paper, we propose a generic AI-driven co-design methodology, using specialized Large Language Models (like ChatGPT), to effectively generate efficient code for emerging computing hardware. We describe how we will validate our methodology with two radio astronomy applications, with sustainability as the key performance indicator. This paper is a modified version of our accepted SuperCode project proposal. We present it here in this form to introduce the vision behind this project and to disseminate the work in the spirit of Open Science and transparency. An additional aim is to collect feedback, invite potential collaboration partners and use-cases to join the project.",
+   "categories": [
+    "astro-ph.IM",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2409.17486": {
+   "id": "2409.17486",
+   "title": "Global-Local Medical SAM Adaptor Based on Full Adaption",
+   "authors": [
+    "Meng Wang",
+    "Yarong Feng",
+    "Yongwei Tang",
+    "Tian Zhang",
+    "Yuxin Liang",
+    "Chao Lv"
+   ],
+   "published": "2024-09-26",
+   "abstract": "Emerging of visual language models, such as the segment anything model (SAM), have made great breakthroughs in the field of universal semantic segmentation and significantly aid the improvements of medical image segmentation, in particular with the help of Medical SAM adaptor (Med-SA). However, Med-SA still can be improved, as it fine-tunes SAM in a partial adaption manner. To resolve this problem, we present a novel global medical SAM adaptor (GMed-SA) with full adaption, which can adapt SAM globally. We further combine GMed-SA and Med-SA to propose a global-local medical SAM adaptor (GLMed-SA) to adapt SAM both globally and locally. Extensive experiments have been performed on the challenging public 2D melanoma segmentation dataset. The results show that GLMed-SA outperforms several state-of-the-art semantic segmentation methods on various evaluation metrics, demonstrating the superiority of our methods.",
+   "categories": [
+    "cs.AI",
+    "cs.CV"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2603.15968": {
+   "id": "2603.15968",
+   "title": "MAC: Multi-Agent Constitution Learning",
+   "authors": [
+    "Rushil Thareja",
+    "Gautam Gupta",
+    "Francesco Pinto",
+    "Nils Lukas"
+   ],
+   "published": "2026-03-16",
+   "abstract": "Constitutional AI is a method to oversee and control LLMs based on a set of rules written in natural language. These rules are typically written by human experts, but could in principle be learned automatically given sufficient training data for the desired behavior. Existing LLM-based prompt optimizers attempt this but are ineffective at learning constitutions since (i) they require many labeled examples and (ii) lack structure in the optimized prompts, leading to diminishing improvements as prompt size grows. To address these limitations, we propose Multi-Agent Constitutional Learning (MAC), which optimizes over structured prompts represented as sets of rules using a network of agents with specialized tasks to accept, edit, or reject rule updates. We also present MAC+, which improves performance by training agents on successful trajectories to reinforce updates leading to higher reward. We evaluate MAC on tagging Personally Identifiable Information (PII), a classification task with limited labels where interpretability is critical, and demonstrate that it generalizes to other agentic tasks such as tool calling. MAC outperforms recent prompt optimization methods by over 50%, produces human-readable and auditable rule sets, and achieves performance comparable to supervised fine-tuning and GRPO without requiring parameter updates.",
+   "categories": [
+    "cs.AI",
+    "cs.CL",
+    "cs.LG",
+    "cs.MA"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2609.34136": {
+   "id": "2609.34136",
+   "title": "Waggle: Learning One Anonymous Local Law for Self-Organizing LLM Swarms",
+   "authors": [
+    "Mingxi Zou",
+    "Wei Zhu",
+    "Zhuo Wang",
+    "Langzhang Liang",
+    "Zhiwen Tang",
+    "Yinghui Xu",
+    "Zenglin Xu"
+   ],
+   "published": "2026-09-28",
+   "abstract": "As LLM agents increasingly collaborate on complex tasks, how to organize their interactions becomes a central design question. Existing multi-agent systems typically learn or adapt explicit roles, hierarchies, routing policies, or communication topologies. We shift the learning target to a reusable local law that can be shared across interchangeable agents and adapt coordination as populations or interaction conditions change, without redefining a global organization. We introduce Waggle, a shared anonymous policy over bounded local views that jointly selects task actions, semantic communication, and local commitment updates. Repeated execution of the same law allows coordination to form, persist, and reorganize online without explicit roles or global topology. To learn this law across interchangeable agents and evolving coordination, we develop Swarm-Consistent Distillation (SCD), combining anonymous-orbit consistency with rollout-grounded prediction of the next local coordination field, with no added inference-time components. Across diverse coordination settings, the same learned law remains effective as populations and interaction budgets change, retains over 96% of substrate-specific oracle quality, and transfers without retraining; SCD further improves reorganization after counterevidence. Together, these results show that LLM-agent organization can emerge and adapt through repeated execution of a learned local law.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.06748": {
+   "id": "2604.06748",
+   "title": "From Static to Interactive: Adapting Visual in-Context Learners for User-Driven Tasks",
+   "authors": [
+    "Carlos Schmidt",
+    "Simon Reiß"
+   ],
+   "published": "2026-04-08",
+   "abstract": "Visual in-context learning models are designed to adapt to new tasks by leveraging a set of example input-output pairs, enabling rapid generalization without task-specific fine-tuning. However, these models operate in a fundamentally static paradigm: while they can adapt to new tasks, they lack any mechanism to incorporate user-provided guidance signals such as scribbles, clicks, or bounding boxes to steer or refine the prediction process. This limitation is particularly restrictive in real-world applications, where users want to actively guide model predictions, e.g., by highlighting the target object for segmentation, indicating a region which should be visually altered, or isolating a specific person in a complex scene to run targeted pose estimation. In this work, we propose a simple method to transform static visual in-context learners, particularly the DeLVM approach, into highly controllable, user-driven systems, i.e., Interactive DeLVM, enabling seamless interaction through natural visual cues such as scribbles, clicks, or drawing boxes. Specifically, by encoding interactions directly into the example input-output pairs, we keep the philosophy of visual in-context learning intact: enabling users to prompt models with unseen interactions without fine-tuning and empowering them to dynamically steer model predictions with personalized interactions. Our experiments demonstrate that SOTA visual in-context learning models fail to effectively leverage interaction cues, often ignoring user guidance entirely. In contrast, our method excels in controllable, user-guided scenarios, achieving improvements of $+7.95%$ IoU for interactive segmentation, $+2.46$ PSNR for directed super-resolution, and $-3.14%$ LPIPS for interactive object removal. With this, our work bridges the gap between rigid static task adaptation and fluid interactivity for user-centric visual in-context learning.",
+   "categories": [
+    "cs.CV"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "1304.1836": {
+   "id": "1304.1836",
+   "title": "A Simulation and Modeling of Access Points with Definition Language",
+   "authors": [
+    "Tairen Sun"
+   ],
+   "published": "2013-04-06",
+   "abstract": "This submission has been withdrawn by arXiv administrators because it contains fictitious content and was submitted under a pseudonym, which is against arXiv policy.",
+   "categories": [
+    "cs.OH"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "1005.0280": {
+   "id": "1005.0280",
+   "title": "Superconductivity as a consequence of an ordering of the electron gas zero-point oscillations",
+   "authors": [
+    "Boris V. Vasiliev"
+   ],
+   "published": "2010-05-03",
+   "abstract": "This paper has been administratively withdrawn by arXiv, duplicate of arXiv:1008.2691.",
+   "categories": [
+    "physics.gen-ph"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "1011.5746": {
+   "id": "1011.5746",
+   "title": "Intutionistic Fuzzy Ideals in Γ-semiring",
+   "authors": [
+    "Nayyar Mehmood",
+    "I. H Qureshi"
+   ],
+   "published": "2010-11-26",
+   "abstract": "This article has been withdrawn by arXiv administrators due to plagiarized content from arXiv:1010.2469.",
+   "categories": [
+    "math.LO"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "1001.2258": {
+   "id": "1001.2258",
+   "title": "Internal Location Based System For Mobile Devices Using Passive RFID And Wireless Technology",
+   "authors": [
+    "A. D. Potgantwar",
+    "Vijay M. Wadhai"
+   ],
+   "published": "2010-01-13",
+   "abstract": "This article has been withdrawn by arXiv administrators due to plagiarized content from arXiv:1009.3448.",
+   "categories": [
+    "cs.CY"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2205.05638": {
+   "id": "2205.05638",
+   "title": "Few-Shot Parameter-Efficient Fine-Tuning is Better and Cheaper than In-Context Learning",
+   "authors": [
+    "Haokun Liu",
+    "Derek Tam",
+    "Mohammed Muqeeth",
+    "Jay Mohta",
+    "Tenghao Huang",
+    "Mohit Bansal",
+    "Colin Raffel"
+   ],
+   "published": "2022-05-11",
+   "abstract": "Few-shot in-context learning (ICL) enables pre-trained language models to perform a previously-unseen task without any gradient-based training by feeding a small number of training examples as part of the input. ICL incurs substantial computational, memory, and storage costs because it involves processing all of the training examples every time a prediction is made. Parameter-efficient fine-tuning (PEFT) (e.g. adapter modules, prompt tuning, sparse update methods, etc.) offers an alternative paradigm where a small set of parameters are trained to enable a model to perform the new task. In this paper, we rigorously compare few-shot ICL and PEFT and demonstrate that the latter offers better accuracy as well as dramatically lower computational costs. Along the way, we introduce a new PEFT method called (IA)$^3$ that scales activations by learned vectors, attaining stronger performance while only introducing a relatively tiny amount of new parameters. We also propose a simple recipe based on the T0 model called T-Few that can be applied to new tasks without task-specific tuning or modifications. We validate the effectiveness of T-Few on completely unseen tasks by applying it to the RAFT benchmark, attaining super-human performance for the first time and outperforming the state-of-the-art by 6% absolute. All of the code used in our experiments is publicly available.",
+   "categories": [
+    "cs.LG",
+    "cs.AI",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2502.01378": {
+   "id": "2502.01378",
+   "title": "CE-LoRA: Computation-Efficient LoRA Fine-Tuning for Language Models",
+   "authors": [
+    "Guanduo Chen",
+    "Yutong He",
+    "Yipeng Hu",
+    "Kun Yuan",
+    "Binhang Yuan"
+   ],
+   "published": "2025-02-03",
+   "abstract": "Large Language Models (LLMs) demonstrate exceptional performance across various tasks but demand substantial computational resources even for fine-tuning computation. Although Low-Rank Adaptation (LoRA) significantly alleviates memory consumption during fine-tuning, its impact on computational cost reduction is limited. This paper identifies the computation of activation gradients as the primary bottleneck in LoRA's backward propagation and introduces the Computation-Efficient LoRA (CE-LoRA) algorithm, which enhances computational efficiency while preserving memory efficiency. CE-LoRA leverages two key techniques: Approximated Matrix Multiplication, which replaces dense multiplications of large and complete matrices with sparse multiplications involving only critical rows and columns, and the Double-LoRA technique, which reduces error propagation in activation gradients. Theoretically, CE-LoRA converges at the same rate as LoRA, $ \\mathcal{O}(1/\\sqrt{T}) $, where $T$ is the number of iteartions. Empirical evaluations confirm that CE-LoRA significantly reduces computational costs compared to LoRA without notable performance degradation.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2408.04693": {
+   "id": "2408.04693",
+   "title": "Understanding the Performance and Estimating the Cost of LLM Fine-Tuning",
+   "authors": [
+    "Yuchen Xia",
+    "Jiho Kim",
+    "Yuhan Chen",
+    "Haojie Ye",
+    "Souvik Kundu",
+    "Cong Hao",
+    "Nishil Talati"
+   ],
+   "published": "2024-08-08",
+   "abstract": "Due to the cost-prohibitive nature of training Large Language Models (LLMs), fine-tuning has emerged as an attractive alternative for specializing LLMs for specific tasks using limited compute resources in a cost-effective manner. In this paper, we characterize sparse Mixture of Experts (MoE) based LLM fine-tuning to understand their accuracy and runtime performance on a single GPU. Our evaluation provides unique insights into the training efficacy of sparse and dense versions of MoE models, as well as their runtime characteristics, including maximum batch size, execution time breakdown, end-to-end throughput, GPU hardware utilization, and load distribution. Our study identifies the optimization of the MoE layer as crucial for further improving the performance of LLM fine-tuning. Using our profiling results, we also develop and validate an analytical model to estimate the cost of LLM fine-tuning on the cloud. This model, based on parameters of the model and GPU architecture, estimates LLM throughput and the cost of training, aiding practitioners in industry and academia to budget the cost of fine-tuning a specific model.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2401.02981": {
+   "id": "2401.02981",
+   "title": "Fine-tuning and Utilization Methods of Domain-specific LLMs",
+   "authors": [
+    "Cheonsu Jeong"
+   ],
+   "published": "2024-01-01",
+   "abstract": "Recent releases of pre-trained Large Language Models (LLMs) have gained considerable traction, yet research on fine-tuning and employing domain-specific LLMs remains scarce. This study investigates approaches for fine-tuning and leveraging domain-specific LLMs, highlighting trends in LLMs, foundational models, and methods for domain-specific pre-training. Focusing on the financial sector, it details dataset selection, preprocessing, model choice, and considerations crucial for LLM fine-tuning in finance. Addressing the unique characteristics of financial data, the study explores the construction of domain-specific vocabularies and considerations for security and regulatory compliance. In the practical application of LLM fine-tuning, the study outlines the procedure and implementation for generating domain-specific LLMs in finance. Various financial cases, including stock price prediction, sentiment analysis of financial news, automated document processing, research, information extraction, and customer service enhancement, are exemplified. The study explores the potential of LLMs in the financial domain, identifies limitations, and proposes directions for improvement, contributing valuable insights for future research. Ultimately, it advances natural language processing technology in business, suggesting proactive LLM utilization in financial services across industries.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2406.11753": {
+   "id": "2406.11753",
+   "title": "A Semantic-Aware Layer-Freezing Approach to Computation-Efficient Fine-Tuning of Language Models",
+   "authors": [
+    "Jian Gu",
+    "Aldeida Aleti",
+    "Chunyang Chen",
+    "Hongyu Zhang"
+   ],
+   "published": "2024-06-17",
+   "abstract": "Finetuning language models (LMs) is crucial for adapting the models to downstream data and tasks. However, full finetuning is usually costly. Existing work, such as parameter-efficient finetuning (PEFT), often focuses on \\textit{how to finetune} but neglects the issue of \\textit{where to finetune}. As a pioneering work on reducing the cost of backpropagation (at the layer level) by answering where to finetune, we conduct a semantic analysis of the LM inference process. We first propose using transition traces of the latent representation to compute deviations (or loss). Then, using a derived formula of scaling law, we estimate the gain of each layer in reducing deviation (or loss). Further, we narrow down the scope for finetuning, and also, study the cost-benefit balance of LM finetuning. We perform extensive experiments across well-known LMs and datasets. The results show that our approach is effective and efficient, and outperforms the existing baselines. Our approach is orthogonal to other techniques for improving finetuning efficiency, such as PEFT methods, offering practical values on LM finetuning.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2405.15152": {
+   "id": "2405.15152",
+   "title": "Machine Unlearning in Large Language Models",
+   "authors": [
+    "Saaketh Koundinya Gundavarapu",
+    "Shreya Agarwal",
+    "Arushi Arora",
+    "Chandana Thimmalapura Jagadeeshaiah"
+   ],
+   "published": "2024-05-24",
+   "abstract": "Machine unlearning, a novel area within artificial intelligence, focuses on addressing the challenge of selectively forgetting or reducing undesirable knowledge or behaviors in machine learning models, particularly in the context of large language models (LLMs). This paper introduces a methodology to align LLMs, such as Open Pre-trained Transformer Language Models, with ethical, privacy, and safety standards by leveraging the gradient ascent algorithm for knowledge unlearning. Our approach aims to selectively erase or modify learned information in LLMs, targeting harmful responses and copyrighted content. This paper presents a dual-pronged approach to enhance the ethical and safe behavior of large language models (LLMs) by addressing the issues of harmful responses and copyrighted content. To mitigate harmful responses, we applied gradient ascent on the PKU dataset, achieving a 75\\% reduction in harmful responses for Open Pre-trained Transformer Language Models (OPT1.3b and OPT2.7b) \\citet{zhang2022opt} while retaining previous knowledge using the TruthfulQA dataset \\citet{DBLP:journals/corr/abs-2109-07958}. For handling copyrighted content, we constructed a custom dataset based on the Lord of the Rings corpus and aligned LLMs (OPT1.3b and OPT2.7b) \\citet{zhang2022opt} through LoRA: Low-Rank Adaptation of Large Language Models \\citet{DBLP:journals/corr/abs-2106-09685} finetuning. Subsequently, we employed gradient ascent to unlearn the Lord of the Rings content, resulting in a remarkable reduction in the presence of copyrighted material. To maintain a diverse knowledge base, we utilized the Book Corpus dataset. Additionally, we propose a new evaluation technique for assessing the effectiveness of harmful unlearning.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2602.01053": {
+   "id": "2602.01053",
+   "title": "LRAgent: Efficient KV Cache Sharing for Multi-LoRA LLM Agents",
+   "authors": [
+    "Hyesung Jeon",
+    "Hyeongju Ha",
+    "Jae-Joon Kim"
+   ],
+   "published": "2026-02-01",
+   "abstract": "Role specialization in multi-LLM agent systems is often realized via multi-LoRA, where agents share a pretrained backbone and differ only by lightweight adapters. Despite sharing base model weights, each agent independently builds and stores its own KV cache for the same long, tool-augmented trajectories, incurring substantial memory and compute overhead. Existing KV cache sharing methods largely overlook this multi-LoRA setting. We observe that, cache differences across agents are dominated by adapter outputs, while activations from the shared pretrained backbone remain highly similar. Based on this observation, we propose LRAgent, a KV cache sharing framework for multi-LoRA agents. It decomposes the cache into two components, a shared base component derived from pretrained weights and an adapter-dependent component derived from LoRA weights. LRAgent reduces memory overhead by sharing the base component across agents and storing the adapter component in its inherent low-rank form. It also reduces computational overhead by sharing the low-rank cache, enabled by a shared-A multi-LoRA architecture. This avoids redundant computations for contexts that have already been processed by other agents. To efficiently reconstruct adapter contributions at runtime, we introduce Flash-LoRA-Attention, a kernel that reorders attention computation to avoid materializing the low-rank cache to full dimension. LRAgent achieves throughput and time-to-first-token latency close to fully shared caching, while preserving accuracy near the non-shared caching baseline across agentic question-answering benchmarks.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.13356": {
+   "id": "2604.13356",
+   "title": "Peer-Predictive Self-Training for Language Model Reasoning",
+   "authors": [
+    "Shi Feng",
+    "Hanlin Zhang",
+    "Fan Nie",
+    "Sham Kakade",
+    "Yiling Chen"
+   ],
+   "published": "2026-04-14",
+   "abstract": "Mechanisms for continued self-improvement of language models without external supervision remain an open challenge. We propose Peer-Predictive Self-Training (PST), a label-free fine-tuning framework in which multiple language models improve collaboratively by using a cross-model aggregate response as an internal training signal. Given a prompt, models generate responses sequentially; the final aggregated answer, which is often more reliable than individual responses in practice, serves as an internal reference for learning. We measure how informative each intermediate response is about the aggregate using pointwise mutual information (PMI), and use this signal to scale self-training updates: responses already aligned with the aggregate receive smaller updates, while less informative or misaligned responses receive larger ones. On mathematical reasoning benchmarks, including SimulEq, MATH-500-Numeric, and MultiArith, PST improves exact-match accuracy by 2.2--4.3 percentage points across Gemma-2-2B, LLaMA-3.2-1B, and Qwen2.5-1.5B, and reduces the average generator--verifier gap (GV-Gap) by 26--40%, while requiring no external supervision, no teacher--student hierarchy, and only cross-model interactions. These results suggest that peer-predictive feedback from cross-model generations can provide an effective mechanism for self-supervised language-model improvement.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.GT"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2412.13998": {
+   "id": "2412.13998",
+   "title": "Few-shot Steerable Alignment: Adapting Rewards and LLM Policies with Neural Processes",
+   "authors": [
+    "Katarzyna Kobalczyk",
+    "Claudio Fanconi",
+    "Hao Sun",
+    "Mihaela van der Schaar"
+   ],
+   "published": "2024-12-18",
+   "abstract": "As large language models (LLMs) become increasingly embedded in everyday applications, ensuring their alignment with the diverse preferences of individual users has become a critical challenge. Currently deployed approaches typically assume homogeneous user objectives and rely on single-objective fine-tuning. However, human preferences are inherently heterogeneous, influenced by various unobservable factors, leading to conflicting signals in preference data. Existing solutions addressing this diversity often require costly datasets labelled for specific objectives and involve training multiple reward models or LLM policies, which is computationally expensive and impractical. In this work, we present a novel framework for few-shot steerable alignment, where users' underlying preferences are inferred from a small sample of their choices. To achieve this, we extend the Bradley-Terry-Luce model to handle heterogeneous preferences with unobserved variability factors and propose its practical implementation for reward modelling and LLM fine-tuning. Thanks to our proposed approach of functional parameter-space conditioning, LLMs trained with our framework can be adapted to individual preferences at inference time, generating outputs over a continuum of behavioural modes. We empirically validate the effectiveness of methods, demonstrating their ability to capture and align with diverse human preferences in a data-efficient manner. Our code is made available at: https://github.com/kasia-kobalczyk/few-shot-steerable-alignment.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2106.09685",
+    "quote": "We propose Low-Rank Adaptation, or LoRA, which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks.",
+    "claim": "The core proposal of LoRA is to freeze pre-trained model weights and inject trainable rank decomposition matrices into each layer of the Transformer architecture."
+   },
+   {
+    "paper_id": "2106.09685",
+    "quote": "Compared to GPT-3 175B fine-tuned with Adam, LoRA can reduce the number of trainable parameters by 10,000 times and the GPU memory requirement by 3 times.",
+    "claim": "LoRA reduces the computational cost of fine-tuning by significantly decreasing the number of trainable parameters and GPU memory requirements."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "LoRA enables efficient fine-tuning by freezing pre-trained weights and injecting trainable rank decomposition matrices, which drastically lowers parameter counts and memory usage {{p:2106.09685}}.",
+   "paragraphs": [
+    "The method, known as Low-Rank Adaptation, avoids the prohibitive costs of full fine-tuning by keeping the original model parameters static {{p:2106.09685}}. By instead training small rank decomposition matrices within the Transformer layers, the approach achieves a 10,000-fold reduction in trainable parameters compared to traditional methods {{p:2106.09685}}.",
+    "This architecture significantly improves efficiency, resulting in a 3-fold reduction in GPU memory requirements during training {{p:2106.09685}}. Furthermore, the technique maintains high model quality without introducing additional inference latency {{p:2106.09685}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2106.09685",
+     "contribution_quote": "We propose Low-Rank Adaptation, or LoRA, which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": []
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "LoRA enables efficient fine-tuning by freezing pre-trained weights and injecting trainable rank decomposition matrices, which drastically lowers parameter counts and memory usage [1].",
+  "paragraphs": [
+   "The method, known as Low-Rank Adaptation, avoids the prohibitive costs of full fine-tuning by keeping the original model parameters static [1]. By instead training small rank decomposition matrices within the Transformer layers, the approach achieves a 10,000-fold reduction in trainable parameters compared to traditional methods [1].",
+   "This architecture significantly improves efficiency, resulting in a 3-fold reduction in GPU memory requirements during training [1]. Furthermore, the technique maintains high model quality without introducing additional inference latency [1]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2106.09685",
+    "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    "authors": "Edward J. Hu et al.",
+    "year": "2021",
+    "url": "https://arxiv.org/abs/2106.09685",
+    "contribution_quote": "We propose Low-Rank Adaptation, or LoRA, which freezes the pre-trained model weights and injects trainable rank decomposition matrices into each layer of the Transformer architecture, greatly reducing the number of trainable parameters for downstream tasks."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 111,
+    "tokens_out": 83,
+    "latency_ms": 1625,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 2,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What is the core proposal of arXiv 2106.09685?",
+      "arms": [
+       "openalex:keyword",
+       "arxiv:conceptual"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2219,
+       "arxiv:conceptual": 0.3297,
+       "arxiv:recent": 0.1878,
+       "hf:keyword": 0.1977,
+       "hf:conceptual": 0.2531,
+       "hf:recent": 0.1504,
+       "openalex:keyword": 0.3915,
+       "openalex:conceptual": 0.2809,
+       "openalex:recent": 0.2019
+      }
+     },
+     {
+      "subquestion": "How does the method proposed in arXiv 2106.09685 reduce the computational cost of fine-tuning?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2153,
+       "arxiv:conceptual": 0.2095,
+       "arxiv:recent": 0.1978,
+       "hf:keyword": 0.1023,
+       "hf:conceptual": 0.1846,
+       "hf:recent": 0.0773,
+       "openalex:keyword": 0.3364,
+       "openalex:conceptual": 0.362,
+       "openalex:recent": 0.2035
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 2,
+   "kind": "lookup",
+   "agent": "retrievers",
+   "payload": {
+    "ids": [
+     "2106.09685"
+    ],
+    "found": [
+     "2106.09685"
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 2,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 19
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 4,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4686,
+    "tokens_out": 226,
+    "latency_ms": 1936,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 4,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 5863,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 780,
+    "tokens_out": 305,
+    "latency_ms": 5857,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 5865,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": []
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 10790,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 728,
+    "tokens_out": 26,
+    "latency_ms": 4923,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 10790,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 13,
+   "t_ms": 10790,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:56:34+00:00",
+ "updated_at": "2026-10-08T23:56:45+00:00"
+}

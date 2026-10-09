@@ -114,3 +114,32 @@ async def test_resume_skips_completed_steps(tmp_path, retriever):
     s = await go(saved, client, retriever, tmp_path)
     assert [c.purpose for c in client.calls] == ["writer", "evaluator"]
     assert s.status == "AWAITING_APPROVAL" and s.llm_calls == 4
+
+
+async def test_question_with_arxiv_id_looks_up_that_paper(tmp_path):
+    lora = {
+        **PAPER,
+        "id": "2106.09685",
+        "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+    }
+    path = tmp_path / "retrieval.jsonl"
+    with path.open("w") as f:
+        for arm in ARMS[:2]:
+            f.write(json.dumps({"key": key(arm, SUBQ), "papers": [PAPER]}) + "\n")
+        f.write(json.dumps({"key": "lookup|2106.09685", "papers": [lora]}) + "\n")
+    s = await go(
+        RunState(run_id="r5", question="What does arXiv 2106.09685 propose?"),
+        script([GOOD]),
+        Retriever("replay", path),
+        tmp_path,
+    )
+    assert list(s.papers)[0] == "2106.09685"
+    assert s.retrieval["lookup|2106.09685"] == ["2106.09685"]
+    assert any(e.kind == "lookup" for e in s.events)
+
+
+def test_prompt_keeps_citation_placeholders_intact():
+    from quoteline.harness import prompt
+
+    assert "{{p:<paper_id>}}" in prompt(settings(), "writer")
+    assert "1 to 3 focused" in prompt(settings(), "planner", max_subquestions=3)

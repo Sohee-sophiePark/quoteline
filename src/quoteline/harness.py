@@ -105,4 +105,5 @@ class Runner:
 
 
 def prompt(settings: Settings, name: str, **fmt: object) -> str:
-    return (settings.path("prompts") / f"{name}.md").read_text(encoding="utf-8").format(**fmt)
+    text = (settings.path("prompts") / f"{name}.md").read_text(encoding="utf-8")
+    return text.format(**fmt) if fmt else text

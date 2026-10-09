@@ -8,7 +8,7 @@ from quoteline.config import settings
 from quoteline.models import Paper
 from quoteline.sources import arxiv, hf, openalex
 from quoteline.sources.http import PoliteHttp
-from quoteline.sources.query import arxiv_id, terms
+from quoteline.sources.query import arxiv_id, arxiv_ids, terms
 from quoteline.sources.retrieve import merge
 
 FX = Path(__file__).parent / "fixtures"
@@ -105,9 +105,9 @@ async def test_polite_http_spaces_requests_and_retries():
     http.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
     resp = await http.get("https://export.arxiv.org/api/query")
     assert resp.text == "ok" and len(calls) == 2
-    assert sleeps == [5.0]
+    assert sleeps == [30.0]
     await http.get("https://export.arxiv.org/api/query")
-    assert sleeps[-1] == pytest.approx(3.1)
+    assert sleeps[-1] == pytest.approx(5.0)
 
 
 def test_server_wait_reads_retry_after_and_ratelimit():
@@ -131,3 +131,31 @@ def test_server_wait_reads_retry_after_and_ratelimit():
 )
 def test_untex_author_names(raw, expected):
     assert arxiv.untex(raw) == expected
+
+
+def test_arxiv_ids_from_question_text_and_links():
+    q = "Compare arXiv 2106.09685 with https://arxiv.org/abs/2305.14314v2 and 2106.09685 again"
+    assert arxiv_ids(q) == ["2106.09685", "2305.14314"]
+    assert arxiv_ids("How does LoRA work?") == []
+
+
+async def test_polite_http_retries_timeouts():
+    calls = []
+
+    def handler(request):
+        calls.append(1)
+        if len(calls) == 1:
+            raise httpx.ReadTimeout("slow", request=request)
+        return httpx.Response(200, text="ok")
+
+    async def no_sleep(s):
+        pass
+
+    http = PoliteHttp(settings().sources, sleep=no_sleep)
+    http.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    assert (await http.get("https://export.arxiv.org/api/query")).text == "ok" and len(calls) == 2
+
+
+def test_strip_tex_markup_in_abstracts():
+    raw = "we propose \\textsc{PoD}~(Proximal tokens) with \\emph{nested \\textbf{bold}} and $x^2$"
+    assert arxiv.strip_tex(raw) == "we propose PoD (Proximal tokens) with nested bold and $x^2$"

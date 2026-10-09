@@ -22,3 +22,8 @@ def arxiv_id(raw: str) -> str | None:
     """Bare arXiv ID (new-style, no version) from an ID or abs/pdf URL, else None."""
     m = re.search(r"(\d{4}\.\d{4,5})(v\d+)?", raw)
     return m.group(1) if m else None
+
+
+def arxiv_ids(text: str) -> list[str]:
+    """Distinct new-style arXiv IDs mentioned in free text or arxiv.org links, in order."""
+    return list(dict.fromkeys(re.findall(r"(?<![\d.])(\d{4}\.\d{4,5})(?:v\d+)?(?![\d.])", text)))

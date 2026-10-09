@@ -29,3 +29,4 @@
 - {qid: g28, question: "What are the latest methods for compressing the KV cache in long-context LLM inference?", expected: []}
 - {qid: g29, question: "What recent work trains reasoning models with large-scale reinforcement learning?", expected: ["2501.12948"]}
 - {qid: g30, question: "How does group relative policy optimization train reasoning without a value model?", expected: ["2402.03300"]}
+- {qid: g31, question: "What does arXiv 2106.09685 propose, and why does it make fine-tuning cheaper?", expected: ["2106.09685"]}

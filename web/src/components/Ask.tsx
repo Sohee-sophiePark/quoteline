@@ -1,11 +1,24 @@
 import { useState } from "react";
 import { approveLive, askLive, isStatic } from "../data";
+import type { Mark } from "../lib/notebook";
 import type { Run } from "../types";
 import Answer from "./Answer";
+import PapersFound from "./PapersFound";
+import ReviewLedger from "./ReviewLedger";
 import Trace from "./Trace";
 
-export default function Ask({ replays }: { replays: Run[] }) {
+type Props = {
+  replays: Run[];
+  marks: Record<string, Record<string, Mark>>;
+  saved: Set<string>;
+  onMark: (runId: string, key: string, mark: Mark | null) => void;
+  onSave: (run: Run) => void;
+  onRemove: (runId: string) => void;
+};
+
+export default function Ask({ replays, marks, saved, onMark, onSave, onRemove }: Props) {
   const [run, setRun] = useState<Run | null>(null);
+  const [mode, setMode] = useState<"read" | "review">("read");
   const [question, setQuestion] = useState("");
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState("");
@@ -76,7 +89,34 @@ export default function Ask({ replays }: { replays: Run[] }) {
       )}
       {run && (
         <>
-          <Answer run={run} />
+          <div className="mb-3 flex flex-wrap items-center gap-2">
+            <div role="group" aria-label="View" className="inline-flex rounded-md border border-line p-0.5 text-sm">
+              {(["read", "review"] as const).map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  onClick={() => setMode(m)}
+                  aria-pressed={mode === m}
+                  className={`rounded px-3 py-1 ${mode === m ? "bg-accent text-white" : "text-ink hover:bg-accent-soft"}`}
+                >
+                  {m === "read" ? "Read" : "Review evidence"}
+                </button>
+              ))}
+            </div>
+            <button
+              type="button"
+              onClick={() => (saved.has(run.run_id) ? onRemove(run.run_id) : onSave(run))}
+              aria-pressed={saved.has(run.run_id)}
+              className="ml-auto rounded-md border border-accent px-3 py-1 text-sm text-accent hover:bg-accent-soft"
+            >
+              {saved.has(run.run_id) ? "✓ Saved to notebook" : "Save to notebook"}
+            </button>
+          </div>
+          {mode === "read" ? (
+            <Answer run={run} marks={marks[run.run_id] ?? {}} onMark={(k, m) => onMark(run.run_id, k, m)} />
+          ) : (
+            <ReviewLedger run={run} />
+          )}
           {!isStatic && (run.status === "AWAITING_APPROVAL" || run.status === "NEEDS_REVIEW") && (
             <button
               onClick={async () => setRun(await approveLive(run.run_id))}
@@ -85,6 +125,7 @@ export default function Ask({ replays }: { replays: Run[] }) {
               Approve and save to library
             </button>
           )}
+          <PapersFound run={run} />
           <Trace run={run} />
         </>
       )}

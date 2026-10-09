@@ -1,17 +1,20 @@
 import { useEffect, useState } from "react";
 import Ask from "./components/Ask";
 import FeedView from "./components/FeedView";
+import NotebookView from "./components/NotebookView";
 import Policy from "./components/Policy";
 import { isStatic, loadFeed, loadStatic } from "./data";
+import { useNotebook } from "./lib/notebook";
 import type { Feed, StaticData } from "./types";
 
-const TABS = ["Ask", "Daily feed", "Policy lab"] as const;
+const TABS = ["Ask", "Notebook", "Daily feed", "Policy lab"] as const;
 type Tab = (typeof TABS)[number];
 
 export default function App() {
   const [tab, setTab] = useState<Tab>("Ask");
   const [data, setData] = useState<StaticData | null>(null);
   const [feed, setFeed] = useState<Feed | null>(null);
+  const { nb, setMark, save, remove, clear } = useNotebook();
 
   useEffect(() => {
     loadStatic().then(setData);
@@ -42,12 +45,22 @@ export default function App() {
               tab === t ? "border-accent text-accent" : "border-transparent text-muted hover:text-ink"
             }`}
           >
-            {t}
+            {t === "Notebook" ? `Notebook (${nb.entries.length})` : t}
           </button>
         ))}
       </nav>
       <main>
-        {tab === "Ask" && <Ask replays={data?.replays ?? []} />}
+        {tab === "Ask" && (
+          <Ask
+            replays={data?.replays ?? []}
+            marks={nb.marks}
+            saved={new Set(nb.entries.map((e) => e.runId))}
+            onMark={setMark}
+            onSave={save}
+            onRemove={remove}
+          />
+        )}
+        {tab === "Notebook" && <NotebookView nb={nb} onRemove={remove} onClear={clear} />}
         {tab === "Daily feed" && <FeedView feed={feed} />}
         {tab === "Policy lab" && <Policy bandit={data?.bandit ?? null} />}
       </main>

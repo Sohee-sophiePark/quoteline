@@ -9,6 +9,7 @@ from quoteline.harness import Runner, prompt
 from quoteline.models import ARMS, Draft, Plan, Reading, Verdict
 from quoteline.render import markdown, render
 from quoteline.retriever import Retriever, key
+from quoteline.sources.query import arxiv_ids
 from quoteline.state import ArmChoice, RunState, save_state
 
 
@@ -72,6 +73,11 @@ async def run(
             papers = results[key(a, t)]
             state.retrieval[key(a, t)] = [p.id for p in papers]
             state.papers.update({p.id: p for p in papers})
+        if ids := arxiv_ids(state.question):
+            found = await retriever.lookup(ids)
+            state.retrieval["lookup|" + ",".join(ids)] = [p.id for p in found]
+            state.papers = {**{p.id: p for p in found}, **state.papers}
+            trace.emit("lookup", "retrievers", {"ids": ids, "found": [p.id for p in found]})
         trace.emit("retrieved", "retrievers", {"pairs": len(pairs), "papers": len(state.papers)})
         done("retrieve")
 

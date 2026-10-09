@@ -40,6 +40,7 @@ class ResearchCfg(BaseModel):
 
 class SourcesCfg(BaseModel):
     min_interval: dict[str, float]
+    backoff_seconds: float
     timeout_seconds: float
     max_attempts: int
     user_agent: str

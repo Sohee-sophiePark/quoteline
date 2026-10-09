@@ -32,6 +32,7 @@ export type Run = {
   plan: { subquestions: { text: string }[] } | null;
   choices: { subquestion: string; arms: string[]; scores: Record<string, number> }[];
   papers: Record<string, Paper>;
+  retrieval: Record<string, string[]>;
   gates: Gate[][];
   verdicts: Verdict[];
   drafts: unknown[];

@@ -1,0 +1,831 @@
+{
+ "run_id": "g11",
+ "question": "How does paging the KV cache improve throughput when serving LLMs?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "How does paging the KV cache reduce memory fragmentation in LLM serving?"
+   },
+   {
+    "text": "What is the impact of KV cache paging on throughput and latency in LLM inference?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "How does paging the KV cache reduce memory fragmentation in LLM serving?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.3261,
+    "arxiv:conceptual": 0.3074,
+    "arxiv:recent": 0.3128,
+    "hf:keyword": 0.2479,
+    "hf:conceptual": 0.349,
+    "hf:recent": 0.1582,
+    "openalex:keyword": 0.4674,
+    "openalex:conceptual": 0.4946,
+    "openalex:recent": 0.201
+   }
+  },
+  {
+   "subquestion": "What is the impact of KV cache paging on throughput and latency in LLM inference?",
+   "arms": [
+    "hf:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2519,
+    "arxiv:conceptual": 0.2965,
+    "arxiv:recent": 0.2453,
+    "hf:keyword": 0.2757,
+    "hf:conceptual": 0.3655,
+    "hf:recent": 0.1714,
+    "openalex:keyword": 0.3641,
+    "openalex:conceptual": 0.3417,
+    "openalex:recent": 0.1497
+   }
+  }
+ ],
+ "retrieval": {
+  "openalex:conceptual|How does paging the KV cache reduce memory fragmentation in LLM serving?": [
+   "2601.03067",
+   "2605.09735",
+   "2406.17565",
+   "2607.02574",
+   "2510.18586"
+  ],
+  "openalex:keyword|How does paging the KV cache reduce memory fragmentation in LLM serving?": [
+   "2609.30854",
+   "2410.00161",
+   "2309.06180",
+   "2608.13263",
+   "2608.23834"
+  ],
+  "hf:conceptual|What is the impact of KV cache paging on throughput and latency in LLM inference?": [
+   "2608.23834",
+   "2309.06180",
+   "2604.05012",
+   "2604.19157",
+   "2404.18057"
+  ],
+  "openalex:keyword|What is the impact of KV cache paging on throughput and latency in LLM inference?": [
+   "2410.21465",
+   "2510.00231",
+   "2501.01792",
+   "2410.00161",
+   "2410.15252"
+  ]
+ },
+ "papers": {
+  "2601.03067": {
+   "id": "2601.03067",
+   "title": "Joint Encoding of KV-Cache Blocks for Scalable LLM Serving",
+   "authors": [
+    "Joseph Kampeas",
+    "Emir Haleva"
+   ],
+   "published": "2026-01-06",
+   "abstract": "Modern large language models (LLMs) drive interactive AI systems but are bottlenecked by the memory-heavy growth of key-value (KV) caches, which limits real-time throughput under concurrent loads. Existing KV-cache compression methods rely on rigid heuristics, disrupt tensor layouts, or require specialized compute, hindering scalability and deployment. We propose joint encoding of KV-cache blocks, which fuses similar blocks across requests and input chunks into shared representations while preserving standard cache structure. This alleviates the KV-cache memory bottleneck, supporting high-concurrency serving without specialized hardware. Theoretically, we analyze the rate-distortion tradeoff of fused cache blocks under a Poisson process model. Empirically, our method achieves up to 4.38 $\\times$ KV-cache compression with negligible accuracy loss across diverse LLMs and benchmarks, outperforming recent structured and adaptive compression baselines. In real LLM serving, joint encoding improves the token throughput by $\\sim$40\\% on a single-machine vLLM benchmark, demonstrating substantial gains in inference throughput. Code is available at https://github.com/sef1/kv_fast_fusion kv_joint_encoding.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2605.09735": {
+   "id": "2605.09735",
+   "title": "KV-RM: Regularizing KV-Cache Movement for Static-Graph LLM Serving",
+   "authors": [
+    "Zhiqing Zhong",
+    "Zhijing Ye",
+    "Jian Zhang",
+    "Weijian Zheng",
+    "Bolun Sun",
+    "Xiaodong Yu"
+   ],
+   "published": "2026-05-10",
+   "abstract": "Static-graph LLM decoders provide predictable launches, fixed tensor shapes, and low submission overhead, but online decoding exposes highly irregular KV-cache behavior: request lengths differ, EOS events arrive asynchronously, and logical histories fragment over time. Dynamic runtimes recover flexibility through paged KV management and step-level scheduling, while static-graph executors often over-reserve memory and suffer burst-time latency outliers. This paper studies whether much of this variability can be absorbed below a fixed decode interface. We present KV-RM, a runtime design that regularizes KV-cache movement beneath a static-graph LLM decoder. KV-RM decouples logical KV histories from physical storage, tracks active KV state through a block pager, and materializes each decode step through a single committed descriptor. A merge-staged transport path coalesces non-contiguous KV mappings into a small number of large transfer groups before a fixed-shape attention kernel consumes them. Optional bounded far-history summaries can be enabled under the same interface, but the core design does not depend on them. On a 2-GPU NVIDIA A100 node, KV-RM improves mixed-length decoding throughput and tail latency relative to a static-graph baseline, reduces reserved KV memory across workload families, and removes severe burst-time latency spikes under production-trace replay. These results suggest that KV-cache movement, rather than kernel shape, can be an effective boundary for recovering runtime flexibility in static-graph LLM serving.",
+   "categories": [
+    "cs.AR",
+    "cs.AI",
+    "cs.DC",
+    "cs.OS"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2406.17565": {
+   "id": "2406.17565",
+   "title": "MemServe: Context Caching for Disaggregated LLM Serving with Elastic Memory Pool",
+   "authors": [
+    "Cunchen Hu",
+    "Heyang Huang",
+    "Junhao Hu",
+    "Jiang Xu",
+    "Xusheng Chen",
+    "Tao Xie",
+    "Chenxi Wang",
+    "Sa Wang",
+    "Yungang Bao",
+    "Ninghui Sun",
+    "Yizhou Shan"
+   ],
+   "published": "2024-06-25",
+   "abstract": "Large language model (LLM) serving has transformed from stateless to stateful systems, utilizing techniques like context caching and disaggregated inference. These optimizations extend the lifespan and domain of the KV cache, necessitating a new architectural approach. We present MemServe, a unified system that integrates both inter-request and intra-request optimizations. MemServe introduces MemPool, an elastic memory pool managing distributed memory and KV caches across serving instances. Using MemPool APIs, MemServe combines context caching with disaggregated inference for the first time, supported by a global scheduler that enhances cache reuse through a global prompt tree-based locality-aware policy. Tests show that MemServe significantly improves job completion time and time-to-first-time.",
+   "categories": [
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2607.02574": {
+   "id": "2607.02574",
+   "title": "From Tensor Buffer to Distributed Memory Hierarchy: A Survey of KV Cache Management for LLM Serving",
+   "authors": [
+    "Jie Li",
+    "Tongyang Wang",
+    "Yong Chen"
+   ],
+   "published": "2026-06-30",
+   "abstract": "The key-value (KV) cache has become a first-order memory object in LLM serving rather than a temporary per-request tensor. This survey classifies more than thirty KV-management systems and frameworks using four axes: locality, lifetime, ownership, and substrate. The axes reveal five architectural archetypes -- local-paged, disaggregated-pipeline, shared-store, memory-pool, and hybrid-tier. Once workload and hardware are fixed, ownership accounts for much of the remaining design variance among distributed systems. The survey also audits current evaluations and identifies seven missing KV-specific measurements, linking them to open problems in fault tolerance, isolation, tiered eviction, speculative decoding, MoE serving, and shared-cache semantics.",
+   "categories": [
+    "cs.DC",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2510.18586": {
+   "id": "2510.18586",
+   "title": "TokenCake: A KV-Cache-centric Serving Framework for LLM-based Multi-Agent Applications",
+   "authors": [
+    "Zhuohang Bian",
+    "Feiyang Wu",
+    "Zhuoran Li",
+    "Teng Ma",
+    "Youwei Zhuo"
+   ],
+   "published": "2025-10-21",
+   "abstract": "Large Language Models (LLMs) are increasingly deployed in complex multi-agent applications that rely on external function calls. This workload creates severe performance challenges for the KV Cache: spatial contention leads to the eviction of critical agents' caches and temporal underutilization leaves the cache of agents stalled on long-running function calls idling in GPU memory. We present TokenCake, a KV-Cache-centric serving framework that bridges this gap by co-optimizing scheduling and memory management through an agent-aware design. TokenCake's Temporal Scheduler employs an event-driven, opportunistic policy to proactively offload idle KV Caches during function calls and uses predictive uploading to hide data transfer latency. TokenCake's Spatial Scheduler uses dynamic memory partitioning, guided by a hybrid priority metric combining graph structure and runtime state, to reserve GPU memory for critical-path agents. Our evaluation on representative multi-agent benchmarks shows that TokenCake reduces end-to-end latency by up to 47.06% in memory-constrained settings and improves effective GPU utilization by 16.9 percentage points compared to vLLM. TokenCake is publicly available at https://github.com/pkulemonade/TokenCake.",
+   "categories": [
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2609.30854": {
+   "id": "2609.30854",
+   "title": "The KV Cache Is the New Memory Wall",
+   "authors": [
+    "Tejinder Singh"
+   ],
+   "published": "2026-09-25",
+   "abstract": "Autoregressive LLM inference at long context is bounded by memory bandwidth, not arithmetic throughput, and the binding resource shifts from model weights to the Key-Value (KV) cache as sequence length grows. For Llama-3-70B in BF16, the 140 GB weight footprint exceeds the 80 GB HBM of a single accelerator, and one 128k-token sequence adds 42 GB of KV cache. Techniques that compress, evict, page, share, or offload KV state have proliferated, but reported gains use inconsistent workloads, hardware, and quality metrics, preventing cross-paper comparison. This SoK paper unifies the field analytically, with a protocol that strictly separates derived and reported claims. We derive closed-form arithmetic intensity as a decaying function of context length, parameterized by hardware topology for NVIDIA H100, NVIDIA B200, and AMD MI300X, including per-die bandwidth partitioning and the crossover lengths where KV traffic overtakes weight traffic. We classify the literature into five domains, quantization, token eviction, KV paging, prefix caching, and heterogeneous tiering, evaluating one method per domain at 128k context under a single protocol. The central finding is a three-regime structure: below a hardware-specific crossover, weight traffic dominates and KV compression yields negligible speedup; beyond it, KV traffic dominates and each domain trades quality for bandwidth savings approaching the roofline bound. Paging and prefix sharing are lossless but address capacity, not bandwidth. Quantization and eviction cut bandwidth directly, with degradation that accelerates below 4-bit precision and turns discontinuous for eviction on position-sensitive tasks. Tiering converts the bandwidth wall into an interconnect problem bounded by PCIe or NVLink rather than HBM. We close with design rules for selecting a compression domain given hardware, context length, and quality budget.",
+   "categories": [
+    "cs.DC",
+    "cs.LG",
+    "cs.PF"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2410.00161": {
+   "id": "2410.00161",
+   "title": "KV-Compress: Paged KV-Cache Compression with Variable Compression Rates per Attention Head",
+   "authors": [
+    "Isaac Rehg"
+   ],
+   "published": "2024-09-30",
+   "abstract": "Context lengths of Large Language Models (LLMs) have exploded in recent years, with 128k-token context becoming a standard and million-token context becoming a reality. Efficiently supporting long-context inference remains challenging as the memory that must be allocated in key-value (KV) cache for a generation scales with its context length, limiting the number of long-context requests that can be served concurrently under a given memory budget. KV cache compression can mitigate this issue by removing under-utilized KVs from each attention head's cache and reducing its memory footprint. Higher theoretical compression rates can be achieved when the number of removed KVs varies across attention heads, but application of such a strategy within existing inference frameworks adds fragmentation and cannot realize the theoretical compression rates in physical memory. We introduce KV-Compress, a novel compression method that evicts contiguous KV blocks within a PagedAttention framework, reducing the memory footprint of the KV cache proportionally to this theoretical compression rate. Our method achieves state-of-the-art performance on LongBench for both Mistral-7B-Instruct-v0.2 and Llama-3.1-8B-Instruct while lowering the total number of compressed KVs by 4x compared with prior methods. Evaluations on Llama-3.1-8B-Instruct and Llama-3.1-70B-Instruct-FP8 achieve compression rates up to 8x with negligible impact on performance, and up to 64x while retaining over 90% of full-cache performance for all but three of the suite's subsets. We benchmark an integration of our method with vLLM that increases total throughput by up to 5.18x by enabling larger decoding batches.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2309.06180": {
+   "id": "2309.06180",
+   "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+   "authors": [
+    "Woosuk Kwon",
+    "Zhuohan Li",
+    "Siyuan Zhuang",
+    "Ying Sheng",
+    "Lianmin Zheng",
+    "Cody Hao Yu",
+    "Joseph E. Gonzalez",
+    "Hao Zhang",
+    "Ion Stoica"
+   ],
+   "published": "2023-09-12",
+   "abstract": "High throughput serving of large language models (LLMs) requires batching sufficiently many requests at a time. However, existing systems struggle because the key-value cache (KV cache) memory for each request is huge and grows and shrinks dynamically. When managed inefficiently, this memory can be significantly wasted by fragmentation and redundant duplication, limiting the batch size. To address this problem, we propose PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, we build vLLM, an LLM serving system that achieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV cache within and across requests to further reduce memory usage. Our evaluations show that vLLM improves the throughput of popular LLMs by 2-4$\\times$ with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca. The improvement is more pronounced with longer sequences, larger models, and more complex decoding algorithms. vLLM's source code is publicly available at https://github.com/vllm-project/vllm",
+   "categories": [
+    "cs.LG",
+    "cs.DC"
+   ],
+   "upvotes": 76,
+   "sources": [
+    "arxiv",
+    "openalex",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2608.13263": {
+   "id": "2608.13263",
+   "title": "vToken: Token-Level Virtualization for Reclaimable KV Caches",
+   "authors": [
+    "Yuanhang Gao",
+    "Xiangrui Yang",
+    "Yuanfeng Chen",
+    "Hongjia Chen",
+    "Qianru Lv",
+    "Wenfei Wu",
+    "Dongsheng Li"
+   ],
+   "published": "2026-08-13",
+   "abstract": "Large language model serving faces a critical memory bottleneck: the KV cache grows with sequence length and batch size. PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation, but recent KV eviction algorithms operate at a token granularity finer than block-level management. This mismatch causes intra-block fragmentation, leaving a large fraction of allocated KV memory unreclaimable. We present vToken, a lightweight token-level virtualization layer that decouples logical token liveness from physical block placement. vToken maintains a stable logical token view through token-table indirection and realizes physical reclamation by repacking live tokens asynchronously. The design preserves PagedAttention kernels and CUDA Graph compatibility. We implement vToken in vLLM and evaluate it with H2O, Random, and Scissorhands across models. Compared with a paired Naive-Evict baseline, vToken reduces retained KV blocks per request by 27.2\\%--72.3\\% and improves SLA-constrained throughput by up to 1.37$\\times$. Under a constrained active-KV budget, it extends the maximum feasible concurrency by up to 2$\\times$, while reducing the per-policy integration footprint from 500+ lines to under 50.",
+   "categories": [
+    "cs.AI",
+    "cs.DC",
+    "cs.OS"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2608.23834": {
+   "id": "2608.23834",
+   "title": "Minima-KV: Retention-Preserving KV Cache Compression with Mixed-Format Paged Attention",
+   "authors": [
+    "Sergii Kozyrev",
+    "Davyd Maiboroda"
+   ],
+   "published": "2026-08-24",
+   "abstract": "The key-value (KV) cache is a primary capacity and bandwidth bottleneck in long-context LLM serving. We present Minima-KV, a retention-preserving hierarchy for mixed-format paged attention. Recent and protected Anchor pages remain in FP8, while older non-anchor pages move to packed TQ3; every live-request page remains addressable. Format-specific kernels compute partial attention states and combine them through a globally normalized online-softmax merge, enabling direct heterogeneous decode without a cache-sized dense shadow. Across separate, configuration-bound Qwen3.6-27B profiles on a single 96-GB NVIDIA RTX PRO 6000 Blackwell GPU, deployment accounting reports 18.3 KiB of attention KV per live token, corresponding to 3.50x compression relative to BF16 and 1.75x relative to FP8. A materializing quality profile matches its dense control on 16K RULER needle-in-a-haystack tasks. On the same 503-question LongBench v2 set, measured deltas are -0.80, -0.60, and -0.40 percentage points at 16K, 32K, and 64K. A separate single-pair direct-decode canary with two 59,008-token requests measures 3.625x active-KV compression and 0.9821x throughput relative to its control, routes all 16 full-attention layers without fallback, and retains no dense shadow. These results establish a practical mixed-format path for compressing long-context state without evicting live-request KV pages.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": 1,
+   "sources": [
+    "arxiv",
+    "openalex",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.05012": {
+   "id": "2604.05012",
+   "title": "Comparative Characterization of KV Cache Management Strategies for LLM Inference",
+   "authors": [
+    "Oteo Mamo",
+    "Olga Kogiou",
+    "Hyunjin Yi",
+    "Weikuan Yu"
+   ],
+   "published": "2026-04-06",
+   "abstract": "Efficient inference with Large Language Models (LLMs) increasingly relies on Key-Value (KV) caches to store previously computed key and value vectors at each layer. These caches are essential to minimize redundant computation during autoregressive token generation, lowering computational complexity from quadratic to linear. However, the growth of KV caches has posed significant system-level challenges, particularly as model sizes increase, context lengths grow, and concurrent requests compete for limited memory resources. Even though several recent frameworks for KV cache management have emerged, their comparative trade-offs in memory consumption and inference performance have not been fully understood, especially under varying request sizes and model configurations. In this work, we conduct an empirical study of three state-of-the-art KV cache management frameworks: vLLM, InfiniGen, and H2O. These frameworks employ techniques such as tensor offloading, token eviction heuristics, and speculative scheduling to balance memory usage and performance. We evaluate their performance in terms of a range of metrics such as latency, throughput, and memory usage across a spectrum of key parameters including request rates, model sizes, and sparsity levels. Our results pinpoint the conditions for each framework to perform the best, revealing the most suitable selection and configuration of KV cache strategies under memory and performance constraints.",
+   "categories": [
+    "cs.AR",
+    "cs.AI"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2604.19157": {
+   "id": "2604.19157",
+   "title": "SAW-INT4: System-Aware 4-Bit KV-Cache Quantization for Real-World LLM Serving",
+   "authors": [
+    "Jinda Jia",
+    "Jisen Li",
+    "Zhongzhu Zhou",
+    "Jung Hwan Heo",
+    "Jue Wang",
+    "Tri Dao",
+    "Shuaiwen Leon Song",
+    "Ben Athiwaratkun",
+    "Chenfeng Xu",
+    "Tianyi Zhang",
+    "Xiaoxia Wu"
+   ],
+   "published": "2026-04-21",
+   "abstract": "KV-cache memory is a major bottleneck in real-world LLM serving, where systems must simultaneously support latency-sensitive small-batch requests and high-throughput concurrent workloads. Although many KV-cache compression methods improve offline accuracy or compression ratio, they often violate practical serving constraints such as paged memory layouts, regular memory access, and fused attention execution, limiting their effectiveness in deployment. In this work, we identify the minimal set of 4-bit KV-cache quantization methods that remain viable under these constraints. Our central finding is that a simple design--token-wise INT4 quantization with block-diagonal Hadamard rotation--consistently achieves the best accuracy-efficiency trade-off. Across multiple models and benchmarks, this approach recovers nearly all of the accuracy lost by naive INT4, while more complex methods such as vector quantization and Hessian-aware quantization provide only marginal additional gains once serving compatibility is taken into account. To make this practical, we implement a fused rotation-quantization kernel that integrates directly into paged KV-cache layouts and introduces zero measurable end-to-end overhead, matching plain INT4 throughput across concurrency levels. Our results show that effective KV-cache compression is fundamentally a systems co-design problem: under real serving constraints, lightweight block-diagonal Hadamard rotation is a viable method that delivers near-lossless accuracy without sacrificing serving efficiency.",
+   "categories": [
+    "cs.LG"
+   ],
+   "upvotes": 2,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2404.18057": {
+   "id": "2404.18057",
+   "title": "Efficient LLM Inference with Kcache",
+   "authors": [
+    "Qiaozhi He",
+    "Zhihua Wu"
+   ],
+   "published": "2024-04-28",
+   "abstract": "Large Language Models(LLMs) have had a profound impact on AI applications, particularly in the domains of long-text comprehension and generation. KV Cache technology is one of the most widely used techniques in the industry. It ensures efficient sequence generation by caching previously computed KV states. However, it also introduces significant memory overhead. We discovered that KV Cache is not necessary and proposed a novel KCache technique to alleviate the memory bottleneck issue during the LLMs inference process. KCache can be used directly for inference without any training process, Our evaluations show that KCache improves the throughput of popular LLMs by 40% with the baseline, while keeping accuracy.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 0,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2410.21465": {
+   "id": "2410.21465",
+   "title": "ShadowKV: KV Cache in Shadows for High-Throughput Long-Context LLM Inference",
+   "authors": [
+    "Hanshi Sun",
+    "Li-Wen Chang",
+    "Wenlei Bao",
+    "Size Zheng",
+    "Ningxin Zheng",
+    "Xin Liu",
+    "Harry Dong",
+    "Yuejie Chi",
+    "Beidi Chen"
+   ],
+   "published": "2024-10-28",
+   "abstract": "With the widespread deployment of long-context large language models (LLMs), there has been a growing demand for efficient support of high-throughput inference. However, as the key-value (KV) cache expands with the sequence length, the increasing memory footprint and the need to access it for each token generation both result in low throughput when serving long-context LLMs. While various dynamic sparse attention methods have been proposed to speed up inference while maintaining generation quality, they either fail to sufficiently reduce GPU memory consumption or introduce significant decoding latency by offloading the KV cache to the CPU. We present ShadowKV, a high-throughput long-context LLM inference system that stores the low-rank key cache and offloads the value cache to reduce the memory footprint for larger batch sizes and longer sequences. To minimize decoding latency, ShadowKV employs an accurate KV selection strategy that reconstructs minimal sparse KV pairs on-the-fly. By evaluating ShadowKV on a broad range of benchmarks, including RULER, LongBench, and Needle In A Haystack, and models like Llama-3.1-8B, Llama-3-8B-1M, GLM-4-9B-1M, Yi-9B-200K, Phi-3-Mini-128K, and Qwen2-7B-128K, we demonstrate that it can support up to 6$\\times$ larger batch sizes and boost throughput by up to 3.04$\\times$ on an A100 GPU without sacrificing accuracy, even surpassing the performance achievable with infinite batch size under the assumption of infinite GPU memory. The code is available at https://github.com/bytedance/ShadowKV.",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2510.00231": {
+   "id": "2510.00231",
+   "title": "The Pitfalls of KV Cache Compression",
+   "authors": [
+    "Alex Chen",
+    "Renato Geh",
+    "Aditya Grover",
+    "Guy Van den Broeck",
+    "Daniel Israel"
+   ],
+   "published": "2025-09-30",
+   "abstract": "KV cache compression promises increased throughput and efficiency with negligible loss in performance. While the gains in throughput are indisputable and recent literature has indeed shown minimal degradation on particular benchmarks, in general the consequences of compression in realistic scenarios such as multi-instruction prompting have been insufficiently studied. In this paper, we identify several pitfalls that practitioners should be aware of when deploying KV cache compressed LLMs. We evaluate five KV cache compression methods (StreamingLLM, SnapKV, TOVA, H2O, and K-Norm) on Llama3.1 8B and Qwen2.5 14B under multi-instruction prompting with IFEval. Importantly, we show that certain instructions degrade much more rapidly with compression, effectively causing them to be completely ignored by the LLM. As a practical example, we highlight system prompt leakage as a case study, empirically demonstrating the impact of compression on leakage and general instruction-following. We identify several factors that contribute to system prompt leakage: compression method, instruction order, and KV eviction bias. We then propose simple changes to KV cache eviction policies that can reduce the impact of these factors and improve the overall performance in multi-instruction tasks.",
+   "categories": [
+    "cs.LG",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2501.01792": {
+   "id": "2501.01792",
+   "title": "Efficient LLM Inference with Activation Checkpointing and Hybrid Caching",
+   "authors": [
+    "Sanghyeon Lee",
+    "Hongbeen Kim",
+    "Soojin Hwang",
+    "Guseul Heo",
+    "Minwoo Noh",
+    "Jaehyuk Huh"
+   ],
+   "published": "2025-01-03",
+   "abstract": "Recent large language models (LLMs) with enormous model sizes use many GPUs to meet memory capacity requirements incurring substantial costs for token generation. To provide cost-effective LLM inference with relaxed latency constraints, extensive research has focused on expanding GPU memory by leveraging the host memory. However, LLM inference engines that utilize the host memory often face underutilization of GPU compute units, as a considerable portion of inference time is spent in loading the model onto the GPU via host-GPU interconnect. To tackle these challenges of the host memory offloading for LLM, we introduce HybridServe, an LLM inference system with activation checkpointing based on activation caching. The activation cache stores activation checkpoints generated during intermediate inference stages, allowing the fast recomputation of KV cache while model parameters are transferred to GPU from host memory. Unlike conventional methods that recompute the KV cache from scratch using token IDs, the activation cache allows bypassing projection and FFN operations. To balance between the activation recomputation and parameter loading overhead, this study proposes a KV-activation hybrid caching scheme which finds the best ratio of the key-value and activation caches to adjust the recomputation time. Our system achieves 2.19x throughput improvement over the state-of-the-art prior work for offloading both model weights and KV cache.",
+   "categories": [
+    "cs.DC"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2410.15252": {
+   "id": "2410.15252",
+   "title": "Lossless KV Cache Compression to 2%",
+   "authors": [
+    "Zhen Yang",
+    "J. N. Han",
+    "Kan Wu",
+    "Ruobing Xie",
+    "An Wang",
+    "Xingwu Sun",
+    "Zhanhui Kang"
+   ],
+   "published": "2024-10-20",
+   "abstract": "Large language models have revolutionized data processing in numerous domains, with their ability to handle extended context reasoning receiving notable recognition. To speed up inference, maintaining a key-value (KV) cache memory is essential. Nonetheless, the growing demands for KV cache memory create significant hurdles for efficient implementation. This work introduces a novel architecture, Cross-Layer Latent Attention (CLLA), aimed at compressing the KV cache to less than 2% of its original size while maintaining comparable performance levels. CLLA integrates multiple aspects of KV cache compression, including attention head/dimension reduction, layer sharing, and quantization techniques, into a cohesive framework. Our extensive experiments demonstrate that CLLA achieves lossless performance on most tasks while utilizing minimal KV cache, marking a significant advancement in practical KV cache compression.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2309.06180",
+    "quote": "To address this problem, we propose PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, we build vLLM, an LLM serving system that achieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV cache within and across requests to further reduce memory usage.",
+    "claim": "PagedAttention reduces memory fragmentation in LLM serving by applying virtual memory and paging techniques to achieve near-zero waste in KV cache memory."
+   },
+   {
+    "paper_id": "2608.13263",
+    "quote": "PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation",
+    "claim": "PagedAttention reduces memory fragmentation by utilizing fixed-size memory blocks for KV cache management."
+   },
+   {
+    "paper_id": "2309.06180",
+    "quote": "Our evaluations show that vLLM improves the throughput of popular LLMs by 2-4$\\times$ with the same level of latency compared to the state-of-the-art systems, such as FasterTransformer and Orca.",
+    "claim": "PagedAttention-based systems like vLLM improve inference throughput by 2-4x while maintaining the same level of latency."
+   },
+   {
+    "paper_id": "2605.09735",
+    "quote": "On a 2-GPU NVIDIA A100 node, KV-RM improves mixed-length decoding throughput and tail latency relative to a static-graph baseline, reduces reserved KV memory across workload families, and removes severe burst-time latency spikes under production-trace replay.",
+    "claim": "Paged KV management improves throughput and reduces tail latency in LLM inference."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "Paging the KV cache improves LLM serving throughput by eliminating memory fragmentation and enabling higher batch sizes through efficient, non-contiguous memory allocation {{p:2309.06180}} {{p:2608.13263}} {{p:2605.09735}}.",
+   "paragraphs": [
+    "By applying virtual memory and paging techniques to KV cache management, systems can achieve near-zero memory waste and support flexible sharing of cache across requests {{p:2309.06180}}. This approach utilizes fixed-size memory blocks to mitigate allocator-level fragmentation, which otherwise limits the number of concurrent requests a system can handle {{p:2608.13263}}.",
+    "Decoupling logical KV histories from physical storage allows runtimes to absorb the irregular memory behavior inherent in online decoding {{p:2605.09735}}. Consequently, this optimization enables significant throughput gains, often reaching 2-4x higher performance compared to traditional static-graph or non-paged serving systems {{p:2309.06180}} {{p:2605.09735}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2309.06180",
+     "contribution_quote": "To address this problem, we propose PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, we build vLLM, an LLM serving system that achieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV cache within and across requests to further reduce memory usage."
+    },
+    {
+     "paper_id": "2608.13263",
+     "contribution_quote": "PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation"
+    },
+    {
+     "paper_id": "2605.09735",
+     "contribution_quote": "We present KV-RM, a runtime design that regularizes KV-cache movement beneath a static-graph LLM decoder. KV-RM decouples logical KV histories from physical storage, tracks active KV state through a block pager, and materializes each decode step through a single committed descriptor."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": [
+     "abstract 2510.00231: 'system prompt'"
+    ]
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "Paging the KV cache improves LLM serving throughput by eliminating memory fragmentation and enabling higher batch sizes through efficient, non-contiguous memory allocation [1] [2] [3].",
+  "paragraphs": [
+   "By applying virtual memory and paging techniques to KV cache management, systems can achieve near-zero memory waste and support flexible sharing of cache across requests [1]. This approach utilizes fixed-size memory blocks to mitigate allocator-level fragmentation, which otherwise limits the number of concurrent requests a system can handle [2].",
+   "Decoupling logical KV histories from physical storage allows runtimes to absorb the irregular memory behavior inherent in online decoding [3]. Consequently, this optimization enables significant throughput gains, often reaching 2-4x higher performance compared to traditional static-graph or non-paged serving systems [1] [3]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2309.06180",
+    "title": "Efficient Memory Management for Large Language Model Serving with PagedAttention",
+    "authors": "Woosuk Kwon et al.",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "contribution_quote": "To address this problem, we propose PagedAttention, an attention algorithm inspired by the classical virtual memory and paging techniques in operating systems. On top of it, we build vLLM, an LLM serving system that achieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV cache within and across requests to further reduce memory usage."
+   },
+   {
+    "n": 2,
+    "id": "2608.13263",
+    "title": "vToken: Token-Level Virtualization for Reclaimable KV Caches",
+    "authors": "Yuanhang Gao et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2608.13263",
+    "contribution_quote": "PagedAttention uses fixed-size memory blocks to reduce allocator-level fragmentation"
+   },
+   {
+    "n": 3,
+    "id": "2605.09735",
+    "title": "KV-RM: Regularizing KV-Cache Movement for Static-Graph LLM Serving",
+    "authors": "Zhiqing Zhong et al.",
+    "year": "2026",
+    "url": "https://arxiv.org/abs/2605.09735",
+    "contribution_quote": "We present KV-RM, a runtime design that regularizes KV-cache movement beneath a static-graph LLM decoder. KV-RM decouples logical KV histories from physical storage, tracks active KV state through a block pager, and materializes each decode step through a single committed descriptor."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 98,
+    "tokens_out": 68,
+    "latency_ms": 8013,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 2,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "How does paging the KV cache reduce memory fragmentation in LLM serving?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.3261,
+       "arxiv:conceptual": 0.3074,
+       "arxiv:recent": 0.3128,
+       "hf:keyword": 0.2479,
+       "hf:conceptual": 0.349,
+       "hf:recent": 0.1582,
+       "openalex:keyword": 0.4674,
+       "openalex:conceptual": 0.4946,
+       "openalex:recent": 0.201
+      }
+     },
+     {
+      "subquestion": "What is the impact of KV cache paging on throughput and latency in LLM inference?",
+      "arms": [
+       "hf:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2519,
+       "arxiv:conceptual": 0.2965,
+       "arxiv:recent": 0.2453,
+       "hf:keyword": 0.2757,
+       "hf:conceptual": 0.3655,
+       "hf:recent": 0.1714,
+       "openalex:keyword": 0.3641,
+       "openalex:conceptual": 0.3417,
+       "openalex:recent": 0.1497
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 2,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 17
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 3,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4930,
+    "tokens_out": 437,
+    "latency_ms": 2216,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 3,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 2137,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1506,
+    "tokens_out": 531,
+    "latency_ms": 2132,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 2140,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": [
+       "abstract 2510.00231: 'system prompt'"
+      ]
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 2971,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 1395,
+    "tokens_out": 26,
+    "latency_ms": 829,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 2971,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 0,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 2971,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0"
+ ],
+ "llm_calls": 4,
+ "error": null,
+ "created_at": "2026-10-08T23:56:10+00:00",
+ "updated_at": "2026-10-08T23:56:13+00:00"
+}

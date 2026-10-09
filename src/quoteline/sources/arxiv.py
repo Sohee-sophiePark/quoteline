@@ -43,8 +43,18 @@ def untex(text: str) -> str:
     )
 
 
+TEX_CMD = re.compile(r"\\[A-Za-z]+\s*\{([^{}]*)\}")
+
+
+def strip_tex(text: str) -> str:
+    """Prose without TeX markup: \\cmd{x} → x (nested), bare \\cmd dropped, ~ → space, no braces."""
+    for _ in range(3):
+        text = TEX_CMD.sub(r"\1", text)
+    return re.sub(r"[{}]", "", re.sub(r"\\[A-Za-z]+", "", text)).replace("~", " ")
+
+
 def _clean(text: str | None) -> str:
-    return re.sub(r"\s+", " ", text or "").strip()
+    return re.sub(r"\s+", " ", strip_tex(text or "")).strip()
 
 
 def parse_atom(xml: str, fetched: str) -> list[Paper]:
@@ -108,6 +118,15 @@ def search_query(text: str, style: Style) -> dict:
 async def search(http: PoliteHttp, text: str, style: Style, k: int, fetched: str) -> list[Paper]:
     resp = await http.get(API, {**search_query(text, style), "start": 0, "max_results": k})
     return parse_atom(resp.text, fetched)[:k]
+
+
+async def by_date(http: PoliteHttp, category: str, date: str, k: int, fetched: str) -> list[Paper]:
+    """Up to `k` papers submitted in `category` on `date` (YYYY-MM-DD)."""
+    d = date.replace("-", "")
+    query = f"cat:{category} AND submittedDate:[{d}0000 TO {d}2359]"
+    params = {"search_query": query, "sortBy": "submittedDate", "sortOrder": "ascending"}
+    resp = await http.get(API, {**params, "start": 0, "max_results": k})
+    return parse_atom(resp.text, fetched)
 
 
 async def by_ids(http: PoliteHttp, ids: list[str], fetched: str) -> list[Paper]:

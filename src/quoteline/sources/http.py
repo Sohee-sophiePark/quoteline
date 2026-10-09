@@ -35,7 +35,7 @@ class PoliteHttp:
     async def get(
         self, url: str, params: dict | None = None, headers: dict | None = None
     ) -> httpx.Response:
-        """GET `url`; raises httpx.HTTPStatusError once retries are exhausted."""
+        """GET `url`, retrying 429/5xx and transport errors; raises once retries are exhausted."""
         host = urlparse(url).hostname or ""
         lock = self.locks.setdefault(host, asyncio.Lock())
         async with lock:
@@ -45,12 +45,20 @@ class PoliteHttp:
                 )
                 if gap > 0:
                     await self.sleep(gap)
-                resp = await self.client.get(url, params=params, headers=headers)
+                try:
+                    resp = await self.client.get(url, params=params, headers=headers)
+                except httpx.TransportError:
+                    if attempt == self.cfg.max_attempts:
+                        raise
+                    resp = None
                 self.last[host] = self.clock()
                 self.requests += 1
-                if resp.status_code not in RETRY_STATUS or attempt == self.cfg.max_attempts:
+                if resp is not None and (
+                    resp.status_code not in RETRY_STATUS or attempt == self.cfg.max_attempts
+                ):
                     return resp.raise_for_status()
-                await self.sleep(min(300.0, server_wait(resp) or 5.0 * 2 ** (attempt - 1)))
+                wait = server_wait(resp) if resp is not None else None
+                await self.sleep(min(300.0, wait or self.cfg.backoff_seconds * 2 ** (attempt - 1)))
         raise AssertionError("unreachable")
 
     async def aclose(self) -> None:

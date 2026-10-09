@@ -24,7 +24,8 @@ per_call_timeout_seconds: 90
 loop: {max_revisions: 2, pass_min_score: 4}
 research: {max_subquestions: 3, arms_per_subquestion: 2, top_k: 5}
 sources:                         # seconds between requests per host (arXiv >= 3; HF search 50 per 5 min)
-  min_interval: {export.arxiv.org: 3.1, rss.arxiv.org: 3.1, huggingface.co: 6.1, api.openalex.org: 0.5}
+  min_interval: {export.arxiv.org: 5.0, rss.arxiv.org: 3.1, huggingface.co: 6.1, api.openalex.org: 0.5}
+  backoff_seconds: 30   # first wait after a 429/5xx/timeout without a server hint; doubles, capped at 300
   timeout_seconds: 30
   max_attempts: 4
   user_agent: "quoteline-demo/0.1 (portfolio demo; read-only)"

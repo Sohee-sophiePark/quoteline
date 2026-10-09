@@ -1,215 +1,218 @@
-{"qid": "k000", "question": "What are the common approaches and techniques used to develop multimodal conversational assistants for the biomedical domain?", "target": "2306.00890"}
-{"qid": "k001", "question": "What role does text conditioning play in the memorization and replication of training data in diffusion models?", "target": "2305.20086"}
-{"qid": "k002", "question": "How can transformers be trained to improve their ability to generalize arithmetic operations to sequence lengths not encountered during training?", "target": "2306.15400"}
-{"qid": "k003", "question": "What are the latest techniques and scaling strategies for training high-performance CLIP models under limited computational budgets?", "target": "2306.15658"}
-{"qid": "k004", "question": "How can secure multiparty computation be optimized to perform efficient inference on large transformer-based models while maintaining model accuracy?", "target": "2307.12533"}
-{"qid": "k005", "question": "How can the network architecture for training massive-scale language models be optimized to reduce communication costs without degrading training performance?", "target": "2307.12169"}
-{"qid": "k006", "question": "What are the common approaches and techniques used for generating interpolations between two distinct images within a diffusion model framework?", "target": "2307.12560"}
-{"qid": "k007", "question": "What are the primary methodologies for learning motion priors from video data to animate static images with realistic dynamics?", "target": "2309.07906"}
-{"qid": "k008", "question": "How can language models be trained to effectively combine natural language processing with coding proficiency for use in functional language agents?", "target": "2310.06830"}
-{"qid": "k009", "question": "How can one evaluate the performance of vision-language models in complex autonomous driving tasks such as scene reasoning and decision-making?", "target": "2311.05332"}
-{"qid": "k010", "question": "How can a multimodal assistant be trained to effectively select and use various external vision and language tools to complete complex tasks?", "target": "2311.05437"}
-{"qid": "k011", "question": "What are the current approaches for unifying multiple vision-language tasks within a single framework to mitigate hallucinations and task interference?", "target": "2311.05348"}
-{"qid": "k012", "question": "How can one achieve class-unconditional image generation by conditioning on self-supervised representation distributions instead of human annotations?", "target": "2312.03701"}
-{"qid": "k013", "question": "What are the current approaches for independently controlling camera and object motion in video generation?", "target": "2312.03641"}
-{"qid": "k014", "question": "What are the existing strategies for improving cross-lingual instruction-following capabilities in multilingual large language models?", "target": "2401.01854"}
-{"qid": "k015", "question": "What approaches exist for evaluating the visual conceptual understanding of large language models through code-based image representation?", "target": "2401.01862"}
-{"qid": "k016", "question": "What is the phenomenon where fine-tuned vision-language models lose performance on unknown classes, and how can class-conditional feature generation and adaptive self-distillation mitigate this issue?", "target": "2401.15914"}
-{"qid": "k017", "question": "How can a mixture-of-experts training strategy be implemented in large vision-language models to achieve high performance with a constant computational cost for inference?", "target": "2401.15947"}
-{"qid": "k018", "question": "How can deep and thin network architectures, alongside weight-sharing techniques, be used to optimize sub-billion parameter language models for mobile deployment?", "target": "2402.14905"}
-{"qid": "k019", "question": "What are the prevailing methodologies for unifying heterogeneous multi-turn trajectory data to train effective autonomous agents powered by large language models?", "target": "2402.15506"}
-{"qid": "k020", "question": "What are the common corpora and datasets available for training and evaluating the ability of large language models to interact with external APIs and tools?", "target": "2402.15491"}
-{"qid": "k021", "question": "How can watermarking techniques be used to detect whether the output of a specific language model was utilized in the training or fine-tuning of another model?", "target": "2402.14904"}
-{"qid": "k022", "question": "What are the common approaches for integrating various image editing and video generation models to perform diverse video-to-video editing tasks?", "target": "2403.14468"}
-{"qid": "k023", "question": "What is the content-motion latent diffusion model, and how does it decompose video data to improve generation efficiency?", "target": "2403.14148"}
-{"qid": "k024", "question": "How can text-to-image generation be optimized for rapid performance on resource-constrained edge devices using compact model variants and advanced distillation?", "target": "2404.11925"}
-{"qid": "k025", "question": "What are the existing methods for disentangling subject-specific information from general context in personalized image generation?", "target": "2404.11565"}
-{"qid": "k026", "question": "What are the current methodologies and frameworks used for benchmarking the safety of chat-tuned language models?", "target": "2404.12241"}
-{"qid": "k027", "question": "What are the specific trade-offs regarding performance and regularization when comparing LoRA to full finetuning for large language models?", "target": "2405.09673"}
-{"qid": "k028", "question": "How can one implement an early-fusion, token-based architecture to enable a single model to perform both image and text generation in arbitrary sequences?", "target": "2405.09818"}
-{"qid": "k029", "question": "What is the mechanism by which activation sparsity is achieved in LLMs, and how does it affect inference speed and model performance?", "target": "2406.05955"}
-{"qid": "k030", "question": "How can astronomical image-text contrastive learning be improved by fine-tuning pre-trained CLIP models with specialized datasets like SpaceNet?", "target": "2407.07315"}
-{"qid": "k031", "question": "What are the common approaches for building video-to-audio generation systems, particularly regarding vision encoders, auxiliary embeddings, and data augmentation?", "target": "2407.07464"}
-{"qid": "k032", "question": "How can a cascaded diffusion model be trained to synthesize 4D novel views by integrating 3D, 4D, and video training data?", "target": "2407.07860"}
-{"qid": "k033", "question": "How can text-to-SQL performance be improved by combining synthetic data from strong models with error information derived from weaker models?", "target": "2408.03256"}
-{"qid": "k034", "question": "How can large multimodal models be designed to enable effective task transfer across single-image, multi-image, and video scenarios?", "target": "2408.03326"}
-{"qid": "k035", "question": "What are the common approaches and challenges in developing foundation models for time series forecasting, and how are researchers bridging the gap between computer vision and time series analysis?", "target": "2408.17253"}
-{"qid": "k036", "question": "How can generative models be integrated with specialized LLMs and image adapters to create a persistent, infinite, and coherent interactive simulation environment?", "target": "2410.18975"}
-{"qid": "k037", "question": "What is the mechanism by which ResFormer mitigates the attention concentration issue in transformer architectures?", "target": "2410.17897"}
-{"qid": "k038", "question": "How can roboticists determine the optimal amount of data and environmental diversity required to achieve zero-shot generalization in manipulation tasks?", "target": "2410.18647"}
-{"qid": "k039", "question": "What are the current approaches for using retrieval-augmented large language models to synthesize scientific literature and provide accurate, citation-backed answers?", "target": "2411.14199"}
-{"qid": "k040", "question": "How can reasoning models be trained to tackle complex, open-ended problems that lack standard ground-truth answers?", "target": "2411.14405"}
-{"qid": "k041", "question": "What are the common approaches for single-stage image-to-3D generation, and how do they address the limitations of multi-view diffusion models?", "target": "2411.14384"}
-{"qid": "k042", "question": "How can researchers evaluate the capabilities of large language models in reasoning and understanding across extremely long-context, multi-task settings?", "target": "2412.15204"}
-{"qid": "k043", "question": "How can diffusion-based image editing be performed efficiently without training or latent inversion to maintain object consistency?", "target": "2412.14283"}
-{"qid": "k044", "question": "What are the current approaches and challenges in developing unsupervised instruction-based image editing models without relying on ground-truth edited data?", "target": "2412.15216"}
-{"qid": "k045", "question": "What are Trusted Capable Model Environments (TCMEs), and how do they function as secure intermediaries to enable private inference?", "target": "2501.08970"}
-{"qid": "k046", "question": "How can a symbolic music generation framework be designed to support diverse input modalities while ensuring emotional and qualitative control?", "target": "2501.08809"}
-{"qid": "k047", "question": "How can the computational efficiency of multi-scale image pyramid networks be improved by using parameter-inverted branch architectures?", "target": "2501.07783"}
-{"qid": "k048", "question": "How can vision-language models be scaled to handle one hundred billion training examples effectively?", "target": "2502.07617"}
-{"qid": "k049", "question": "What is the \u00c9clair tool, and what specific capabilities does it provide for extracting structured information and reading order from complex document images?", "target": "2502.04223"}
-{"qid": "k050", "question": "What approaches exist for using multimodal large language models to perform image quality and aesthetic assessment, and how do they handle the challenge of predicting numerical scores?", "target": "2503.06141"}
-{"qid": "k051", "question": "How can LLM-based agents be trained to dynamically regulate their own knowledge utilization through a situational self-awareness paradigm?", "target": "2504.03553"}
-{"qid": "k052", "question": "How can one construct a high-quality, large-scale open corpus specifically for pre-training models in mathematical reasoning?", "target": "2504.02807"}
-{"qid": "k053", "question": "What are the current approaches and datasets available for generating large-scale synthetic moral narratives to train smaller language models?", "target": "2504.20605"}
-{"qid": "k054", "question": "How can a model be trained to adaptively select between different reasoning depths to optimize inference efficiency for complex tasks?", "target": "2504.21659"}
-{"qid": "k055", "question": "What is the role of offline simulation frameworks in enabling LLMs to discover and verify software scripting skills without the risks of runtime execution?", "target": "2504.20406"}
-{"qid": "k056", "question": "What are the current approaches for implementing ultra-sparse attention in diffusion models to reduce computational costs while preserving visual generation quality?", "target": "2505.22918"}
-{"qid": "k057", "question": "What is the nature of the concept-based explainability method used to interpret the underlying factors driving LLM preference mechanisms across different domains?", "target": "2505.20088"}
-{"qid": "k058", "question": "How can we systematically evaluate the ability of Multimodal Large Language Models to detect and reason about errors in AI-generated videos?", "target": "2505.23693"}
-{"qid": "k059", "question": "What are the current approaches for applying text- and image-guided style transfer across diverse 3D and 4D modalities using Gaussian Splatting?", "target": "2505.22854"}
-{"qid": "k060", "question": "What are the latest findings regarding the phenomenon of grokking and the evolution of internal model pathways during large-scale LLM pretraining?", "target": "2506.21551"}
-{"qid": "k061", "question": "What is the role of positional embeddings in enabling lightweight, time-varying musical attribute control for text-to-music generation models?", "target": "2506.18729"}
-{"qid": "k062", "question": "How can one implement a dynamic layer-skipping mechanism in Transformers to improve computational efficiency based on input complexity?", "target": "2506.21103"}
-{"qid": "k063", "question": "What methods exist for creating interactive and dynamic worlds from images or text, and how do these frameworks handle camera motion and video generation?", "target": "2507.17744"}
-{"qid": "k064", "question": "What is the Turing Eye Test, and how does it reveal the gap in perceptual capabilities between humans and state-of-the-art Multimodal Large Language Models?", "target": "2507.16863"}
-{"qid": "k065", "question": "What are the common approaches and dynamics involved when training large language models on multiple reasoning domains simultaneously using reinforcement learning?", "target": "2507.17512"}
-{"qid": "k066", "question": "Is the memorization of training data in text-to-image diffusion models localized to specific weights, or can it be triggered from various locations in the embedding space?", "target": "2507.16880"}
-{"qid": "k067", "question": "How can multi-modal recommendation systems use meta-networks and graph-based homography to better distinguish between shared and unique modal features?", "target": "2508.13745"}
-{"qid": "k068", "question": "What are the current techniques for reducing the computational cost of edit distance calculations in fully homomorphic encryption environments?", "target": "2508.14568"}
-{"qid": "k069", "question": "How can dual preference optimization be used to enable self-verification in large language models without requiring explicit manual annotations?", "target": "2508.14460"}
-{"qid": "k070", "question": "What are the current approaches for improving Multiple Instance Learning in gigapixel histopathology by focusing on hard-to-classify instances?", "target": "2509.11526"}
-{"qid": "k071", "question": "How can a diffusion-based framework be designed to simultaneously synthesize RGB video and kinematic part segmentation from monocular inputs?", "target": "2509.10687"}
-{"qid": "k072", "question": "What are the existing approaches for shaping reinforcement learning rewards in LLMs, and how do they compare in terms of utilizing process-level signals or auxiliary data?", "target": "2510.10201"}
-{"qid": "k073", "question": "How can a diffusion transformer be trained using hybrid perspective and panoramic data to ensure geometric fidelity in generated 360-degree images?", "target": "2510.11712"}
-{"qid": "k074", "question": "What are the common strategies for parallel sequence generation in diffusion-based language models, and how do they address limitations like premature commitment and information loss?", "target": "2510.11052"}
-{"qid": "k075", "question": "What is the impact of safety alignment on the ability of LLMs to generate authentic, non-prosocial, or villainous character personas?", "target": "2511.04962"}
-{"qid": "k076", "question": "What are the current methods for improving the reliability of reasoning in LLMs through the validation of logical consistency within chains of thought?", "target": "2511.04662"}
-{"qid": "k077", "question": "How can 3D human motion sequences be temporally localized and captioned using a large language model and a motion adapter?", "target": "2511.05369"}
-{"qid": "k078", "question": "What are the common approaches for integrating repository history and version control metadata into automated program repair agents?", "target": "2511.01047"}
-{"qid": "k079", "question": "What is the role of appearance-agnostic skeletal geometry features in quantifying the temporal and visual fidelity of human actions in synthesized videos?", "target": "2512.01803"}
-{"qid": "k080", "question": "What are the primary challenges and existing methodologies for integrating agentic, multi-agent LLM systems directly into academic document editors?", "target": "2512.02589"}
-{"qid": "k081", "question": "What system-level techniques, such as pipeline parallelism and frame recalibration, enable the real-time, infinite-length streaming of audio-driven avatars?", "target": "2512.04677"}
-{"qid": "k082", "question": "What are the current research approaches and structural trade-offs involved in applying discrete versus continuous diffusion processes to language modeling?", "target": "2512.22630"}
-{"qid": "k083", "question": "How can hypergraph-based memory structures be used to improve multi-step retrieval-augmented generation by capturing high-order correlations between facts?", "target": "2512.23959"}
-{"qid": "k084", "question": "How can one implement a pretraining strategy that improves model safety and factuality by using a post-trained model to reward and refine token generations during the pretraining phase?", "target": "2601.21343"}
-{"qid": "k085", "question": "What are the current data-centric approaches for improving visual reasoning in vision-language models, and what are the effects of data quality and difficulty-aware filtering on reasoning performance?", "target": "2601.21821"}
-{"qid": "k086", "question": "How can one achieve efficient, training-free reasoning in large language models by approximating the power distribution through autoregressive token-level scaling?", "target": "2601.21590"}
-{"qid": "k087", "question": "What are the existing methods for leveraging large-scale synthetic instruction generation to improve the performance of language models beyond standard pretraining?", "target": "2601.22146"}
-{"qid": "k088", "question": "What are the prevailing approaches for unified multi-modal video and audio generation, and how do recent models address the challenges of high-resolution, long-duration cinematic synthesis?", "target": "2602.21818"}
-{"qid": "k089", "question": "What is the DropAnSH-GS method and how does it address overfitting in sparse-view 3D Gaussian Splatting?", "target": "2602.20933"}
-{"qid": "k090", "question": "How can an agent be designed to successfully integrate, transform, and analyze data across multiple heterogeneous database systems?", "target": "2603.20576"}
-{"qid": "k091", "question": "What is the latest research on using hyperbolic geometry to improve the structural representation of scene graphs?", "target": "2604.17454"}
-{"qid": "k092", "question": "What are the latest developments in using geometric stability to predict LLM steerability and monitor model drift?", "target": "2604.17698"}
-{"qid": "k093", "question": "What are the existing approaches and benchmarks for evaluating multimodal web coding agents across the entire lifecycle of generation, editing, and repair?", "target": "2604.18224"}
-{"qid": "k094", "question": "What are the most recent findings on how on-policy distillation improves the efficiency of LLM post-training through parameter-level foresight?", "target": "2605.11739"}
-{"qid": "k095", "question": "How can one audit the safety of execution harnesses for LLM agents to ensure boundary compliance and identify violations during mid-trajectory operations?", "target": "2605.14271"}
-{"qid": "k096", "question": "What is the latest framework for enabling continuous learning and agentic evolution in LLMs for competitive programming without requiring weight updates?", "target": "2605.15301"}
-{"qid": "k097", "question": "What are the most recent advancements in building audited corpora and training recipes for visual physics reasoning that address contamination and saturation issues?", "target": "2605.14040"}
-{"qid": "k098", "question": "What approaches exist for creating real-time, interactively navigable 3D scenes from a single narrow-field-of-view image?", "target": "2606.13376"}
-{"qid": "k099", "question": "What is the latest approach to improving tool execution reliability in small language models using evolutionary search?", "target": "2606.12674"}
-{"qid": "k100", "question": "What are the current approaches and models for enabling real-time, voice-interactive video generation?", "target": "2607.03118"}
-{"qid": "k101", "question": "What is the latest method for mitigating the exploration-stability dilemma in reinforcement learning for language models?", "target": "2607.06987"}
-{"qid": "k102", "question": "How can one steer an Arabic language model to generate specific dialects without performing additional fine-tuning?", "target": "2607.03936"}
-{"qid": "k103", "question": "What are the latest techniques for accelerating diffusion model inference through improved draft candidate selection?", "target": "2607.04461"}
-{"qid": "k104", "question": "What is the latest methodology for synthesizing verifiable and challenging terminal-based training tasks for AI agents?", "target": "2608.06352"}
-{"qid": "k105", "question": "What are the different approaches in robot learning for balancing static policy weights against self-improving executable skill libraries?", "target": "2608.01851"}
-{"qid": "k106", "question": "What are the latest open-source tokenizer developments for multimodal generative models that achieve high-quality reconstruction and generation across audio, image, and video modalities?", "target": "2608.05798"}
-{"qid": "k107", "question": "How can one adapt multilingual text embedding models to diverse downstream tasks while accounting for the different learning dynamics required for translation, retrieval, and classification?", "target": "2608.05785"}
-{"qid": "k108", "question": "What are the most recent approaches for evaluating and improving the coverage of diverse perspectives in open-ended, multimodal information retrieval tasks?", "target": "2608.30949"}
-{"qid": "k109", "question": "How can one automate the discovery and optimization of agent harnesses by co-evolving the harness design and the search strategy used to improve it?", "target": "2609.38349"}
-{"qid": "k110", "question": "What is the phenomenon of co-cheating in self-evolving search agents, and how does it affect the reliability of pseudo-labels during the training process?", "target": "2609.39102"}
-{"qid": "k111", "question": "What are the latest developments in modeling the combined effects of recurrence and model sparsity on performance scaling?", "target": "2609.40316"}
-{"qid": "k112", "question": "What are the existing approaches for automating the generation of environments and training data to improve the ability of language models to utilize external tools and skills?", "target": "2609.37539"}
-{"qid": "k113", "question": "What is the effect of using language rewrites to enhance contrastive vision-language pre-training?", "target": "2305.20088"}
-{"qid": "k114", "question": "How can small language models be effectively adapted to perform procedural planning tasks?", "target": "2305.19472"}
-{"qid": "k115", "question": "What is the vulnerability of aligned language models to adversarial inputs?", "target": "2306.15447"}
-{"qid": "k116", "question": "What are the common approaches for solving camera pose estimation using diffusion-based frameworks?", "target": "2306.15667"}
-{"qid": "k117", "question": "How can researchers reliably use automated language models to evaluate text generation across diverse languages?", "target": "2309.07462"}
-{"qid": "k118", "question": "What are the current approaches and trade-offs for applying automated summarization models to clinical documentation?", "target": "2309.07430"}
-{"qid": "k119", "question": "What is the function of the dual-path architecture in disentangling movement characteristics from visual content in diffusion-based video generation?", "target": "2310.08465"}
-{"qid": "k120", "question": "How can one achieve high-fidelity human synthesis by integrating spatial geometry and structural information into the generative process?", "target": "2310.08579"}
-{"qid": "k121", "question": "What are the common strategies for using multimodal feedback loops to iteratively improve the quality of generated visuals from text-based ideas?", "target": "2310.08541"}
-{"qid": "k122", "question": "What is the role of environmental feedback in the training of embodied agents that generate executable code for vision-based tasks?", "target": "2310.08588"}
-{"qid": "k123", "question": "How can one implement a plug-in acceleration module to speed up text-to-image generation without retraining the underlying diffusion model?", "target": "2311.05556"}
-{"qid": "k124", "question": "What are the existing methods for reducing inference latency in large language models by leveraging repeated input segments?", "target": "2311.04934"}
-{"qid": "k125", "question": "What is the purpose of generating customized visual guides that combine text and images for specific user needs?", "target": "2312.04552"}
-{"qid": "k126", "question": "How can researchers effectively utilize modern transformer-based models to assist with advanced mathematical workflows?", "target": "2312.04556"}
-{"qid": "k127", "question": "What are the common approaches for manipulating specific properties in existing video content using pre-trained diffusion models?", "target": "2312.03047"}
-{"qid": "k128", "question": "What is the function of the geometry sculptor in the process of creating high-quality 3D human avatars from synthetic data?", "target": "2401.01173"}
-{"qid": "k129", "question": "How can large language models be utilized to enable users to create personalized typographic designs through an adaptive interface?", "target": "2401.01699"}
-{"qid": "k130", "question": "What methods exist for achieving multimodal control over the appearance and structure of generated videos?", "target": "2401.01827"}
-{"qid": "k131", "question": "What is the function of the partial parameter adaptation approach in enabling vision-language models to perform interleaved content generation?", "target": "2401.16420"}
-{"qid": "k132", "question": "How can a diffusion model be fine-tuned to incorporate new objects from a single image while maintaining class-specific knowledge?", "target": "2401.15708"}
-{"qid": "k133", "question": "What are the current techniques for generating 3D facial animations that respond to diverse multi-modal inputs like audio and text?", "target": "2401.15687"}
-{"qid": "k134", "question": "What are the approaches for balancing content moderation through toxicity filtering with user agency in generative text systems?", "target": "2403.14467"}
-{"qid": "k135", "question": "What is the function of the adaptive layer applied to a base mesh for radiance field rendering?", "target": "2403.14554"}
-{"qid": "k136", "question": "How can one automatically animate text to reflect semantic meaning while maintaining structural integrity?", "target": "2404.11614"}
-{"qid": "k137", "question": "What are the common strategies and recent advancements for accelerating long-sequence generation in large models?", "target": "2404.11912"}
-{"qid": "k138", "question": "What are the current approaches and latest developments in open-set object detection models?", "target": "2405.10300"}
-{"qid": "k139", "question": "What is the mechanism for transferring motion from a reference video to control new video generation without model training?", "target": "2406.05338"}
-{"qid": "k140", "question": "What is the effect of using corrupted prompt embeddings on the ability of large language models to selectively forget information?", "target": "2406.07933"}
-{"qid": "k141", "question": "How can researchers evaluate robotic systems performing mobile bi-manual tasks using human demonstrations?", "target": "2407.07788"}
-{"qid": "k142", "question": "What is a unified framework for creating audio-synchronized facial animations that avoid artifacts?", "target": "2408.03284"}
-{"qid": "k143", "question": "What is an end-to-end conversational model that supports real-time streaming speech interaction without external synthesis systems?", "target": "2408.16725"}
-{"qid": "k144", "question": "How can language models be leveraged to perform classification tasks using data-augmented prediction?", "target": "2409.18957"}
-{"qid": "k145", "question": "What is a method for generating physically grounded video sequences from single images based on applied forces?", "target": "2409.18964"}
-{"qid": "k146", "question": "How can one construct a foundation model capable of end-to-end, autoregressive processing across speech, text, image, and video?", "target": "2409.17692"}
-{"qid": "k147", "question": "What are the common approaches for refining model preferences through regularization and how can intervention be adjusted based on data alignment?", "target": "2409.17545"}
-{"qid": "k148", "question": "What is the role of data compression in quantifying the alignment between training samples and target task distributions?", "target": "2410.18194"}
-{"qid": "k149", "question": "How can one systematically evaluate the effectiveness of various knowledge editing techniques in mitigating factual errors in large language models?", "target": "2410.16251"}
-{"qid": "k150", "question": "What techniques exist for performing consistent image editing using transformer-based diffusion models without additional training?", "target": "2411.14430"}
-{"qid": "k151", "question": "What are the current approaches and benchmarks for assessing open-domain molecule generation capabilities in language models?", "target": "2412.14642"}
-{"qid": "k152", "question": "What is the impact of scaling synthetic multimodal training data on the performance of cross-modal image matching frameworks?", "target": "2412.19412"}
-{"qid": "k153", "question": "How do various architectural configurations and hyper-parameter settings influence the predictive accuracy of model performance trends?", "target": "2502.06857"}
-{"qid": "k154", "question": "How can sparse autoencoders be utilized to isolate and modify specific visual features within a model to perform causal analysis?", "target": "2502.06755"}
-{"qid": "k155", "question": "What are the current approaches for integrating differential attention mechanisms into dual-encoder vision-language architectures?", "target": "2503.06626"}
-{"qid": "k156", "question": "What are the primary techniques used to circumvent automated detection of machine-generated text?", "target": "2503.07595"}
-{"qid": "k157", "question": "How can one effectively evaluate the reasoning capabilities of agents across diverse clinical scenarios while accounting for computational constraints?", "target": "2503.07459"}
-{"qid": "k158", "question": "What are the existing methods for reducing the computational overhead of classifier-free guidance in diffusion models?", "target": "2503.07274"}
-{"qid": "k159", "question": "How can foundation models be adapted to perform prompt-based segmentation on volumetric medical image data?", "target": "2504.03600"}
-{"qid": "k160", "question": "How can autonomous agents improve sequential performance by utilizing their own past successful trajectories instead of manual prompt engineering?", "target": "2505.00234"}
-{"qid": "k161", "question": "What are the common strategies and recent developments for scaling inference-time performance in tasks involving tabular data?", "target": "2505.23621"}
-{"qid": "k162", "question": "What is the function of a specialized routing model in directing incoming queries to the most suitable large language models based on human preferences?", "target": "2506.16655"}
-{"qid": "k163", "question": "How can a system automatically generate expressive, story-driven animations from a single child's drawing while maintaining stylistic consistency?", "target": "2506.21272"}
-{"qid": "k164", "question": "What are the current approaches for automating the refinement of presentation slide designs through iterative feedback loops?", "target": "2507.17202"}
-{"qid": "k165", "question": "What is the role of a multimodal model in converting 3D point cloud data into editable code scripts?", "target": "2508.14879"}
-{"qid": "k166", "question": "How can one systematically evaluate the predictive capabilities of agents in dynamic environments while ensuring data integrity?", "target": "2508.11987"}
-{"qid": "k167", "question": "What are the existing methods and benchmarks for evaluating the quality of synthetic data generated under differential privacy constraints for structured information?", "target": "2509.10696"}
-{"qid": "k168", "question": "What is the purpose of an end-to-end AI platform in the automated production of game-ready 3D assets?", "target": "2509.12815"}
-{"qid": "k169", "question": "How can long-horizon search agents overcome context window limitations to maintain information across extended exploration tasks?", "target": "2509.13313"}
-{"qid": "k170", "question": "What are the common strategies and current status of research regarding reducing erroneous object mentions in vision-language models?", "target": "2510.09008"}
-{"qid": "k171", "question": "What is the primary technical approach used to automatically generate a diverse, large-scale dataset of annotated 3D human figures?", "target": "2510.11650"}
-{"qid": "k172", "question": "How can one effectively train a multimodal model to integrate tool-use capabilities into its reasoning process?", "target": "2511.05271"}
-{"qid": "k173", "question": "What are the prevailing approaches and data strategies for removing image reflections using generative models?", "target": "2512.05000"}
-{"qid": "k174", "question": "What is the core mechanism used to enable instantaneous text-guided style modifications for 3D Gaussian representations?", "target": "2512.03683"}
-{"qid": "k175", "question": "How can multiple models of varying capacities be combined during the sampling process to accelerate video generation without losing quality?", "target": "2512.24724"}
-{"qid": "k176", "question": "What are the current landscape and underlying methodologies for using generative diffusion processes to perform complex reasoning tasks?", "target": "2512.24165"}
-{"qid": "k177", "question": "What is the mechanism by which 3D object motion trajectories are used to translate generated video content into actionable robotic control commands?", "target": "2512.24766"}
-{"qid": "k178", "question": "How can one implement a systematic evaluation framework to isolate and test specific physical reasoning capabilities in generative models?", "target": "2601.21282"}
-{"qid": "k179", "question": "What are the prevailing approaches for analyzing high-resolution medical pathology images using specialized multimodal large language models?", "target": "2602.19424"}
-{"qid": "k180", "question": "What architecture supports coordinated multi-agent interaction and consistent video generation in simulated game environments?", "target": "2602.22208"}
-{"qid": "k181", "question": "What are the common strategies and frameworks used to mitigate sequential processing overhead in multimodal agentic systems?", "target": "2603.23483"}
-{"qid": "k182", "question": "What is the training framework that applies reinforcement learning to coordinate reasoning and image generation policies?", "target": "2603.23500"}
-{"qid": "k183", "question": "How can rendered 3D content be transformed into photorealistic video while maintaining geometric consistency and control?", "target": "2603.23462"}
-{"qid": "k184", "question": "What are the current approaches and capabilities of AI agents in automating the systematic literature review process?", "target": "2603.22327"}
-{"qid": "k185", "question": "How can one evaluate whether a model performs precise, minimal edits rather than full code regeneration when fixing software bugs?", "target": "2604.17338"}
-{"qid": "k186", "question": "What recent dataset provides compact, sparse panoramic RGB-D-pose data for geometry-consistent 3D visual learning?", "target": "2605.15597"}
-{"qid": "k187", "question": "What is the latest approach for improving medical reasoning in low-resource multilingual settings?", "target": "2606.13572"}
-{"qid": "k188", "question": "What are the common approaches for generating expressive musical performances from non-expressive score data?", "target": "2606.12282"}
-{"qid": "k189", "question": "What is the latest method for evaluating the proactive performance of agents in real-world environments?", "target": "2607.08768"}
-{"qid": "k190", "question": "How can one model complex, crowded urban environments by factorizing future predictions into distinct components?", "target": "2608.01049"}
-{"qid": "k191", "question": "What is the latest evidence regarding the ability of code-embedding models to distinguish functionally correct code from near-identical buggy variants?", "target": "2609.01865"}
-{"qid": "k192", "question": "What is a knowledge-gated task, and how is it used to verify the capabilities of intelligent agents?", "target": "2608.30322"}
-{"qid": "k193", "question": "What is the latest technique to prevent diversity loss during the distillation of language models?", "target": "2608.29846"}
-{"qid": "k194", "question": "What are the current approaches for building efficient, unified multimodal and multilingual encoders for document retrieval?", "target": "2609.01657"}
-{"qid": "k195", "question": "What are the most recent advancements in architectural mechanisms for managing contextual memory in language models?", "target": "2609.39661"}
-{"qid": "k196", "question": "What is the computational strategy used to accelerate policy training for offline reinforcement learning?", "target": "2305.20081"}
-{"qid": "k197", "question": "How can one identify the specific pretraining instances that enable a language model to perform in-context learning?", "target": "2306.15091"}
-{"qid": "k198", "question": "What are the common approaches for jointly learning visual content and motion information in self-supervised architectures?", "target": "2307.12698"}
-{"qid": "k199", "question": "How can a diffusion-based model be trained to perform versatile audio enhancement across different bandwidths and types?", "target": "2309.07314"}
-{"qid": "k200", "question": "How can one optimize 3D generation models to better align with human preferences using feedback-based tuning?", "target": "2403.14613"}
-{"qid": "k201", "question": "What are the current approaches for generating 3D scenes from a limited number of input images?", "target": "2405.10314"}
-{"qid": "k202", "question": "What is the impact of scaling the number of examples in the context window on the performance of multimodal foundation models?", "target": "2405.09798"}
-{"qid": "k203", "question": "How can self-supervised transformer pretraining be adapted to improve feature representation for automated tissue image analysis?", "target": "2406.05074"}
-{"qid": "k204", "question": "How can a large-scale automated pipeline be constructed to generate multigranular visual and textual annotations for medical images without manual labeling?", "target": "2408.02900"}
-{"qid": "k205", "question": "What are the prevailing strategies for utilizing generative models to extract and analyze visual patterns from diverse datasets?", "target": "2408.02752"}
-{"qid": "k206", "question": "How can a hybrid architecture combining attention and state space models be designed to improve the efficiency and performance of compact language models?", "target": "2411.13676"}
-{"qid": "k207", "question": "What is the mechanism by which FIFO-Diffusion generates long videos and how does it handle frame-to-frame content consistency?", "target": "2501.09019"}
-{"qid": "k208", "question": "How can reinforcement learning be combined with conformal prediction to create dynamic and adaptive abstention policies for LLMs and VLMs?", "target": "2502.06884"}
-{"qid": "k209", "question": "What are the common strategies for performing human relighting and scene harmonization across arbitrary images or videos?", "target": "2504.03011"}
-{"qid": "k210", "question": "What are the latest techniques for integrating tool-use and reasoning capabilities into end-to-end spoken dialogue systems?", "target": "2604.15710"}
-{"qid": "k211", "question": "How can a multi-tier verification process be implemented to improve the speed and efficiency of speculative decoding in large language models?", "target": "2606.12243"}
-{"qid": "k212", "question": "What are the current approaches and findings regarding how increasing input lengths affect the reasoning accuracy of large language models?", "target": "2402.14848"}
-{"qid": "k213", "question": "How can researchers detect and mitigate the contamination of code generation benchmarks by training data?", "target": "2407.07565"}
-{"qid": "k214", "question": "How can one systematically evaluate and compare unified multimodal models across both traditional and novel reasoning tasks?", "target": "2504.03641"}
+{"qid": "k000", "question": "What technologies can be utilized to address the data privacy and security concerns in generative content models?", "target": "2306.00419"}
+{"qid": "k001", "question": "How can distributed object-centric representations be scaled from simple toy data to real-world applications?", "target": "2306.00600"}
+{"qid": "k002", "question": "What are the common approaches for managing user representation learning across a sequence of tasks while avoiding catastrophic forgetting?", "target": "2306.01792"}
+{"qid": "k003", "question": "What is the process for generating low-dimensional graph-level embeddings for temporal networks?", "target": "2306.01012"}
+{"qid": "k004", "question": "How can consistency-based improvements in diffusion models be theoretically unified?", "target": "2306.00367"}
+{"qid": "k005", "question": "What is the role of Pareto optimization in quantifying the potential error rate of generative language models?", "target": "2306.16564"}
+{"qid": "k006", "question": "How can one quantitatively measure the degree to which language models align with diverse global societal perspectives?", "target": "2306.16388"}
+{"qid": "k007", "question": "What are the current approaches for emotion analysis in the context of recent social and political discourse in Afghanistan?", "target": "2306.16268"}
+{"qid": "k008", "question": "What is the impact of objects, attributes, and syntactic structure on the performance of video retrieval models?", "target": "2306.16533"}
+{"qid": "k009", "question": "How can bonus points be utilized to mitigate bias in ranking systems?", "target": "2307.14366"}
+{"qid": "k010", "question": "What are the common theoretical foundations for different noise-reduction architectures in deep learning?", "target": "2307.13425"}
+{"qid": "k011", "question": "What is the role of dual decomposition in enabling distributed cluster analysis?", "target": "2307.13267"}
+{"qid": "k012", "question": "How can on-the-fly weight generation be implemented to improve the performance of hardware accelerators for deep models?", "target": "2307.13412"}
+{"qid": "k013", "question": "What are the current approaches for improving privacy and utility trade-offs in deep learning?", "target": "2307.13231"}
+{"qid": "k014", "question": "What is a technique for inferring missing values in time-series data using previously trained autoencoders?", "target": "2308.10496"}
+{"qid": "k015", "question": "How can generative artificial intelligence be used to solve cybersecurity challenges and certification tasks?", "target": "2308.10443"}
+{"qid": "k016", "question": "What is a benchmark for evaluating whether artificial intelligence models possess human-like intuitive physical understanding?", "target": "2308.10441"}
+{"qid": "k017", "question": "How can deep reinforcement learning be used to minimize energy consumption in decentralized model training?", "target": "2308.10664"}
+{"qid": "k018", "question": "What research exists regarding the capabilities of large language models to solve and generate secondary education physics problems?", "target": "2309.08182"}
+{"qid": "k019", "question": "What are the common benchmarks used to evaluate large language models on Traditional Chinese tasks?", "target": "2309.08448"}
+{"qid": "k020", "question": "How can researchers measure and mitigate stereotypical biases related to caste and religion in large language models?", "target": "2309.08573"}
+{"qid": "k021", "question": "What are the current approaches for using large language models to perform automated knowledge base completion?", "target": "2309.08491"}
+{"qid": "k022", "question": "What are the existing methods for time series forecasting that incorporate mode decomposition and volatility analysis?", "target": "2310.08812"}
+{"qid": "k023", "question": "What are the common strategies for using reinforcement learning to generate personalized music playlists?", "target": "2310.09123"}
+{"qid": "k024", "question": "What are the common strategies used to align different data types in large language models?", "target": "2311.07594"}
+{"qid": "k025", "question": "How can hyperparameter optimization improve semi-supervised performance for point cloud detection?", "target": "2311.06054"}
+{"qid": "k026", "question": "What are the current approaches for performing text classification in financial domains with limited labeled examples?", "target": "2311.06102"}
+{"qid": "k027", "question": "What is the role of a shared cognitive framework in enabling generative models to establish common ground during communication?", "target": "2311.05851"}
+{"qid": "k028", "question": "How can ontologies and rule-based inference be integrated to support clinical diagnosis for liver conditions?", "target": "2311.07595"}
+{"qid": "k029", "question": "How can modern sampling techniques be used to improve controllable text generation based on energy models?", "target": "2312.04510"}
+{"qid": "k030", "question": "How can a model be fine-tuned to perform translation before receiving the complete input sequence?", "target": "2312.04691"}
+{"qid": "k031", "question": "What methods exist for propagating emotional metadata across linguistic resources like WordNets?", "target": "2312.04715"}
+{"qid": "k032", "question": "How can risk-sensitive strategies be implemented to minimize age-based metrics in communication systems?", "target": "2401.10265"}
+{"qid": "k033", "question": "What are the current approaches for quantifying uncertainty in self-explaining neural networks?", "target": "2401.01549"}
+{"qid": "k034", "question": "What is task-specific context attribution in the context of transformer models?", "target": "2401.16638"}
+{"qid": "k035", "question": "How can human-semantic facial regions be integrated into face verification systems to improve interpretability?", "target": "2403.08789"}
+{"qid": "k036", "question": "What are the primary challenges and research directions in the safety assurance of cyber-physical systems?", "target": "2401.16633"}
+{"qid": "k037", "question": "How can large language models be fine-tuned to effectively detect vulnerabilities in source code?", "target": "2401.17010"}
+{"qid": "k038", "question": "What is an optimal transport-based distance metric for evaluating linguistic semantic shifts?", "target": "2402.16596"}
+{"qid": "k039", "question": "What are the different approaches for detecting visual hallucinations in non-photorealistic images?", "target": "2403.15048"}
+{"qid": "k040", "question": "What is the MaQD method for performing quantization-aware training in deep neural networks?", "target": "2403.14999"}
+{"qid": "k041", "question": "What are the existing approaches for addressing data sparsity in sequential recommendation systems through self-supervised learning?", "target": "2404.07219"}
+{"qid": "k042", "question": "How can a backdoor be injected into classification networks by only poisoning labels without modifying training samples?", "target": "2404.12704"}
+{"qid": "k043", "question": "What are the common approaches for improving exploration in reinforcement learning for robotic path planning in sparse reward environments?", "target": "2404.12594"}
+{"qid": "k044", "question": "What is the impact of combining imaging data with clinical reports on predicting stroke treatment outcomes using Transformer-based architectures?", "target": "2404.12634"}
+{"qid": "k045", "question": "What is the role of memory maps and reasoning chains in improving navigation performance and interpretability for language-guided agents?", "target": "2405.10620"}
+{"qid": "k046", "question": "How can conversational large language models be utilized to detect idiomatic expressions in English sentences?", "target": "2405.10579"}
+{"qid": "k047", "question": "What are the benefits of using domain-specific large language models compared to general-purpose ones for scientific text processing tasks?", "target": "2405.10725"}
+{"qid": "k048", "question": "How can mathematical models be constructed to estimate scoring potential from player movement without the ball?", "target": "2406.08749"}
+{"qid": "k049", "question": "What techniques exist for improving visual feature identification and multimodal deep learning models?", "target": "2406.08838"}
+{"qid": "k050", "question": "What is the performance of artificial intelligence weather forecasting models in predicting atmospheric instability and shear compared to traditional numerical weather prediction?", "target": "2406.09474"}
+{"qid": "k051", "question": "How can one optimize the efficiency and informativeness of conformal prediction sets using nonconformity scores?", "target": "2406.08884"}
+{"qid": "k052", "question": "How can recomputation overhead be reduced in large-scale model training through pipeline communication overlap?", "target": "2406.08756"}
+{"qid": "k053", "question": "What is the role of homologous chromosome comparison in the automated diagnosis of structural abnormalities?", "target": "2407.08204"}
+{"qid": "k054", "question": "How can image-text datasets be generated by leveraging multiple perception experts to improve multimodal model training?", "target": "2407.08303"}
+{"qid": "k055", "question": "What approaches are available for combining multiple pre-trained language and multimodal models into a single generalized system?", "target": "2407.08196"}
+{"qid": "k056", "question": "How can transformer models be trained to differentiate between deliberate morphological reduplication and unintentional speech disfluency?", "target": "2407.08147"}
+{"qid": "k057", "question": "What approaches exist for simplifying complex scientific research summaries to improve accessibility for non-experts?", "target": "2408.03899"}
+{"qid": "k058", "question": "How can clinical documentation be automatically generated while adapting to individual physician preferences?", "target": "2408.03874"}
+{"qid": "k059", "question": "What survey exists regarding the integration of prompt-based and gradient-based techniques to bypass safety restrictions in language models?", "target": "2408.03603"}
+{"qid": "k060", "question": "What is the function of using graph database interfaces to connect language models with software source code?", "target": "2408.03910"}
+{"qid": "k061", "question": "How can mixed-precision linear algebra be utilized to accelerate large-scale genetic association studies?", "target": "2409.01712"}
+{"qid": "k062", "question": "How can object-level contrastive learning be implemented to improve the accuracy of cancer prognosis using diverse clinical data?", "target": "2409.02145"}
+{"qid": "k063", "question": "What are the common strategies and evaluation frameworks for identifying individuals from a distance using combined biometric features?", "target": "2409.01540"}
+{"qid": "k064", "question": "How can shapelet discovery be used to select multiple source datasets for improving transfer learning in time series classification?", "target": "2409.20005"}
+{"qid": "k065", "question": "What are the current approaches to understanding how demographic factors influence the accuracy and quality of fingerprint recognition systems?", "target": "2409.19992"}
+{"qid": "k066", "question": "What is the most effective model architecture for classifying medical text in low-resource, imbalanced datasets?", "target": "2409.20147"}
+{"qid": "k067", "question": "How can researchers systematically evaluate the performance of models when combining multiple distinct skill sets?", "target": "2409.19951"}
+{"qid": "k068", "question": "What are the common strategies used to address the problem of hallucinations in language models?", "target": "2410.19485"}
+{"qid": "k069", "question": "What is the capacity of language models to navigate social interactions in complex scenarios?", "target": "2410.19346"}
+{"qid": "k070", "question": "How can numerical and text embeddings be interleaved to improve arithmetic reasoning in language models?", "target": "2410.19353"}
+{"qid": "k071", "question": "What approaches exist for creating cost-effective, dialog-based tutoring systems for educational applications?", "target": "2410.19231"}
+{"qid": "k072", "question": "What is the role of an intelligent agent in automating the analysis of pharmaceutical patents?", "target": "2410.21312"}
+{"qid": "k073", "question": "How can adaptive hyper-graphs with virtual connections be used to improve feature aggregation in action recognition?", "target": "2411.14796"}
+{"qid": "k074", "question": "What are the current approaches and findings regarding the use of embeddings from large language models for high-dimensional regression?", "target": "2411.14708"}
+{"qid": "k075", "question": "What is the relationship between the sentiment expressed in diverse news topics and the performance of the market index?", "target": "2412.06794"}
+{"qid": "k076", "question": "How can support points sample splitting enhance causal inference performance in double machine learning?", "target": "2411.14665"}
+{"qid": "k077", "question": "What is the capability of small language models in accurately converting spoken mathematical expressions into structured formulas?", "target": "2412.15655"}
+{"qid": "k078", "question": "How can a framework be implemented to support and measure bidirectional collaboration between humans and AI agents?", "target": "2412.15701"}
+{"qid": "k079", "question": "What approaches exist for creating and evaluating multilingual resources to address the ethical challenges of translating suicide-related language?", "target": "2412.15497"}
+{"qid": "k080", "question": "What is the effectiveness of using transformer-based multilingual models to identify suicidal ideation across different languages?", "target": "2412.15498"}
+{"qid": "k081", "question": "How can semantic web standards be employed to model the regulatory requirements for fundamental rights impact assessments?", "target": "2501.10391"}
+{"qid": "k082", "question": "What are the common approaches for adapting perspectives in models to improve performance on subjective tasks?", "target": "2501.09265"}
+{"qid": "k083", "question": "How do generative and fine-tuned machine learning models compare when identifying economic ideologies in political documents?", "target": "2501.09719"}
+{"qid": "k084", "question": "How can developers optimize training data and pretraining strategies to improve medical proficiency in multilingual language models?", "target": "2501.09825"}
+{"qid": "k085", "question": "What are the current methodologies for estimating uncertainty and detecting errors in natural language database query systems?", "target": "2501.09527"}
+{"qid": "k086", "question": "What is the impact of domain-specific pretraining on the general performance of large language models adapted for retail environments?", "target": "2501.09706"}
+{"qid": "k087", "question": "How can token swapping and center alignment be used to improve node representation learning in graph Transformers?", "target": "2502.08101"}
+{"qid": "k088", "question": "What are the primary techniques for stabilizing generative models through physics-inspired constraints?", "target": "2502.08150"}
+{"qid": "k089", "question": "How can robust online ranking algorithms be designed to maintain performance despite adversarial feedback manipulation?", "target": "2502.08077"}
+{"qid": "k090", "question": "What is an AI-native persistent memory system for managing user-specific knowledge across digital contexts?", "target": "2503.08102"}
+{"qid": "k091", "question": "How can high-order supervision improve the trajectory dynamics of autoregressive flow models?", "target": "2503.08032"}
+{"qid": "k092", "question": "What approaches exist for integrating disparate enterprise data sources into unified knowledge structures using language models?", "target": "2503.07993"}
+{"qid": "k093", "question": "How can spatio-temporal graphs and diffusion models be combined to predict maritime vessel trajectories?", "target": "2503.08065"}
+{"qid": "k094", "question": "What techniques exist for mitigating verbosity in reinforcement-learned reasoning models?", "target": "2504.05185"}
+{"qid": "k095", "question": "What is the impact of cross-lingual data augmentation on named entity recognition for under-resourced languages?", "target": "2504.08792"}
+{"qid": "k096", "question": "What are the common practices and potential risks identified in the literature regarding the use of generative AI for persona development?", "target": "2504.04927"}
+{"qid": "k097", "question": "How can one detect synthetic images using only API access without requiring model weights or large training datasets?", "target": "2505.01008"}
+{"qid": "k098", "question": "What are the common approaches and frameworks available for designing and evaluating hardware architectures that integrate memory and computation?", "target": "2505.01107"}
+{"qid": "k099", "question": "What is the role of spectral graph networks in identifying fraudulent behavior within service networks?", "target": "2505.00946"}
+{"qid": "k100", "question": "How can one perform fine-grained visual classification when the target category vocabulary is unknown and expert annotations are unavailable?", "target": "2505.01064"}
+{"qid": "k101", "question": "What strategies exist for managing asynchronous optimization in parallelized model training to mitigate the effects of delayed gradients?", "target": "2505.01099"}
+{"qid": "k102", "question": "What is the mechanism by which latent token modeling enables conditional 3D shape generation?", "target": "2505.24245"}
+{"qid": "k103", "question": "How can a robot construct a hierarchical representation of a changing environment to inform decision-making?", "target": "2506.00083"}
+{"qid": "k104", "question": "What are the current approaches for evaluating the adversarial robustness of foundation models used in medical image analysis?", "target": "2505.24141"}
+{"qid": "k105", "question": "What are the primary functions and limitations of AI-based conversational agents in providing mental health support?", "target": "2506.00081"}
+{"qid": "k106", "question": "How can generative models be used to improve the retrieval of information from hierarchical clinical datasets?", "target": "2505.24090"}
+{"qid": "k107", "question": "What are the common approaches for determining the optimal number of parallel samples for inference-time scaling?", "target": "2506.22376"}
+{"qid": "k108", "question": "What are the primary vulnerabilities of tool-integrated agents throughout the invocation process?", "target": "2506.21967"}
+{"qid": "k109", "question": "How can one build a real-time interactive system that utilizes retrieval-augmented generation to provide information on cultural heritage?", "target": "2506.21865"}
+{"qid": "k110", "question": "What are the latest approaches for detecting and measuring gender bias in passage ranking systems?", "target": "2506.22372"}
+{"qid": "k111", "question": "What is the impact of integrating multi-agent collaboration on the effectiveness of retrieval-augmented recommendation systems?", "target": "2506.21931"}
+{"qid": "k112", "question": "How can one perform robust node classification on graphs that suffer from both class imbalance and noisy labels?", "target": "2507.18153"}
+{"qid": "k113", "question": "What are the recent techniques for achieving extreme weight compression in large language models while minimizing accuracy loss?", "target": "2507.18073"}
+{"qid": "k114", "question": "What is the effect of using model-generated prefix-confidence on the accuracy of mathematical reasoning tasks?", "target": "2507.18122"}
+{"qid": "k115", "question": "How can a graph-based model improve the generalization of trajectory prediction across different driving datasets?", "target": "2507.18196"}
+{"qid": "k116", "question": "What is the architecture for providing empathetic support for hyperhidrosis using language models?", "target": "2508.15192"}
+{"qid": "k117", "question": "How can organizations improve their response to unforeseen crises through better situational awareness?", "target": "2508.16669"}
+{"qid": "k118", "question": "What are the common approaches for accelerating the training of operator networks using hybrid optimization?", "target": "2508.15394"}
+{"qid": "k119", "question": "What is a framework that allows designers to trace and refine specific visual elements in AI-generated images?", "target": "2508.15227"}
+{"qid": "k120", "question": "How can one perform quantization-aware training for large models on edge devices without using backpropagation?", "target": "2509.00031"}
+{"qid": "k121", "question": "What are the current approaches to understanding how multilingual retrieval-augmented systems balance document relevance against language preference?", "target": "2509.13930"}
+{"qid": "k122", "question": "What is the impact of using long-context data for evaluating the quality of machine translation?", "target": "2509.13980"}
+{"qid": "k123", "question": "What are the various approaches to incorporating temporal dynamics into generative recommendation systems?", "target": "2509.13957"}
+{"qid": "k124", "question": "How can mutual academic influence be modeled to improve recommendation accuracy in heterogeneous scholarly networks?", "target": "2510.12054"}
+{"qid": "k125", "question": "What approaches exist for refining user prompts to reduce hallucinations in large language models?", "target": "2510.12029"}
+{"qid": "k126", "question": "How can gradient-guided diffusion be utilized to solve chance-constrained optimization problems without requiring explicit distribution knowledge?", "target": "2510.12238"}
+{"qid": "k127", "question": "What methods are available for aligning graph and text modalities while respecting diverse geometric topological constraints?", "target": "2510.12085"}
+{"qid": "k128", "question": "What approaches are used to address data scarcity and heterogeneity in cross-domain building energy prediction?", "target": "2511.06634"}
+{"qid": "k129", "question": "What are the characteristics of the reasoning signals captured by rank-1 parameter adapters in language models?", "target": "2511.06739"}
+{"qid": "k130", "question": "What are the common approaches for integrating latent representations into multimodal reasoning tasks?", "target": "2512.05665"}
+{"qid": "k131", "question": "What is the role of author-based knowledge graphs in enhancing scientific idea generation systems?", "target": "2602.22215"}
+{"qid": "k132", "question": "How can document summarization be used to improve the efficiency and reliability of automated relevance assessments?", "target": "2512.05334"}
+{"qid": "k133", "question": "What are the current techniques for performing bug localization across multiple code repositories in large-scale software systems?", "target": "2512.05908"}
+{"qid": "k134", "question": "What are the linguistic indicators used to identify auto-generated deceptive local news content?", "target": "2512.05331"}
+{"qid": "k135", "question": "What methods exist for simultaneously optimizing multiple product properties while quantifying prediction uncertainty?", "target": "2601.00932"}
+{"qid": "k136", "question": "What is the impact of using machine learning regression models on the accuracy of indoor positioning error estimation?", "target": "2601.00999"}
+{"qid": "k137", "question": "What are the existing reinforcement learning approaches for dynamically selecting precision in numerical solvers?", "target": "2601.00728"}
+{"qid": "k138", "question": "How does the noise component in masked generative modeling act as a regularizer to prevent grokking during training?", "target": "2601.22450"}
+{"qid": "k139", "question": "What approaches exist for creating human-curated datasets to improve the transparency and metadata richness of machine learning benchmarking?", "target": "2601.22420"}
+{"qid": "k140", "question": "What evidence suggests that self-preference in language model evaluations is often an artifact of evaluator quality rather than inherent bias?", "target": "2601.22548"}
+{"qid": "k141", "question": "How do deep learning techniques compare to traditional classifiers for the automated sorting and classification of waste images?", "target": "2601.22418"}
+{"qid": "k142", "question": "What survey findings exist regarding the influence of contextual cues on the stability and consistency of moral decision-making in large language models?", "target": "2602.22831"}
+{"qid": "k143", "question": "What are the limitations of using latent tokens for visual reasoning in multimodal models compared to explicit textual imagination?", "target": "2602.22766"}
+{"qid": "k144", "question": "How can agents be designed to perform multi-modal reasoning and tool execution across video, audio, and text inputs?", "target": "2602.22897"}
+{"qid": "k145", "question": "What are the current approaches for implementing variable-depth computation to improve the efficiency and deployment of large language models?", "target": "2602.22543"}
+{"qid": "k146", "question": "What are the core components and standardized architectural requirements for building and deploying diffusion-based language models?", "target": "2602.22661"}
+{"qid": "k147", "question": "How can adversarial fine-tuning be used to reveal hidden linguistic abstractions in language models?", "target": "2603.23821"}
+{"qid": "k148", "question": "What are the common approaches for building neuro-symbolic systems to handle distribution shifts in visual reasoning tasks?", "target": "2603.23867"}
+{"qid": "k149", "question": "What approaches exist to improve the efficiency and acceptance rates of multiple future token prediction in large language models?", "target": "2603.23911"}
+{"qid": "k150", "question": "What recent findings explain how backdoors are encoded within the projectors of multimodal language models?", "target": "2604.19083"}
+{"qid": "k151", "question": "What is the latest approach for improving topic interpretability in documents that contain multiple themes?", "target": "2605.17714"}
+{"qid": "k152", "question": "What is the role of synchronized audio in reconstructing dynamic vocal-tract magnetic resonance images?", "target": "2605.18221"}
+{"qid": "k153", "question": "What are the most recent findings regarding the quality and utility of synthetic clinical notes generated by large language models?", "target": "2605.17775"}
+{"qid": "k154", "question": "What are the common approaches for applying reinforcement learning with verifiable rewards to knowledge-intensive tasks?", "target": "2605.18261"}
+{"qid": "k155", "question": "What is the most recent evidence on how structural protection of boundary tokens affects cache eviction performance in large language models?", "target": "2605.18053"}
+{"qid": "k156", "question": "How can one perform sensitivity analysis for high-dimensional system responses while accounting for both aleatory and epistemic uncertainties?", "target": "2606.14053"}
+{"qid": "k157", "question": "What is the predictive value of combining longitudinal trajectories and graph-based context for identifying adolescent substance use risk?", "target": "2608.14578"}
+{"qid": "k158", "question": "What is the latest advancement in enabling conversational, iterative design of crystal materials using natural language?", "target": "2606.14215"}
+{"qid": "k159", "question": "How can multi-model ensembles be improved by weighting expert reliability based on uncertainty calibration?", "target": "2607.20529"}
+{"qid": "k160", "question": "What are the latest findings regarding the performance of classification models when detecting images from previously unseen generators?", "target": "2607.16283"}
+{"qid": "k161", "question": "What are the economic and environmental trade-offs of using retired hardware to build clusters for high-performance inference?", "target": "2608.14614"}
+{"qid": "k162", "question": "What is the most recent approach to preventing model hallucinations in physics-based industrial control systems?", "target": "2607.09076"}
+{"qid": "k163", "question": "What are the common approaches for incorporating human-controllable strategy editing into long-form cultural text adaptation?", "target": "2608.28633"}
+{"qid": "k164", "question": "What recent techniques allow for real-time behavioral monitoring and automated steering of software engineering agents?", "target": "2608.06701"}
+{"qid": "k165", "question": "What are the latest findings on how backdoored peptide generation models can introduce targeted health risks for specific genetic populations?", "target": "2608.06779"}
+{"qid": "k166", "question": "What is the effect of using geometric pre-processing to correct for anisotropy when measuring semantic bias in embedding spaces?", "target": "2608.06908"}
+{"qid": "k167", "question": "How can diffusion models be utilized to generate diverse scenarios for storm surge emulation?", "target": "2609.03382"}
+{"qid": "k168", "question": "What is the latest approach for refining cluster assignments in models that have already completed training?", "target": "2609.03265"}
+{"qid": "k169", "question": "How can one balance privacy, robustness, and class-imbalanced detection performance within a federated learning framework?", "target": "2609.03420"}
+{"qid": "k170", "question": "What is the latest method for accelerating the discovery of energy materials by integrating deterministic simulation with machine learning?", "target": "2609.22233"}
+{"qid": "k171", "question": "What is the role of ground-truth execution evidence in evaluating the output of automated coding agents?", "target": "2610.01023"}
+{"qid": "k172", "question": "What are the latest findings on using mean field games to model and prevent collective malicious behavior in multi-agent AI systems?", "target": "2610.00902"}
+{"qid": "k173", "question": "What approaches are used to measure and compare the geometric structure of hidden representations across different vision-language models?", "target": "2610.00848"}
+{"qid": "k174", "question": "What is the latest strategy for improving agentic training performance across multiple diverse environments using behavioral rubrics?", "target": "2610.00979"}
+{"qid": "k175", "question": "How can multi-agent systems be optimized to co-evolve their internal workflows without requiring additional external labels or models?", "target": "2610.01026"}
+{"qid": "k176", "question": "How can structured sparsity be effectively utilized to accelerate Transformer-based language model inference on CPUs?", "target": "2306.16601"}
+{"qid": "k177", "question": "How can imperceivable image modifications be used to manipulate the output of multi-modal vision-language models?", "target": "2308.10741"}
+{"qid": "k178", "question": "What are the common approaches for evaluating open-domain dialogue systems using reference-based metrics?", "target": "2309.08156"}
+{"qid": "k179", "question": "What are the latest hybrid approaches that combine classical numerical methods with neural operators for solving partial differential equations?", "target": "2401.01783"}
+{"qid": "k180", "question": "How can large models be trained across distributed heterogeneous computing hardware?", "target": "2401.01728"}
+{"qid": "k181", "question": "What is the role of cognitive reframing in therapeutic dialogue systems?", "target": "2403.05574"}
+{"qid": "k182", "question": "How can language models be fine-tuned to translate natural language into domain-specific database queries?", "target": "2402.16567"}
+{"qid": "k183", "question": "What are the current approaches for combining neural network architectures with language models for session-based recommendations?", "target": "2402.16539"}
+{"qid": "k184", "question": "How can distribution-matching be used to select informative samples for regression tasks?", "target": "2403.15108"}
+{"qid": "k185", "question": "What are the existing approaches for reducing graph sizes for efficient neural network training?", "target": "2403.14951"}
+{"qid": "k186", "question": "What are the common approaches for reducing parameters in large models using low-rank techniques?", "target": "2405.10616"}
+{"qid": "k187", "question": "What is the extent of political alignment found in popular open-source models regarding European policy issues?", "target": "2405.13041"}
+{"qid": "k188", "question": "How can one improve model reasoning on arithmetic tasks using automated feedback without collecting additional labeled data?", "target": "2407.08400"}
+{"qid": "k189", "question": "What techniques exist for improving performance on entity recognition tasks in morphologically complex languages like Arabic?", "target": "2408.03652"}
+{"qid": "k190", "question": "How can attention mechanisms and quantum-inspired architectures be combined to optimize computational efficiency in physics simulations?", "target": "2409.01626"}
+{"qid": "k191", "question": "What methods are used to evaluate the memory capabilities of conversational agents?", "target": "2409.20163"}
+{"qid": "k192", "question": "What is the efficacy of brain-computer interfaces in helping individuals regulate their emotional states?", "target": "2411.14666"}
+{"qid": "k193", "question": "What is the mathematical relationship between standard divergence loss and the decoupled version incorporating weighted error and cross-entropy?", "target": "2503.08038"}
+{"qid": "k194", "question": "What approaches exist for retrieving information that accounts for both semantic similarity and causal relational structures?", "target": "2504.04700"}
+{"qid": "k195", "question": "What are the current techniques and architectures for developing high-performance Arabic-centric instruction-following models at scale?", "target": "2509.14008"}
+{"qid": "k196", "question": "What is the role of reducing excess domain-relevant information in improving the generalization of sleep staging models across different subjects?", "target": "2510.12070"}
+{"qid": "k197", "question": "What are the primary strategies for maintaining classification accuracy in sleep staging when using only limited or masked signal data?", "target": "2511.06785"}
+{"qid": "k198", "question": "How can one maximize cumulative influence under a bandit feedback model using efficient selection strategies?", "target": "2601.00933"}
+{"qid": "k199", "question": "What are the different types of adversarial vulnerabilities and how can they be distinguished for robust evaluation?", "target": "2601.00577"}
+{"qid": "k200", "question": "How can an iterative framework simultaneously identify influential features and perform clustering on complex data?", "target": "2603.24025"}
+{"qid": "k201", "question": "What are the current approaches for evaluating spiking neural networks within an encrypted computing paradigm?", "target": "2603.26781"}
+{"qid": "k202", "question": "What are the latest techniques for inferring unobserved travel preferences and subsidy impacts using aggregated movement data?", "target": "2606.14157"}
+{"qid": "k203", "question": "How does local versus global information processing affect the ability of computer vision models to generalize across varying task lengths?", "target": "2607.09061"}
+{"qid": "k204", "question": "What is the most recent approach for using standard multimodal encoders to simulate human eye-tracking patterns in integrated linguistic and pictorial environments?", "target": "2608.07282"}
+{"qid": "k205", "question": "What datasets and resources exist for studying predictive maintenance and degradation analysis in domestic cooling appliances?", "target": "2609.22229"}
+{"qid": "k206", "question": "What is the architecture of an efficient system for identifying hand motions using radar on constrained embedded hardware?", "target": "2310.08876"}
+{"qid": "k207", "question": "What approaches exist for identifying and reducing stereotypical associations in multiple-choice answering models?", "target": "2310.08795"}
+{"qid": "k208", "question": "What is the capability of large-scale language models to perform formal causal inference?", "target": "2312.04350"}
+{"qid": "k209", "question": "How can a mental health dialogue interface be designed to prioritize client behavior in its counseling strategy?", "target": "2312.04262"}
+{"qid": "k210", "question": "What techniques exist for applying drift detection to identify pipe failures in water utility systems?", "target": "2401.01733"}
+{"qid": "k211", "question": "What are the current large-scale benchmarks and techniques for adapting pre-trained vision models to medical imaging tasks?", "target": "2404.12876"}
+{"qid": "k212", "question": "How can foundation models and graph neural networks be utilized to optimize grid planning and operation?", "target": "2409.02148"}
+{"qid": "k213", "question": "What is the effect of using a random k-out-of-t sampling scheme on the privacy guarantees provided by differential privacy?", "target": "2502.08202"}
+{"qid": "k214", "question": "What are the current methods for performing explainable cardiovascular risk assessment by integrating pulmonary findings from medical imaging?", "target": "2511.06625"}
+{"qid": "k215", "question": "What are the latest techniques for applying parameter-efficient updates to stabilize critic training in reinforcement learning?", "target": "2604.18978"}
+{"qid": "k216", "question": "What is the role of large language models in processing patient records for heart health assessment?", "target": "2606.00031"}
+{"qid": "k217", "question": "What are the most recent advancements in semi-supervised models for robust feature selection and estimation?", "target": "2604.19072"}

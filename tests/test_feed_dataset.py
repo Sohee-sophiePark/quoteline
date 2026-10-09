@@ -12,6 +12,7 @@ from quoteline.dataset import (
     known_item_matrix,
     leaks_title,
     sample_dates,
+    sample_targets,
     style_for,
 )
 from quoteline.feed import build, rank_new, rank_trending
@@ -113,3 +114,25 @@ async def test_feed_survives_arxiv_api_failure(failure):
     feed = await build(http, settings().feed, "2026-10-08")
     assert feed["trending"] and all(p["abstract"] for p in feed["trending"])
     assert "2610.06889" in [p["id"] for p in feed["new"]]
+
+
+async def test_sample_targets_draws_from_arxiv_by_date_rotating_categories():
+    fx = Path(__file__).parent / "fixtures"
+    queries = []
+
+    def handler(req):
+        assert req.url.host == "export.arxiv.org"
+        queries.append(req.url.params["search_query"])
+        return httpx.Response(200, text=(fx / "arxiv_search.xml").read_text())
+
+    async def no_sleep(s):
+        pass
+
+    http = PoliteHttp(settings().sources, sleep=no_sleep)
+    http.client = httpx.AsyncClient(transport=httpx.MockTransport(handler))
+    papers = await sample_targets(http, ["2024-05-14", "2024-05-15"], 1, TODAY)
+    assert queries == [
+        "cat:cs.AI AND submittedDate:[202405140000 TO 202405142359]",
+        "cat:cs.CL AND submittedDate:[202405150000 TO 202405152359]",
+    ]
+    assert 1 <= len(papers) <= 2 and all(p.abstract and "arxiv" in p.sources for p in papers)

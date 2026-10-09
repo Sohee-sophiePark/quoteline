@@ -23,7 +23,7 @@ from quoteline.state import RunState, load_state
 
 BANDIT = ROOT / "data" / "bandit"
 GOLDEN = ROOT / "evals" / "golden.yaml"
-DEMOS = ["g01", "g04", "g08", "g11", "g24", "g28"]
+DEMOS = ["g01", "g04", "g08", "g11", "g24", "g28", "g31"]
 
 
 def today() -> str:
@@ -219,7 +219,7 @@ def main() -> None:
     p = argparse.ArgumentParser(prog="quoteline")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("feed", help="build the daily feed (network, no LLM)").add_argument("--out")
-    t = sub.add_parser("dataset-targets", help="sample target papers (network)")
+    t = sub.add_parser("dataset-targets", help="sample target papers from arXiv by date (network)")
     t.add_argument("--dates", type=int, default=46)
     t.add_argument("--per-date", type=int, default=5)
     q = sub.add_parser("dataset-questions", help="generate known-item questions (LLM, resumable)")

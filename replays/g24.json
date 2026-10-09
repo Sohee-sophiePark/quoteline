@@ -1,0 +1,1082 @@
+{
+ "run_id": "g24",
+ "question": "How can the context window of a pretrained LLM be extended beyond its training length?",
+ "status": "AWAITING_APPROVAL",
+ "plan": {
+  "subquestions": [
+   {
+    "text": "What techniques exist for extending the context window of a pretrained LLM beyond its original training length?"
+   },
+   {
+    "text": "How do positional encoding modifications affect the performance of LLMs when extending context windows?"
+   }
+  ]
+ },
+ "choices": [
+  {
+   "subquestion": "What techniques exist for extending the context window of a pretrained LLM beyond its original training length?",
+   "arms": [
+    "hf:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.2215,
+    "arxiv:conceptual": 0.2034,
+    "arxiv:recent": 0.2271,
+    "hf:keyword": 0.2167,
+    "hf:conceptual": 0.3256,
+    "hf:recent": 0.1418,
+    "openalex:keyword": 0.2534,
+    "openalex:conceptual": 0.2315,
+    "openalex:recent": 0.1252
+   }
+  },
+  {
+   "subquestion": "How do positional encoding modifications affect the performance of LLMs when extending context windows?",
+   "arms": [
+    "openalex:conceptual",
+    "openalex:keyword"
+   ],
+   "scores": {
+    "arxiv:keyword": 0.315,
+    "arxiv:conceptual": 0.2851,
+    "arxiv:recent": 0.3068,
+    "hf:keyword": 0.2397,
+    "hf:conceptual": 0.3443,
+    "hf:recent": 0.1518,
+    "openalex:keyword": 0.439,
+    "openalex:conceptual": 0.4855,
+    "openalex:recent": 0.1968
+   }
+  }
+ ],
+ "retrieval": {
+  "hf:conceptual|What techniques exist for extending the context window of a pretrained LLM beyond its original training length?": [
+   "2401.01325",
+   "2504.06214",
+   "2401.06951",
+   "2409.00509",
+   "2406.07138"
+  ],
+  "openalex:keyword|What techniques exist for extending the context window of a pretrained LLM beyond its original training length?": [
+   "2306.15595",
+   "2010.06467",
+   "2404.08801",
+   "2510.09908",
+   "2510.13697"
+  ],
+  "openalex:conceptual|How do positional encoding modifications affect the performance of LLMs when extending context windows?": [
+   "2401.07004",
+   "2401.01325",
+   "2605.15172",
+   "2505.13171",
+   "2507.10496"
+  ],
+  "openalex:keyword|How do positional encoding modifications affect the performance of LLMs when extending context windows?": [
+   "2605.15172",
+   "2305.19466",
+   "2507.10496",
+   "2605.27570",
+   "2410.06205"
+  ]
+ },
+ "papers": {
+  "2401.01325": {
+   "id": "2401.01325",
+   "title": "LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning",
+   "authors": [
+    "Hongye Jin",
+    "Xiaotian Han",
+    "Jingfeng Yang",
+    "Zhimeng Jiang",
+    "Zirui Liu",
+    "Chia-Yuan Chang",
+    "Huiyuan Chen",
+    "Xia Hu"
+   ],
+   "published": "2024-01-02",
+   "abstract": "It is well known that LLMs cannot generalize well to long contexts whose lengths are larger than the training sequence length. This poses challenges when employing LLMs for processing long input sequences during inference. In this work, we argue that LLMs themselves have inherent capabilities to handle long contexts without fine-tuning. To achieve this goal, we propose SelfExtend to extend the context window of LLMs by constructing bi-level attention information: the grouped attention and the neighbor attention. The grouped attention captures the dependencies among tokens that are far apart, while neighbor attention captures dependencies among adjacent tokens within a specified range. The two-level attentions are computed based on the original model's self-attention mechanism during inference. With minor code modification, our SelfExtend can effortlessly extend existing LLMs' context window without any fine-tuning. We conduct comprehensive experiments on multiple benchmarks and the results show that our SelfExtend can effectively extend existing LLMs' context window length. The code can be found at \\url{https://github.com/datamllab/LongLM}.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 27,
+   "sources": [
+    "arxiv",
+    "hf",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2504.06214": {
+   "id": "2504.06214",
+   "title": "From 128K to 4M: Efficient Training of Ultra-Long Context Large Language Models",
+   "authors": [
+    "Chejian Xu",
+    "Wei Ping",
+    "Peng Xu",
+    "Zihan Liu",
+    "Boxin Wang",
+    "Mohammad Shoeybi",
+    "Bo Li",
+    "Bryan Catanzaro"
+   ],
+   "published": "2025-04-08",
+   "abstract": "Long-context capabilities are essential for a wide range of applications, including document and video understanding, in-context learning, and inference-time scaling, all of which require models to process and reason over long sequences of text and multimodal data. In this work, we introduce a efficient training recipe for building ultra-long context LLMs from aligned instruct model, pushing the boundaries of context lengths from 128K to 1M, 2M, and 4M tokens. Our approach leverages efficient continued pretraining strategies to extend the context window and employs effective instruction tuning to maintain the instruction-following and reasoning abilities. Our UltraLong-8B, built on Llama3.1-Instruct with our recipe, achieves state-of-the-art performance across a diverse set of long-context benchmarks. Importantly, models trained with our approach maintain competitive performance on standard benchmarks, demonstrating balanced improvements for both long and short context tasks. We further provide an in-depth analysis of key design choices, highlighting the impacts of scaling strategies and data composition. Our findings establish a robust framework for efficiently scaling context lengths while preserving general model capabilities. We release all model weights at: https://ultralong.github.io/.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": 1,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2401.06951": {
+   "id": "2401.06951",
+   "title": "E^2-LLM: Efficient and Extreme Length Extension of Large Language Models",
+   "authors": [
+    "Jiaheng Liu",
+    "Zhiqi Bai",
+    "Yuanxing Zhang",
+    "Chenchen Zhang",
+    "Yu Zhang",
+    "Ge Zhang",
+    "Jiakai Wang",
+    "Haoran Que",
+    "Yukang Chen",
+    "Wenbo Su",
+    "Tiezheng Ge",
+    "Jie Fu",
+    "Wenhu Chen",
+    "Bo Zheng"
+   ],
+   "published": "2024-01-13",
+   "abstract": "Typically, training LLMs with long context sizes is computationally expensive, requiring extensive training hours and GPU resources. Existing long-context extension methods usually need additional training procedures to support corresponding long-context windows, where the long-context training data (e.g., 32k) is needed, and high GPU training costs are assumed. To address the aforementioned issues, we propose an Efficient and Extreme length extension method for Large Language Models, called E 2 -LLM, with only one training procedure and dramatically reduced computation cost, which also removes the need to collect long-context data. Concretely, first, the training data of our E 2 -LLM only requires a short length (e.g., 4k), which reduces the tuning cost greatly. Second, the training procedure on the short training context window is performed only once time, and we can support different evaluation context windows at inference. Third, in E 2 - LLM, based on RoPE position embeddings, we introduce two different augmentation methods on the scale and position index parameters for different samples in training. It aims to make the model more robust to the different relative differences when directly interpolating the arbitrary context length at inference. Comprehensive experimental results on multiple benchmark datasets demonstrate the effectiveness of our E 2 -LLM on challenging long-context tasks.",
+   "categories": [
+    "cs.CL",
+    "cs.AI"
+   ],
+   "upvotes": 26,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2409.00509": {
+   "id": "2409.00509",
+   "title": "LongRecipe: Recipe for Efficient Long Context Generalization in Large Language Models",
+   "authors": [
+    "Zhiyuan Hu",
+    "Yuliang Liu",
+    "Jinman Zhao",
+    "Suyuchen Wang",
+    "Yan Wang",
+    "Wei Shen",
+    "Qing Gu",
+    "Anh Tuan Luu",
+    "See-Kiong Ng",
+    "Zhiwei Jiang",
+    "Bryan Hooi"
+   ],
+   "published": "2024-08-31",
+   "abstract": "Large language models (LLMs) face significant challenges in handling long-context tasks because of their limited effective context window size during pretraining, which restricts their ability to generalize over extended sequences. Meanwhile, extending the context window in LLMs through post-pretraining is highly resource-intensive. To address this, we introduce LongRecipe, an efficient training strategy for extending the context window of LLMs, including impactful token analysis, position index transformation, and training optimization strategies. It simulates long-sequence inputs while maintaining training efficiency and significantly improves the model's understanding of long-range dependencies. Experiments on three types of LLMs show that LongRecipe can utilize long sequences while requiring only 30% of the target context window size, and reduces computational training resource over 85% compared to full sequence training. Furthermore, LongRecipe also preserves the original LLM's capabilities in general tasks. Ultimately, we can extend the effective context window of open-source LLMs from 8k to 128k, achieving performance close to GPT-4 with just one day of dedicated training using a single GPU with 80G memory. Our code is released at https://github.com/zhiyuanhubj/LongRecipe.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 42,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2406.07138": {
+   "id": "2406.07138",
+   "title": "An Efficient Recipe for Long Context Extension via Middle-Focused Positional Encoding",
+   "authors": [
+    "Tong Wu",
+    "Yanpeng Zhao",
+    "Zilong Zheng"
+   ],
+   "published": "2024-06-11",
+   "abstract": "Recently, many methods have been developed to extend the context length of pre-trained large language models (LLMs), but they often require fine-tuning at the target length ($\\gg4K$) and struggle to effectively utilize information from the middle part of the context. To address these issues, we propose $\\textbf{C}$ontinuity-$\\textbf{R}$elativity ind$\\textbf{E}$xing with g$\\textbf{A}$ussian $\\textbf{M}$iddle ($\\texttt{CREAM}$), which interpolates positional encodings by manipulating position indices. Apart from being simple, $\\texttt{CREAM}$ is training-efficient: it only requires fine-tuning at the pre-trained context window (e.g., Llama 2-4K) and can extend LLMs to a much longer target context length (e.g., 256K). To ensure that the model focuses more on the information in the middle, we introduce a truncated Gaussian to encourage sampling from the middle part of the context during fine-tuning, thus alleviating the \"Lost-in-the-Middle\" problem faced by long-context LLMs. Experimental results show that $\\texttt{CREAM}$ successfully extends LLMs to the target length for both Base and Chat versions of $\\texttt{Llama2-7B}$ with \"Never Miss A Beat\". Our code is publicly available at https://github.com/bigai-nlco/cream.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": 2,
+   "sources": [
+    "arxiv",
+    "hf"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2306.15595": {
+   "id": "2306.15595",
+   "title": "Extending Context Window of Large Language Models via Positional Interpolation",
+   "authors": [
+    "Shouyuan Chen",
+    "Sherman Wong",
+    "Liangjian Chen",
+    "Yuandong Tian"
+   ],
+   "published": "2023-06-27",
+   "abstract": "We present Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning (within 1000 steps), while demonstrating strong empirical results on various tasks that require long context, including passkey retrieval, language modeling, and long document summarization from LLaMA 7B to 65B. Meanwhile, the extended model by Position Interpolation preserve quality relatively well on tasks within its original context window. To achieve this goal, Position Interpolation linearly down-scales the input position indices to match the original context window size, rather than extrapolating beyond the trained context length which may lead to catastrophically high attention scores that completely ruin the self-attention mechanism. Our theoretical study shows that the upper bound of interpolation is at least $\\sim 600 \\times$ smaller than that of extrapolation, further demonstrating its stability. Models extended via Position Interpolation retain its original architecture and can reuse most pre-existing optimization and infrastructure.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2010.06467": {
+   "id": "2010.06467",
+   "title": "Pretrained Transformers for Text Ranking: BERT and Beyond",
+   "authors": [
+    "Jimmy Lin",
+    "Rodrigo Nogueira",
+    "Andrew Yates"
+   ],
+   "published": "2020-10-13",
+   "abstract": "The goal of text ranking is to generate an ordered list of texts retrieved from a corpus in response to a query. Although the most common formulation of text ranking is search, instances of the task can also be found in many natural language processing applications. This survey provides an overview of text ranking with neural network architectures known as transformers, of which BERT is the best-known example. The combination of transformers and self-supervised pretraining has been responsible for a paradigm shift in natural language processing (NLP), information retrieval (IR), and beyond. In this survey, we provide a synthesis of existing work as a single point of entry for practitioners who wish to gain a better understanding of how to apply transformers to text ranking problems and researchers who wish to pursue work in this area. We cover a wide range of modern techniques, grouped into two high-level categories: transformer models that perform reranking in multi-stage architectures and dense retrieval techniques that perform ranking directly. There are two themes that pervade our survey: techniques for handling long documents, beyond typical sentence-by-sentence processing in NLP, and techniques for addressing the tradeoff between effectiveness (i.e., result quality) and efficiency (e.g., query latency, model and index size). Although transformer architectures and pretraining techniques are recent innovations, many aspects of how they are applied to text ranking are relatively well understood and represent mature techniques. However, there remain many open research questions, and thus in addition to laying out the foundations of pretrained transformers for text ranking, this survey also attempts to prognosticate where the field is heading.",
+   "categories": [
+    "cs.IR",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2404.08801": {
+   "id": "2404.08801",
+   "title": "Megalodon: Efficient LLM Pretraining and Inference with Unlimited Context Length",
+   "authors": [
+    "Xuezhe Ma",
+    "Xiaomeng Yang",
+    "Wenhan Xiong",
+    "Beidi Chen",
+    "Lili Yu",
+    "Hao Zhang",
+    "Jonathan May",
+    "Luke Zettlemoyer",
+    "Omer Levy",
+    "Chunting Zhou"
+   ],
+   "published": "2024-04-12",
+   "abstract": "The quadratic complexity and weak length extrapolation of Transformers limits their ability to scale to long sequences, and while sub-quadratic solutions like linear attention and state space models exist, they empirically underperform Transformers in pretraining efficiency and downstream task accuracy. We introduce Megalodon, a neural architecture for efficient sequence modeling with unlimited context length. Megalodon inherits the architecture of Mega (exponential moving average with gated attention), and further introduces multiple technical components to improve its capability and stability, including complex exponential moving average (CEMA), timestep normalization layer, normalized attention mechanism and pre-norm with two-hop residual configuration. In a controlled head-to-head comparison with Llama2, Megalodon achieves better efficiency than Transformer in the scale of 7 billion parameters and 2 trillion training tokens. Megalodon reaches a training loss of 1.70, landing mid-way between Llama2-7B (1.75) and 13B (1.67). Code: https://github.com/XuezheMax/megalodon",
+   "categories": [
+    "cs.LG",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2510.09908": {
+   "id": "2510.09908",
+   "title": "Learning with Incomplete Context: Linear Contextual Bandits with Pretrained Imputation",
+   "authors": [
+    "Hao Yan",
+    "Heyan Zhang",
+    "Yongyi Guo"
+   ],
+   "published": "2025-10-10",
+   "abstract": "The rise of large-scale pretrained models has made it feasible to generate predictive or synthetic features at low cost, raising the question of how to incorporate such surrogate predictions into downstream decision-making. We study this problem in the setting of online linear contextual bandits, where contexts may be complex, nonstationary, and only partially observed. In addition to bandit data, we assume access to an auxiliary dataset containing fully observed contexts--common in practice since such data are collected without adaptive interventions. We propose PULSE-UCB, an algorithm that leverages pretrained models trained on the auxiliary data to impute missing features during online decision-making. We establish regret guarantees that decompose into a standard bandit term plus an additional component reflecting pretrained model quality. In the i.i.d. context case with Hölder-smooth missing features, PULSE-UCB achieves near-optimal performance, supported by matching lower bounds. Our results quantify how uncertainty in predicted contexts affects decision quality and how much historical data is needed to improve downstream learning.",
+   "categories": [
+    "stat.ML",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2510.13697": {
+   "id": "2510.13697",
+   "title": "On Pretraining for Project-Level Code Completion",
+   "authors": [
+    "Maksim Sapronov",
+    "Evgeniy Glukhov"
+   ],
+   "published": "2025-10-15",
+   "abstract": "Repository-level pretraining is commonly used to enable large language models for code to leverage codebase-wide context. This enhances their ability to generate accurate and context-aware code completions. In this work, we investigate how different repository-processing strategies affect in-context learning in OpenCoder, a 1.5B-parameter model. We extend its context window from 4,096 to 16,384 tokens by training on additional 1B tokens of curated repository-level data. Despite relying on a smaller dataset than competing models (which often use hundreds of billions of tokens), our model achieves comparable performance on the Long Code Arena benchmark. We find that various repository-processing techniques yield similarly strong results, with the primary gain coming from adapting to a new rotary positional embedding (RoPE) scaling parameter. Finally, we show that a simpler file-level training approach at the original sequence length remains highly effective, opening up repository-level code completion research to settings with more constrained data and compute resources.",
+   "categories": [
+    "cs.SE",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2401.07004": {
+   "id": "2401.07004",
+   "title": "Extending LLMs' Context Window with 100 Samples",
+   "authors": [
+    "Yikai Zhang",
+    "Junlong Li",
+    "Pengfei Liu"
+   ],
+   "published": "2024-01-13",
+   "abstract": "Large Language Models (LLMs) are known to have limited extrapolation ability beyond their pre-trained context window, constraining their application in downstream tasks with lengthy inputs. Recent studies have sought to extend LLMs' context window by modifying rotary position embedding (RoPE), a popular position encoding method adopted by well-known LLMs such as LLaMA, PaLM, and GPT-NeoX. However, prior works like Position Interpolation (PI) and YaRN are resource-intensive and lack comparative experiments to assess their applicability. In this work, we identify the inherent need for LLMs' attention entropy (i.e. the information entropy of attention scores) to maintain stability and introduce a novel extension to RoPE which combines adjusting RoPE's base frequency and scaling the attention logits to help LLMs efficiently adapt to a larger context window. We validate the superiority of our method in both fine-tuning performance and robustness across different context window sizes on various context-demanding tasks. Notably, our method extends the context window of LLaMA-2-7B-Chat to 16,384 with only 100 samples and 6 training steps, showcasing extraordinary efficiency. Finally, we also explore how data compositions and training curricula affect context window extension for specific downstream tasks, suggesting fine-tuning LLMs with lengthy conversations as a good starting point. We release our code and SFT data at https://github.com/GAIR-NLP/Entropy-ABF.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2605.15172": {
+   "id": "2605.15172",
+   "title": "MetaBackdoor: Exploiting Positional Encoding as a Backdoor Attack Surface in LLMs",
+   "authors": [
+    "Rui Wen",
+    "Mark Russinovich",
+    "Andrew Paverd",
+    "Jun Sakuma",
+    "Ahmed Salem"
+   ],
+   "published": "2026-05-14",
+   "abstract": "Backdoor attacks pose a serious security threat to large language models (LLMs), which are increasingly deployed as general-purpose assistants in safety- and privacy-critical applications. Existing LLM backdoors rely primarily on content-based triggers, requiring explicit modification of the input text. In this work, we show that this assumption is unnecessary and limiting. We introduce MetaBackdoor, a new class of backdoor attacks that exploits positional information as the trigger, without modifying textual content. Our key insight is that Transformer-based LLMs necessarily encode token positions to process ordered sequences. As a result, length-correlated positional structure is reflected in the model's internal computation and can be used as an effective non-content trigger signal. We demonstrate that even a simple length-based positional trigger is sufficient to activate stealthy backdoors. Unlike prior attacks, MetaBackdoor operates on visibly and semantically clean inputs and enables qualitatively new capabilities. We show that a backdoored LLM can be induced to disclose sensitive internal information, including proprietary system prompts, once a length condition is satisfied. We further demonstrate a self-activation scenario, where normal multi-turn interaction can move the conversation context into the trigger region and induce malicious tool-call behavior without attacker-supplied trigger text. In addition, MetaBackdoor is orthogonal to content-based backdoors and can be composed with them to create more precise and harder-to-detect activation conditions. Our results expand the threat model of LLM backdoors by revealing positional encoding as a previously overlooked attack surface. This challenges defenses that focus on detecting suspicious text and highlights the need for new defense strategies that explicitly account for positional triggers in modern LLM architectures.",
+   "categories": [
+    "cs.CR",
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2505.13171": {
+   "id": "2505.13171",
+   "title": "Positional Fragility in LLMs: How Offset Effects Reshape Our Understanding of Memorization Risks",
+   "authors": [
+    "Yixuan Xu",
+    "Antoni-Joan Solergibert i Llaquet",
+    "Antoine Bosselut",
+    "Imanol Schlag"
+   ],
+   "published": "2025-05-19",
+   "abstract": "Large language models are known to memorize parts of their training data, posing risk of copyright violations. To systematically examine this risk, we pretrain language models (1B/3B/8B) from scratch on 83B tokens, mixing web-scale data with public domain books used to simulate copyrighted content at controlled frequencies at lengths at least ten times longer than prior work. We thereby identified the offset effect, a phenomenon characterized by two key findings: (1) verbatim memorization is most strongly triggered by short prefixes drawn from the beginning of the context window, with memorization decreasing counterintuitively as prefix length increases; and (2) a sharp decline in verbatim recall when prefix begins offset from the initial tokens of the context window. We attribute this to positional fragility: models rely disproportionately on the earliest tokens in their context window as retrieval anchors, making them sensitive to even slight shifts. We further observe that when the model fails to retrieve memorized content, it often produces degenerated text. Leveraging these findings, we show that shifting sensitive data deeper into the context window suppresses both extractable memorization and degeneration. Our results suggest that positional offset is a critical and previously overlooked axis for evaluating memorization risks, since prior work implicitly assumed uniformity by probing only from the beginning of training sequences.",
+   "categories": [
+    "cs.CL"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2507.10496": {
+   "id": "2507.10496",
+   "title": "Cameras as Relative Positional Encoding",
+   "authors": [
+    "Ruilong Li",
+    "Brent Yi",
+    "Junchen Liu",
+    "Hang Gao",
+    "Yi Ma",
+    "Angjoo Kanazawa"
+   ],
+   "published": "2025-07-14",
+   "abstract": "Transformers are increasingly prevalent for multi-view computer vision tasks, where geometric relationships between viewpoints are critical for 3D perception. To leverage these relationships, multi-view transformers must use camera geometry to ground visual tokens in 3D space. In this work, we compare techniques for conditioning transformers on cameras: token-level raymap encodings, attention-level relative pose encodings, and a new relative encoding we propose -- Projective Positional Encoding (PRoPE) -- that captures complete camera frustums, both intrinsics and extrinsics, as a relative positional encoding. Our experiments begin by showing how relative camera conditioning improves performance in feedforward novel view synthesis, with further gains from PRoPE. This holds across settings: scenes with both shared and varying intrinsics, when combining token- and attention-level conditioning, and for generalization to inputs with out-of-distribution sequence lengths and camera intrinsics. We then verify that these benefits persist for different tasks, stereo depth estimation and discriminative spatial cognition, as well as larger model sizes.",
+   "categories": [
+    "cs.CV",
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2305.19466": {
+   "id": "2305.19466",
+   "title": "The Impact of Positional Encoding on Length Generalization in Transformers",
+   "authors": [
+    "Amirhossein Kazemnejad",
+    "Inkit Padhi",
+    "Karthikeyan Natesan Ramamurthy",
+    "Payel Das",
+    "Siva Reddy"
+   ],
+   "published": "2023-05-31",
+   "abstract": "Length generalization, the ability to generalize from small training context sizes to larger ones, is a critical challenge in the development of Transformer-based language models. Positional encoding (PE) has been identified as a major factor influencing length generalization, but the exact impact of different PE schemes on extrapolation in downstream tasks remains unclear. In this paper, we conduct a systematic empirical study comparing the length generalization performance of decoder-only Transformers with five different position encoding approaches including Absolute Position Embedding (APE), T5's Relative PE, ALiBi, and Rotary, in addition to Transformers without positional encoding (NoPE). Our evaluation encompasses a battery of reasoning and mathematical tasks. Our findings reveal that the most commonly used positional encoding methods, such as ALiBi, Rotary, and APE, are not well suited for length generalization in downstream tasks. More importantly, NoPE outperforms other explicit positional encoding methods while requiring no additional computation. We theoretically demonstrate that NoPE can represent both absolute and relative PEs, but when trained with SGD, it mostly resembles T5's relative PE attention patterns. Finally, we find that scratchpad is not always helpful to solve length generalization and its format highly impacts the model's performance. Overall, our work suggests that explicit position embeddings are not essential for decoder-only Transformers to generalize well to longer sequences.",
+   "categories": [
+    "cs.CL",
+    "cs.AI",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2605.27570": {
+   "id": "2605.27570",
+   "title": "LaneRoPE: Positional Encoding for Collaborative Parallel Reasoning and Generation",
+   "authors": [
+    "Gabriele Cesa",
+    "Thomas Hehn",
+    "Aleix Torres-Camps",
+    "Àlex Batlle Casellas",
+    "Jordi Ros-Giralt",
+    "Arash Behboodi",
+    "Tribhuvanesh Orekondy"
+   ],
+   "published": "2026-05-26",
+   "abstract": "Parallel LLM test-time scaling techniques (e.g., best-of-$N$) require drawing $N>1$ sequences conditioned on the same input prompt. These methods boost accuracy while exploiting the computational efficiency of batching $N$ generations. However, each sequence in the batch is traditionally generated independently and hence does not reuse intermediate generations, computations, or observations from other sequences. In this paper, we propose LaneRoPE to enable coordination and collaboration among $N>1$ sequences at generation time. LaneRoPE involves two key ideas: (a) an inter-sequence attention mask to make sampling of sequences dependent on one another; and (b) a RoPE extension that injects positional information that captures relative positions between tokens, both within and outside a particular sequence. We evaluate our approach on mathematical reasoning tasks and find promising results: LaneRoPE enables collaboration among sequences, yielding additional accuracy gains under limited generated sequence length. Importantly, since LaneRoPE enables coordination with minimal changes to the underlying LLM architecture and introduces a negligible overhead at inference time, it is appealing to rapidly incorporate parallel reasoning into existing LLM inference pipelines.",
+   "categories": [
+    "cs.AI"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  },
+  "2410.06205": {
+   "id": "2410.06205",
+   "title": "Round and Round We Go! What makes Rotary Positional Encodings useful?",
+   "authors": [
+    "Federico Barbero",
+    "Alex Vitvitskyi",
+    "Christos Perivolaropoulos",
+    "Razvan Pascanu",
+    "Petar Veličković"
+   ],
+   "published": "2024-10-08",
+   "abstract": "Positional Encodings (PEs) are a critical component of Transformer-based Large Language Models (LLMs), providing the attention mechanism with important sequence-position information. One of the most popular types of encoding used today in LLMs are Rotary Positional Encodings (RoPE), that rotate the queries and keys based on their relative distance. A common belief is that RoPE is useful because it helps to decay token dependency as relative distance increases. In this work, we argue that this is unlikely to be the core reason. We study the internals of a trained Gemma 7B model to understand how RoPE is being used at a mechanical level. We find that Gemma learns to use RoPE to construct robust \"positional\" attention patterns by exploiting the highest frequencies. We also find that, in general, Gemma greatly prefers to use the lowest frequencies of RoPE, which we suspect are used to carry semantic information. We mathematically prove interesting behaviours of RoPE and conduct experiments to verify our findings, proposing a modification of RoPE that fixes some highlighted issues and improves performance. We believe that this work represents an interesting step in better understanding PEs in LLMs, which we believe holds crucial value for scaling LLMs to large sizes and context lengths.",
+   "categories": [
+    "cs.CL",
+    "cs.LG"
+   ],
+   "upvotes": null,
+   "sources": [
+    "arxiv",
+    "openalex"
+   ],
+   "fetched": "2026-10-08"
+  }
+ },
+ "reading": {
+  "claims": [
+   {
+    "paper_id": "2401.01325",
+    "quote": "we propose SelfExtend to extend the context window of LLMs by constructing bi-level attention information: the grouped attention and the neighbor attention.",
+    "claim": "SelfExtend extends the context window of LLMs by using grouped and neighbor attention mechanisms."
+   },
+   {
+    "paper_id": "2504.06214",
+    "quote": "Our approach leverages efficient continued pretraining strategies to extend the context window and employs effective instruction tuning to maintain the instruction-following and reasoning abilities.",
+    "claim": "Continued pretraining strategies can be used to extend the context window of LLMs."
+   },
+   {
+    "paper_id": "2401.06951",
+    "quote": "in E 2 - LLM, based on RoPE position embeddings, we introduce two different augmentation methods on the scale and position index parameters for different samples in training.",
+    "claim": "Augmenting scale and position index parameters in RoPE can help extend the context window."
+   },
+   {
+    "paper_id": "2409.00509",
+    "quote": "we introduce LongRecipe, an efficient training strategy for extending the context window of LLMs, including impactful token analysis, position index transformation, and training optimization strategies.",
+    "claim": "LongRecipe extends the context window using position index transformation and training optimization."
+   },
+   {
+    "paper_id": "2406.07138",
+    "quote": "we propose $\textbf{C}$ontinuity-$\textbf{R}$elativity ind$\textbf{E}$xing with g$\textbf{A}$ussian $\textbf{M}$iddle ($\texttt{CREAM}$), which interpolates positional encodings by manipulating position indices.",
+    "claim": "CREAM extends context windows by interpolating positional encodings through position index manipulation."
+   },
+   {
+    "paper_id": "2306.15595",
+    "quote": "Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning",
+    "claim": "Position Interpolation extends context windows by linearly down-scaling input position indices."
+   },
+   {
+    "paper_id": "2401.07004",
+    "quote": "we identify the inherent need for LLMs' attention entropy (i.e. the information entropy of attention scores) to maintain stability and introduce a novel extension to RoPE which combines adjusting RoPE's base frequency and scaling the attention logits",
+    "claim": "Adjusting RoPE base frequency and scaling attention logits can help LLMs adapt to larger context windows."
+   },
+   {
+    "paper_id": "2510.13697",
+    "quote": "we find that various repository-processing techniques yield similarly strong results, with the primary gain coming from adapting to a new rotary positional embedding (RoPE) scaling parameter.",
+    "claim": "Adapting to new RoPE scaling parameters is a key factor in extending context windows for repository-level code models."
+   },
+   {
+    "paper_id": "2305.19466",
+    "quote": "Positional encoding (PE) has been identified as a major factor influencing length generalization, but the exact impact of different PE schemes on extrapolation in downstream tasks remains unclear.",
+    "claim": "Positional encoding schemes significantly influence the ability of LLMs to generalize to longer context lengths."
+   }
+  ]
+ },
+ "drafts": [
+  {
+   "takeaway": "LLMs can extend their context windows through techniques such as positional encoding interpolation, RoPE parameter adjustment, or specialized attention mechanisms {{p:2401.01325}} {{p:2306.15595}} {{p:2401.07004}}.",
+   "paragraphs": [
+    "Extending the context window often involves modifying how models handle positional information, such as linearly down-scaling position indices via Position Interpolation {{p:2306.15595}} or manipulating indices through methods like CREAM {{p:2406.07138}}. Other approaches focus on adjusting Rotary Positional Embedding (RoPE) parameters, including scaling base frequencies or modifying scale and position index parameters to improve robustness during inference {{p:2401.06951}} {{p:2401.07004}} {{p:2510.13697}}.",
+    "Beyond positional adjustments, researchers utilize efficient training strategies like LongRecipe or continued pretraining to maintain performance on long-context tasks while minimizing computational overhead {{p:2409.00509}} {{p:2504.06214}}. Alternatively, inference-time methods such as SelfExtend can extend context windows without any fine-tuning by constructing bi-level attention mechanisms {{p:2401.01325}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2401.01325",
+     "contribution_quote": "we propose SelfExtend to extend the context window of LLMs by constructing bi-level attention information: the grouped attention and the neighbor attention."
+    },
+    {
+     "paper_id": "2306.15595",
+     "contribution_quote": "Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning"
+    },
+    {
+     "paper_id": "2401.06951",
+     "contribution_quote": "in E 2 - LLM, based on RoPE position embeddings, we introduce two different augmentation methods on the scale and position index parameters for different samples in training."
+    },
+    {
+     "paper_id": "2409.00509",
+     "contribution_quote": "we introduce LongRecipe, an efficient training strategy for extending the context window of LLMs, including impactful token analysis, position index transformation, and training optimization strategies."
+    },
+    {
+     "paper_id": "2406.07138",
+     "contribution_quote": "we propose $textbf{C}$ontinuity-$textbf{R}$elativity ind$textbf{E}$xing with g$textbf{A}$ussian $textbf{M}$iddle ($texttt{CREAM}$), which interpolates positional encodings by manipulating position indices."
+    },
+    {
+     "paper_id": "2401.07004",
+     "contribution_quote": "we identify the inherent need for LLMs' attention entropy (i.e. the information entropy of attention scores) to maintain stability and introduce a novel extension to RoPE which combines adjusting RoPE's base frequency and scaling the attention logits"
+    },
+    {
+     "paper_id": "2504.06214",
+     "contribution_quote": "Our approach leverages efficient continued pretraining strategies to extend the context window and employs effective instruction tuning to maintain the instruction-following and reasoning abilities."
+    },
+    {
+     "paper_id": "2510.13697",
+     "contribution_quote": "we find that various repository-processing techniques yield similarly strong results, with the primary gain coming from adapting to a new rotary positional embedding (RoPE) scaling parameter."
+    }
+   ]
+  },
+  {
+   "takeaway": "LLMs can be extended to longer context windows by modifying positional encoding schemes, such as interpolating or scaling RoPE parameters, or by employing specialized attention mechanisms that do not require extensive fine-tuning {{p:2306.15595}} {{p:2401.01325}} {{p:2406.07138}}.",
+   "paragraphs": [
+    "Extending context windows often involves manipulating rotary positional embeddings (RoPE) to allow models to handle sequences beyond their original training length {{p:2401.06951}} {{p:2401.07004}} {{p:2510.13697}}. Techniques such as Position Interpolation linearly scale input position indices to fit within the original training window, providing a stable alternative to direct extrapolation {{p:2306.15595}}. Other methods like CREAM interpolate positional encodings by manipulating indices to improve performance on long-context tasks {{p:2406.07138}}.",
+    "Alternative approaches focus on architectural or training-based strategies to manage long-range dependencies efficiently {{p:2409.00509}} {{p:2504.06214}}. SelfExtend, for instance, constructs bi-level attention information to extend context windows without requiring any fine-tuning {{p:2401.01325}}. Additionally, research indicates that the choice of positional encoding scheme significantly influences a model's inherent ability to generalize to longer sequences {{p:2305.19466}}."
+   ],
+   "papers": [
+    {
+     "paper_id": "2306.15595",
+     "contribution_quote": "Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning"
+    },
+    {
+     "paper_id": "2401.01325",
+     "contribution_quote": "we propose SelfExtend to extend the context window of LLMs by constructing bi-level attention information: the grouped attention and the neighbor attention."
+    },
+    {
+     "paper_id": "2406.07138",
+     "contribution_quote": "we propose $\\textbf{C}$ontinuity-$\\textbf{R}$elativity ind$\\textbf{E}$xing with g$\\textbf{A}$ussian $\\textbf{M}$iddle ($\\texttt{CREAM}$), which interpolates positional encodings by manipulating position indices."
+    },
+    {
+     "paper_id": "2401.06951",
+     "contribution_quote": "in E 2 - LLM, based on RoPE position embeddings, we introduce two different augmentation methods on the scale and position index parameters for different samples in training."
+    },
+    {
+     "paper_id": "2401.07004",
+     "contribution_quote": "we identify the inherent need for LLMs' attention entropy (i.e. the information entropy of attention scores) to maintain stability and introduce a novel extension to RoPE which combines adjusting RoPE's base frequency and scaling the attention logits"
+    },
+    {
+     "paper_id": "2510.13697",
+     "contribution_quote": "we find that various repository-processing techniques yield similarly strong results, with the primary gain coming from adapting to a new rotary positional embedding (RoPE) scaling parameter."
+    },
+    {
+     "paper_id": "2409.00509",
+     "contribution_quote": "we introduce LongRecipe, an efficient training strategy for extending the context window of LLMs, including impactful token analysis, position index transformation, and training optimization strategies."
+    },
+    {
+     "paper_id": "2504.06214",
+     "contribution_quote": "Our approach leverages efficient continued pretraining strategies to extend the context window and employs effective instruction tuning to maintain the instruction-following and reasoning abilities."
+    },
+    {
+     "paper_id": "2305.19466",
+     "contribution_quote": "Positional encoding (PE) has been identified as a major factor influencing length generalization, but the exact impact of different PE schemes on extrapolation in downstream tasks remains unclear."
+    }
+   ]
+  }
+ ],
+ "gates": [
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": false,
+    "details": [
+     "2406.07138"
+    ]
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": [
+     "abstract 2605.15172: 'system prompt'"
+    ]
+   }
+  ],
+  [
+   {
+    "gate": "G1 citations resolve",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G2 quotes exact",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G3 every sentence cited",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G4 metadata from tools",
+    "passed": true,
+    "details": []
+   },
+   {
+    "gate": "G5 untrusted content",
+    "passed": true,
+    "details": [
+     "abstract 2605.15172: 'system prompt'"
+    ]
+   }
+  ]
+ ],
+ "verdicts": [
+  {
+   "faithfulness": 5,
+   "coverage": 5,
+   "issues": []
+  }
+ ],
+ "rendered": {
+  "takeaway": "LLMs can be extended to longer context windows by modifying positional encoding schemes, such as interpolating or scaling RoPE parameters, or by employing specialized attention mechanisms that do not require extensive fine-tuning [1] [2] [3].",
+  "paragraphs": [
+   "Extending context windows often involves manipulating rotary positional embeddings (RoPE) to allow models to handle sequences beyond their original training length [4] [5] [6]. Techniques such as Position Interpolation linearly scale input position indices to fit within the original training window, providing a stable alternative to direct extrapolation [1]. Other methods like CREAM interpolate positional encodings by manipulating indices to improve performance on long-context tasks [3].",
+   "Alternative approaches focus on architectural or training-based strategies to manage long-range dependencies efficiently [7] [8]. SelfExtend, for instance, constructs bi-level attention information to extend context windows without requiring any fine-tuning [2]. Additionally, research indicates that the choice of positional encoding scheme significantly influences a model's inherent ability to generalize to longer sequences [9]."
+  ],
+  "references": [
+   {
+    "n": 1,
+    "id": "2306.15595",
+    "title": "Extending Context Window of Large Language Models via Positional Interpolation",
+    "authors": "Shouyuan Chen et al.",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2306.15595",
+    "contribution_quote": "Position Interpolation (PI) that extends the context window sizes of RoPE-based pretrained LLMs such as LLaMA models to up to 32768 with minimal fine-tuning"
+   },
+   {
+    "n": 2,
+    "id": "2401.01325",
+    "title": "LLM Maybe LongLM: Self-Extend LLM Context Window Without Tuning",
+    "authors": "Hongye Jin et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2401.01325",
+    "contribution_quote": "we propose SelfExtend to extend the context window of LLMs by constructing bi-level attention information: the grouped attention and the neighbor attention."
+   },
+   {
+    "n": 3,
+    "id": "2406.07138",
+    "title": "An Efficient Recipe for Long Context Extension via Middle-Focused Positional Encoding",
+    "authors": "Tong Wu et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2406.07138",
+    "contribution_quote": "we propose $\\textbf{C}$ontinuity-$\\textbf{R}$elativity ind$\\textbf{E}$xing with g$\\textbf{A}$ussian $\\textbf{M}$iddle ($\\texttt{CREAM}$), which interpolates positional encodings by manipulating position indices."
+   },
+   {
+    "n": 4,
+    "id": "2401.06951",
+    "title": "E^2-LLM: Efficient and Extreme Length Extension of Large Language Models",
+    "authors": "Jiaheng Liu et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2401.06951",
+    "contribution_quote": "in E 2 - LLM, based on RoPE position embeddings, we introduce two different augmentation methods on the scale and position index parameters for different samples in training."
+   },
+   {
+    "n": 5,
+    "id": "2401.07004",
+    "title": "Extending LLMs' Context Window with 100 Samples",
+    "authors": "Yikai Zhang et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2401.07004",
+    "contribution_quote": "we identify the inherent need for LLMs' attention entropy (i.e. the information entropy of attention scores) to maintain stability and introduce a novel extension to RoPE which combines adjusting RoPE's base frequency and scaling the attention logits"
+   },
+   {
+    "n": 6,
+    "id": "2510.13697",
+    "title": "On Pretraining for Project-Level Code Completion",
+    "authors": "Maksim Sapronov et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2510.13697",
+    "contribution_quote": "we find that various repository-processing techniques yield similarly strong results, with the primary gain coming from adapting to a new rotary positional embedding (RoPE) scaling parameter."
+   },
+   {
+    "n": 7,
+    "id": "2409.00509",
+    "title": "LongRecipe: Recipe for Efficient Long Context Generalization in Large Language Models",
+    "authors": "Zhiyuan Hu et al.",
+    "year": "2024",
+    "url": "https://arxiv.org/abs/2409.00509",
+    "contribution_quote": "we introduce LongRecipe, an efficient training strategy for extending the context window of LLMs, including impactful token analysis, position index transformation, and training optimization strategies."
+   },
+   {
+    "n": 8,
+    "id": "2504.06214",
+    "title": "From 128K to 4M: Efficient Training of Ultra-Long Context Large Language Models",
+    "authors": "Chejian Xu et al.",
+    "year": "2025",
+    "url": "https://arxiv.org/abs/2504.06214",
+    "contribution_quote": "Our approach leverages efficient continued pretraining strategies to extend the context window and employs effective instruction tuning to maintain the instruction-following and reasoning abilities."
+   },
+   {
+    "n": 9,
+    "id": "2305.19466",
+    "title": "The Impact of Positional Encoding on Length Generalization in Transformers",
+    "authors": "Amirhossein Kazemnejad et al.",
+    "year": "2023",
+    "url": "https://arxiv.org/abs/2305.19466",
+    "contribution_quote": "Positional encoding (PE) has been identified as a major factor influencing length generalization, but the exact impact of different PE schemes on extrapolation in downstream tasks remains unclear."
+   }
+  ]
+ },
+ "events": [
+  {
+   "seq": 0,
+   "t_ms": 0,
+   "kind": "injection_check",
+   "agent": "system",
+   "payload": {
+    "flags": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 1,
+   "t_ms": 1,
+   "kind": "llm_call",
+   "agent": "planner",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 102,
+    "tokens_out": 72,
+    "latency_ms": 1075,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 2,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "plan"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 3,
+   "t_ms": 1,
+   "kind": "arms_chosen",
+   "agent": "policy",
+   "payload": {
+    "choices": [
+     {
+      "subquestion": "What techniques exist for extending the context window of a pretrained LLM beyond its original training length?",
+      "arms": [
+       "hf:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.2215,
+       "arxiv:conceptual": 0.2034,
+       "arxiv:recent": 0.2271,
+       "hf:keyword": 0.2167,
+       "hf:conceptual": 0.3256,
+       "hf:recent": 0.1418,
+       "openalex:keyword": 0.2534,
+       "openalex:conceptual": 0.2315,
+       "openalex:recent": 0.1252
+      }
+     },
+     {
+      "subquestion": "How do positional encoding modifications affect the performance of LLMs when extending context windows?",
+      "arms": [
+       "openalex:conceptual",
+       "openalex:keyword"
+      ],
+      "scores": {
+       "arxiv:keyword": 0.315,
+       "arxiv:conceptual": 0.2851,
+       "arxiv:recent": 0.3068,
+       "hf:keyword": 0.2397,
+       "hf:conceptual": 0.3443,
+       "hf:recent": 0.1518,
+       "openalex:keyword": 0.439,
+       "openalex:conceptual": 0.4855,
+       "openalex:recent": 0.1968
+      }
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 4,
+   "t_ms": 1,
+   "kind": "retrieved",
+   "agent": "retrievers",
+   "payload": {
+    "pairs": 4,
+    "papers": 17
+   },
+   "level": "info"
+  },
+  {
+   "seq": 5,
+   "t_ms": 1,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "retrieve"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 6,
+   "t_ms": 2,
+   "kind": "llm_call",
+   "agent": "reader",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 4907,
+    "tokens_out": 836,
+    "latency_ms": 2677,
+    "source": "cassette"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 7,
+   "t_ms": 2,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "read"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 8,
+   "t_ms": 4067,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 3536,
+    "tokens_out": 898,
+    "latency_ms": 4063,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 9,
+   "t_ms": 4070,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 0,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": false,
+      "details": [
+       "2406.07138"
+      ]
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": [
+       "abstract 2605.15172: 'system prompt'"
+      ]
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 10,
+   "t_ms": 4070,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_0"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 11,
+   "t_ms": 6797,
+   "kind": "llm_call",
+   "agent": "writer",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 3566,
+    "tokens_out": 1012,
+    "latency_ms": 2723,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 12,
+   "t_ms": 6800,
+   "kind": "gates",
+   "agent": "system",
+   "payload": {
+    "round": 1,
+    "results": [
+     {
+      "gate": "G1 citations resolve",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G2 quotes exact",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G3 every sentence cited",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G4 metadata from tools",
+      "passed": true,
+      "details": []
+     },
+     {
+      "gate": "G5 untrusted content",
+      "passed": true,
+      "details": [
+       "abstract 2605.15172: 'system prompt'"
+      ]
+     }
+    ]
+   },
+   "level": "info"
+  },
+  {
+   "seq": 13,
+   "t_ms": 7719,
+   "kind": "llm_call",
+   "agent": "evaluator",
+   "payload": {
+    "model": "gemini-3.1-flash-lite",
+    "tokens_in": 3473,
+    "tokens_out": 26,
+    "latency_ms": 917,
+    "source": "live"
+   },
+   "level": "info"
+  },
+  {
+   "seq": 14,
+   "t_ms": 7720,
+   "kind": "verdict",
+   "agent": "evaluator",
+   "payload": {
+    "round": 1,
+    "faithfulness": 5,
+    "coverage": 5,
+    "issues": []
+   },
+   "level": "info"
+  },
+  {
+   "seq": 15,
+   "t_ms": 7720,
+   "kind": "step_done",
+   "agent": "system",
+   "payload": {
+    "step": "write_1"
+   },
+   "level": "info"
+  }
+ ],
+ "completed_steps": [
+  "plan",
+  "retrieve",
+  "read",
+  "write_0",
+  "write_1"
+ ],
+ "llm_calls": 5,
+ "error": null,
+ "created_at": "2026-10-08T23:56:13+00:00",
+ "updated_at": "2026-10-08T23:56:21+00:00"
+}
